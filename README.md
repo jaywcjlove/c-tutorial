@@ -9,6 +9,8 @@ C 语言是一种功能强大、简洁的计算机语言，通过它可以编写
 - [创建第一个程序](#创建第一个程序)
 - [编译源码](#编译源码)
 - [添加注释](#添加注释)
+- [使用变量](#使用变量)
+- [使用多个变量](#使用多个变量)
 
 ## 创建第一个程序
 
@@ -36,15 +38,52 @@ Hello World
 /**
  * Written byu Kenny Wong
  * Copyright 2019
- *
 */
 
 #include <stdio.h>
 
+// 每个程序总是从 main 这个函数开始执行
 int main()
 {
-  // 这里是单行注释输出日志
-  printf("Hello world!");
+  printf("Hello world!"); // 这里是单行注释输出日志
+  return 0;               // main 函数 返回了个 0，表示正常终止程序，非 0 表示异常
+}
+```
+
+## 使用变量
+
+[使用变量实例源码](example/demo2/using_a_variable.c)
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+  int salary;     // 声明一个名为 salary 的变量
+  salary = 10000; // 将 10000 存储在 salary 中
+  printf("My salary is %d.\n", salary);
+  return 0;
+}
+```
+
+
+## 使用多个变量
+
+[使用多个变量实例源码](example/demo2/using_more_variables.c)
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+  int brothers; // 声明一个名为 brothers 的变量
+  int brides;   // 和一个叫做 brides 的变量
+
+  brothers = 7; // 将 7 存储在变量 brothers 中
+  brides = 7;   // 将 7 存储在变量 brides 中
+
+  // 输出变量内容
+  printf("%d brides for %d brothers\n", brides, brothers);
   return 0;
 }
 ```
