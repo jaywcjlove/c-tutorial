@@ -11,6 +11,7 @@ C 语言是一种功能强大、简洁的计算机语言，通过它可以编写
 - [添加注释](#添加注释)
 - [使用变量](#使用变量)
 - [使用多个变量](#使用多个变量)
+- [简单的计算](#简单的计算)
 
 ## 创建第一个程序
 
@@ -84,6 +85,33 @@ int main(void)
 
   // 输出变量内容
   printf("%d brides for %d brothers\n", brides, brothers);
+  return 0;
+}
+```
+
+## [简单的计算](example/demo3/simple_calculations.c)
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+  int total_pets;
+  int cats;
+  int dogs;
+  int ponies;
+  int others;
+
+  // 设置每种宠物的数量
+  cats = 2;
+  dogs = 1;
+  ponies = 1;
+  others = 46;
+
+  // 计算宠物总数
+  total_pets = cats + dogs + ponies + others;
+
+  printf("我们共有 %d 只宠物!\n", total_pets); // 输出结果
   return 0;
 }
 ```
