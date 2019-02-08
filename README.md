@@ -12,6 +12,7 @@ C 语言是一种功能强大、简洁的计算机语言，通过它可以编写
 - [使用变量](#使用变量)
 - [使用多个变量](#使用多个变量)
 - [简单的计算](#简单的计算)
+- [计算吃饼干](#计算吃饼干)
 
 ## 创建第一个程序
 
@@ -23,7 +24,7 @@ int main(void)
 }
 ```
 
-将上面代码保存为 [`hello.c`](example/demo1/hello.c)
+将上面代码保存为 [`hello.c`](example/hello.c)
 
 ## 编译源码
 
@@ -51,9 +52,7 @@ int main()
 }
 ```
 
-## 使用变量
-
-[使用变量实例源码](example/demo2/using_a_variable.c)
+## [使用变量](example/using_a_variable.c)
 
 ```c
 #include <stdio.h>
@@ -67,10 +66,7 @@ int main(void)
 }
 ```
 
-
-## 使用多个变量
-
-[使用多个变量实例源码](example/demo2/using_more_variables.c)
+## [使用多个变量](example/using_more_variables.c)
 
 ```c
 #include <stdio.h>
@@ -89,7 +85,7 @@ int main(void)
 }
 ```
 
-## [简单的计算](example/demo3/simple_calculations.c)
+## [简单的计算](example/simple_calculations.c)
 
 ```c
 #include <stdio.h>
@@ -112,6 +108,31 @@ int main(void)
   total_pets = cats + dogs + ponies + others;
 
   printf("我们共有 %d 只宠物!\n", total_pets); // 输出结果
+  return 0;
+}
+```
+
+## [计算吃饼干](example/calculations_with_cookies.c)
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+  int cookies = 5;           // 饼干总数
+  int cookie_calories = 125; // 每卡路里需要的饼干
+  int total_eaten = 0;       // 吃饼干总数
+
+  int eaten = 2;             // 要吃的数量
+  cookies = cookies - eaten; // 减去吃掉饼干，获取剩下的饼干
+  total_eaten = total_eaten + eaten;
+  printf("\n我吃了 %d 个饼干。 剩下 %d 个饼干。", eaten, cookies);
+
+  eaten = 3;                 // 吃掉饼干的新值，重新赋值
+  cookies = cookies - eaten; // 减去吃掉饼干，获取剩下的饼干
+  total_eaten = total_eaten + eaten;
+  printf("\n我又吃了 %d 个。 现在剩下 %d 个饼干。\n", eaten, cookies);
+  printf("\n消耗的总能量为 %d 卡路里。\n", total_eaten * cookie_calories);
   return 0;
 }
 ```
