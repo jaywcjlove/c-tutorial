@@ -13,6 +13,7 @@ C 语言是一种功能强大、简洁的计算机语言，通过它可以编写
 - [使用多个变量](#使用多个变量)
 - [简单的计算](#简单的计算)
 - [计算吃饼干](#计算吃饼干)
+- [有浮点值的除法](#有浮点值的除法)
 
 ## 创建第一个程序
 
@@ -133,6 +134,23 @@ int main(void)
   total_eaten = total_eaten + eaten;
   printf("\n我又吃了 %d 个。 现在剩下 %d 个饼干。\n", eaten, cookies);
   printf("\n消耗的总能量为 %d 卡路里。\n", total_eaten * cookie_calories);
+  return 0;
+}
+```
+
+## [有浮点值的除法](example/division_with_float_values.c)
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+  float plank_length = 10.0f; // 长度
+  float piece_count = 4.0f;   // 多少块
+  float piece_length = 0.0f;  // 每块的长度
+
+  piece_length = plank_length / piece_count;
+  printf("一块 %f 英尺长的木板可以切成 %f 块 %f 英尺长。\n", plank_length, piece_count, piece_length);
   return 0;
 }
 ```
