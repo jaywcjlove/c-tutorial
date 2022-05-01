@@ -1,9 +1,11 @@
 C Tutorial
 ===
 
+[![CI](https://github.com/jaywcjlove/c-tutorial/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/c-tutorial/actions/workflows/ci.yml)
+
 C 语言是一种功能强大、简洁的计算机语言，通过它可以编写程序，指挥计算机完成指定任务。
 
-## 什么是C？
+## 什么是 C？
 
 C 是 Dennis Ritchie (丹尼斯·里奇) 和 Brian Kernighan (布莱恩·柯林汉) 于 1972 年在贝尔实验室创建的通用编程语言。
 
