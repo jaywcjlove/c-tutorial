@@ -55,5 +55,16 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-.*
-test
+*.DS_Store
+*.bak
+*.tem
+*.temp
+#.swp
+*.*~
+~*.*
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
