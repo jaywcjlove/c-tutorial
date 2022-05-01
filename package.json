@@ -1,0 +1,17 @@
+{
+  "name": "c-tutorial",
+  "version": "1.0.0",
+  "description": "C 语言入门学习",
+  "scripts": {
+    "start": "idoc --watch",
+    "build": "idoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaywcjlove/c-tutorial.git"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "idoc": "^1.17.8"
+  }
+}

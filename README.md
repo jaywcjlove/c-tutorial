@@ -1,156 +1,55 @@
-Beginning C
----
+C Tutorial
+===
 
 C 语言是一种功能强大、简洁的计算机语言，通过它可以编写程序，指挥计算机完成指定任务。
 
-目录
-===
+## 什么是C？
 
-- [创建第一个程序](#创建第一个程序)
-- [编译源码](#编译源码)
-- [添加注释](#添加注释)
-- [使用变量](#使用变量)
-- [使用多个变量](#使用多个变量)
-- [简单的计算](#简单的计算)
-- [计算吃饼干](#计算吃饼干)
-- [有浮点值的除法](#有浮点值的除法)
+C 是 Dennis Ritchie (丹尼斯·里奇) 和 Brian Kernighan (布莱恩·柯林汉) 于 1972 年在贝尔实验室创建的通用编程语言。
 
-## 创建第一个程序
+这是一种非常流行的语言，尽管它很古老。
 
-```c
-int main(void)
-{
-  printf("Hello world!");
-  return 0;
-}
-```
+C 与 UNIX 密切相关，因为它是为编写 UNIX 操作系统而开发的。
 
-将上面代码保存为 [`hello.c`](example/hello.c)
+## 为什么要学习 C？
 
-## 编译源码
+- 它是世界上最流行的编程语言之一
+- 如果你懂 C，那么你学习其他流行的编程语言，如 Java、Python、C++、C# 等也没有问题，因为语法相似
+- 与其他编程语言（如 Java 和 Python）相比，C 非常快
+- C是非常通用的； 它可以用于应用程序和技术
 
-```bash
-$ gcc -o hello hello.c
-$ ./hello
-Hello World
-```
+## C 和 C++ 之间的区别
 
-## 添加注释
+C++ 是作为 C 的扩展开发的，两种语言的语法几乎相同
+C 和 C++ 的主要区别在于 C++ 支持类和对象，而 C 不支持
 
-```c
-/**
- * Written byu Kenny Wong
- * Copyright 2019
-*/
+<!--idoc:ignore:start-->
 
-#include <stdio.h>
+## 学习目录
 
-// 每个程序总是从 main 这个函数开始执行
-int main()
-{
-  printf("Hello world!"); // 这里是单行注释输出日志
-  return 0;               // main 函数 返回了个 0，表示正常终止程序，非 0 表示异常
-}
-```
+- [C 开始 Get Started](docs/c_getstarted.md)
+- [C 语法 Syntax](docs/c_syntax.md)
+- [C 输出（打印文本）Output](docs/c_output.md)
+- [C 注释 Comments](docs/c_comments.md)
+- [C 变量 Variables](docs/c_variables.md)
+- [C Data Types](docs/c_data_types.md)
+- [C Constants](docs/c_constants.md)
+- [C Operators](docs/c_operators.md)
+- [C If...Else](docs/c_conditions.md)
+- [C Switch](docs/c_switch.md)
+- [C While Loop](docs/c_while_loop.md)
+- [C For Loop](docs/c_for_loop.md)
+- [C Break/Continue](docs/c_break_continue.md)
+- [C Arrays](docs/c_arrays.md)
+- [C Strings](docs/c_strings.md)
+- [C 用户输入 User Input](docs/c_user_input.md)
+- [C Memory Address](docs/c_memory_address.md)
+- [C Pointers](docs/c_pointers.md)
+- [C Functions](docs/c_functions.md)
+- [C Function Parameters](docs/c_functions_parameters.md)
+- [C Function Declaration](docs/c_functions_decl.md)
+- [C Recursion](docs/c_functions_recursion.md)
+- [C Math Functions](docs/c_math.md)
+- [C Structures](docs/c_structs.md)
 
-## [使用变量](example/using_a_variable.c)
-
-```c
-#include <stdio.h>
-
-int main(void)
-{
-  int salary;     // 声明一个名为 salary 的变量
-  salary = 10000; // 将 10000 存储在 salary 中
-  printf("My salary is %d.\n", salary);
-  return 0;
-}
-```
-
-## [使用多个变量](example/using_more_variables.c)
-
-```c
-#include <stdio.h>
-
-int main(void)
-{
-  int brothers; // 声明一个名为 brothers 的变量
-  int brides;   // 和一个叫做 brides 的变量
-
-  brothers = 7; // 将 7 存储在变量 brothers 中
-  brides = 7;   // 将 7 存储在变量 brides 中
-
-  // 输出变量内容
-  printf("%d brides for %d brothers\n", brides, brothers);
-  return 0;
-}
-```
-
-## [简单的计算](example/simple_calculations.c)
-
-```c
-#include <stdio.h>
-
-int main(void)
-{
-  int total_pets;
-  int cats;
-  int dogs;
-  int ponies;
-  int others;
-
-  // 设置每种宠物的数量
-  cats = 2;
-  dogs = 1;
-  ponies = 1;
-  others = 46;
-
-  // 计算宠物总数
-  total_pets = cats + dogs + ponies + others;
-
-  printf("我们共有 %d 只宠物!\n", total_pets); // 输出结果
-  return 0;
-}
-```
-
-## [计算吃饼干](example/calculations_with_cookies.c)
-
-```c
-#include <stdio.h>
-
-int main(void)
-{
-  int cookies = 5;           // 饼干总数
-  int cookie_calories = 125; // 每卡路里需要的饼干
-  int total_eaten = 0;       // 吃饼干总数
-
-  int eaten = 2;             // 要吃的数量
-  cookies = cookies - eaten; // 减去吃掉饼干，获取剩下的饼干
-  total_eaten = total_eaten + eaten;
-  printf("\n我吃了 %d 个饼干。 剩下 %d 个饼干。", eaten, cookies);
-
-  eaten = 3;                 // 吃掉饼干的新值，重新赋值
-  cookies = cookies - eaten; // 减去吃掉饼干，获取剩下的饼干
-  total_eaten = total_eaten + eaten;
-  printf("\n我又吃了 %d 个。 现在剩下 %d 个饼干。\n", eaten, cookies);
-  printf("\n消耗的总能量为 %d 卡路里。\n", total_eaten * cookie_calories);
-  return 0;
-}
-```
-
-## [有浮点值的除法](example/division_with_float_values.c)
-
-```c
-#include <stdio.h>
-
-int main(void)
-{
-  float plank_length = 10.0f; // 长度
-  float piece_count = 4.0f;   // 多少块
-  float piece_length = 0.0f;  // 每块的长度
-
-  piece_length = plank_length / piece_count;
-  printf("一块 %f 英尺长的木板可以切成 %f 块 %f 英尺长。\n", plank_length, piece_count, piece_length);
-  return 0;
-}
-```
+<!--idoc:ignore:end-->
