@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C 变量 C Tutorial </title>
+  
+  <meta name="description" content="变量是存储数据值的容器。">
+  
+  
+  <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.9">
+  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.17.9">
+  <link rel="stylesheet" type="text/css" href="css/media.css?v=1.17.9">
+  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.17.9">
+  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.17.9">
+  <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.17.9">
+  
+    <link rel="icon" href="logo.svg" type="image/x-icon">
+  
+  <script src="js/copy.js?v=1.17.9"></script>
+  <script src="js/dark-mode.js?v=1.17.9"></script>
+  <script src="js/markdown-style.js?v=1.17.9"></script>
+</head>
+<body id="idoctotop">
+  <a href="#idoctotop" class="gototop">top</a>
+<header class="header">
+  <article class="inner warpper">
+    <a class="logo" href="index.html">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
+  <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"/>
+  <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"/>
+  <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"/>
+  <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"/>
+</svg>
+      
+      <span class="title">C Tutorial</span>
+    </a>
+    <div class="content">
+      <ul class="menu">
+        
+        <li>
+          <a href="index.html" target="" class=""> Home </a>
+        </li>
+        
+      </ul>
+      
+        <a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      
+      <dark-mode permanent></dark-mode>
+    </div>
+  </article>
+</header>
+
+<div class="warpper-content warpper sidebar ">
+  
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    
+      
+        <label>Tutorial</label>
+      
+    
+      
+        <a href="c_getstarted.html" class="">C 开始 Get Started</a>
+      
+    
+      
+        <a href="c_syntax.html" class="">C 语法 Syntax</a>
+      
+    
+      
+        <a href="c_output.html" class="">C 输出(打印文本) Output</a>
+      
+    
+      
+        <a href="c_comments.html" class="">C 注释 Comments</a>
+      
+    
+      
+        <a href="c_variables.html" class="active">C 变量 Variables</a>
+      
+    
+      
+        <a href="c_data_types.html" class="">C Data Types</a>
+      
+    
+      
+        <a href="c_constants.html" class="">C Constants</a>
+      
+    
+      
+        <a href="c_operators.html" class="">C Operators</a>
+      
+    
+      
+        <a href="c_conditions.html" class="">C If...Else</a>
+      
+    
+      
+        <a href="c_switch.html" class="">C Switch</a>
+      
+    
+      
+        <a href="c_while_loop.html" class="">C While Loop</a>
+      
+    
+      
+        <a href="c_for_loop.html" class="">C For Loop</a>
+      
+    
+      
+        <a href="c_break_continue.html" class="">C Break/Continue</a>
+      
+    
+      
+        <a href="c_arrays.html" class="">C Arrays</a>
+      
+    
+      
+        <a href="c_strings.html" class="">C Strings</a>
+      
+    
+      
+        <a href="c_user_input.html" class="">C 用户输入 User Input</a>
+      
+    
+      
+        <a href="c_memory_address.html" class="">C Memory Address</a>
+      
+    
+      
+        <a href="c_pointers.html" class="">C Pointers</a>
+      
+    
+      
+        <label>Functions</label>
+      
+    
+      
+        <a href="c_functions.html" class="">C Functions</a>
+      
+    
+      
+        <a href="c_functions_parameters.html" class="">C Function Parameters</a>
+      
+    
+      
+        <a href="c_functions_decl.html" class="">C Function Declaration</a>
+      
+    
+      
+        <a href="c_functions_recursion.html" class="">C Recursion</a>
+      
+    
+      
+        <a href="c_math.html" class="">C Math Functions</a>
+      
+    
+      
+        <label>Structures</label>
+      
+    
+      
+        <a href="c_structs.html" class="">C Structures</a>
+      
+    
+    </div>
+  </aside>
+</div>
+
+  <markdown-style>
+    <h1 id="c-变量"><a aria-hidden="true" tabindex="-1" href="#c-变量" class="anchor"><span class="icon icon-link"></span></a>C 变量</h1>
+<p>变量是存储数据值的容器。</p>
+<p>在 C 中，有不同类型的变量（用不同的关键字定义），例如：</p>
+<ul>
+<li><code>int</code> - 存储整数（整数），不带小数，例如 123 或 -123</li>
+<li><code>float</code> - 存储浮点数，带小数，例如 19.99 或 -19.99</li>
+<li><code>char</code> - 存储单个字符，例如“a”或“B”。 字符值用单引号括起来</li>
+</ul>
+<h2 id="声明创建变量"><a aria-hidden="true" tabindex="-1" href="#声明创建变量" class="anchor"><span class="icon icon-link"></span></a>声明（创建）变量</h2>
+<p>要创建变量，请指定类型并为其赋值：</p>
+<h3 id="语法-syntax"><a aria-hidden="true" tabindex="-1" href="#语法-syntax" class="anchor"><span class="icon icon-link"></span></a>语法 Syntax</h3>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1">type variableName <span class="token operator">=</span> value<span class="token punctuation">;</span>
+</span></code><input type="hidden" value="type variableName = value;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>其中 <code>type</code> 是 C 类型之一（例如 <code>int</code>），<code>variableName</code> 是变量的名称（例如 x 或 myName）。 等号用于为变量<code>赋值</code>。</p>
+<p>因此，要创建一个应该存储数字的变量，请查看以下示例：</p>
+<h3 id="示例-1"><a aria-hidden="true" tabindex="-1" href="#示例-1" class="anchor"><span class="icon icon-link"></span></a>示例 1</h3>
+<p>创建一个名为 <code>myNum</code> 的 <code>int</code> 类型变量并将值 <code>15</code> 分配给它：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int myNum = 15;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="示例-2"><a aria-hidden="true" tabindex="-1" href="#示例-2" class="anchor"><span class="icon icon-link"></span></a>示例 2</h3>
+<p>你也可以声明一个变量而不赋值，然后再赋值：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">myNum <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int myNum;
+myNum = 15;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="示例-3"><a aria-hidden="true" tabindex="-1" href="#示例-3" class="anchor"><span class="icon icon-link"></span></a>示例 3</h3>
+<p>注意：如果您为现有变量分配新值，它将覆盖以前的值：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>  <span class="token comment">// myNum 值为 15</span>
+</span><span class="code-line line-number" line="2">myNum <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>  <span class="token comment">// 现在 myNum 值为 10</span>
+</span></code><input type="hidden" value="int myNum = 15;  // myNum 值为 15
+myNum = 10;  // 现在 myNum 值为 10
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="输出变量"><a aria-hidden="true" tabindex="-1" href="#输出变量" class="anchor"><span class="icon icon-link"></span></a>输出变量</h2>
+<p>您从 <a href="./c_output.html">输出章节</a> 中了解到，您可以使用 <code>printf()</code> 函数输出值/打印文本：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="printf(&#x22;Hello World!&#x22;);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>在许多其他编程语言（如 Python、Java 和 C++）中，您通常会使用 <strong>print函数</strong> 显示变量的值。 但是，这在 C 中是不能使用的：</p>
+<pre class="language-c" style=" background: #ff000036;"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span>myNum<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 没发生什么事</span>
+</span></code><input type="hidden" value="int myNum = 15;
+printf(myNum);  // 没发生什么事
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<!--rehype:style= background: #ff000036;-->
+<p>要在 C 中输出变量，您必须熟悉所谓的“格式说明符”。</p>
+<h2 id="格式说明符"><a aria-hidden="true" tabindex="-1" href="#格式说明符" class="anchor"><span class="icon icon-link"></span></a>格式说明符</h2>
+<p>格式说明符与 <code>printf()</code> 函数一起使用，以告诉编译器变量存储什么类型的数据。 它基本上是变量值的占位符。</p>
+<p>格式说明符以百分号 <code>%</code> 开头，后跟一个字符。</p>
+<p>例如，要输出 <code>int</code> 变量的值，您必须在 <code>printf()</code> 函数中使用用双引号括起来的格式说明符 <code>%d</code> 或 <code>%i</code>：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> myNum<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 输出 15</span>
+</span></code><input type="hidden" value="int myNum = 15;
+printf(&#x22;%d&#x22;, myNum);  // 输出 15
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>要打印其他类型，请使用 <code>%c</code> 表示 <code>char</code> 和 <code>%f</code> 表示 <code>float</code>：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建变量</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>             <span class="token comment">// 整数 Integer (whole number)</span>
+</span><span class="code-line line-number" line="3"><span class="token keyword">float</span> myFloatNum <span class="token operator">=</span> <span class="token number">5.99</span><span class="token punctuation">;</span>   <span class="token comment">// 浮点数 Floating point number</span>
+</span><span class="code-line line-number" line="4"><span class="token keyword">char</span> myLetter <span class="token operator">=</span> <span class="token char">'D'</span><span class="token punctuation">;</span>       <span class="token comment">// 字符串 Character</span>
+</span><span class="code-line line-number" line="5">
+</span><span class="code-line line-number" line="6"><span class="token comment">// 打印变量</span>
+</span><span class="code-line line-number" line="7"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> myNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%f\n"</span><span class="token punctuation">,</span> myFloatNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c\n"</span><span class="token punctuation">,</span> myLetter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="// 创建变量
+int myNum = 5;             // 整数 Integer (whole number)
+float myFloatNum = 5.99;   // 浮点数 Floating point number
+char myLetter = &#x27;D&#x27;;       // 字符串 Character
+
+// 打印变量
+printf(&#x22;%d\n&#x22;, myNum);
+printf(&#x22;%f\n&#x22;, myFloatNum);
+printf(&#x22;%c\n&#x22;, myLetter);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>要组合文本和变量，请在 <code>printf()</code> 函数中用逗号分隔它们：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"我最喜欢的号码是: %d"</span><span class="token punctuation">,</span> myNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int myNum = 6;
+printf(&#x22;我最喜欢的号码是: %d&#x22;, myNum);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>要在单个 <code>printf()</code> 函数中打印不同的类型，可以使用以下命令：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">char</span> myLetter <span class="token operator">=</span> <span class="token char">'D'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My number is %d and my letter is %c"</span><span class="token punctuation">,</span> myNum<span class="token punctuation">,</span> myLetter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int myNum = 5;
+char myLetter = &#x27;D&#x27;;
+printf(&#x22;My number is %d and my letter is %c&#x22;, myNum, myLetter);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>您将了解有关 <a href="./c_data_types.html">下一章中的数据类型</a> 的更多信息。</p>
+<h2 id="添加变量相加"><a aria-hidden="true" tabindex="-1" href="#添加变量相加" class="anchor"><span class="icon icon-link"></span></a>添加变量相加</h2>
+<p>要将变量添加到另一个变量，可以使用 <code>+</code> 运算符：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token keyword">int</span> sum <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int x = 5;
+int y = 6;
+int sum = x + y;
+printf(&#x22;%d&#x22;, sum);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="声明多个变量"><a aria-hidden="true" tabindex="-1" href="#声明多个变量" class="anchor"><span class="icon icon-link"></span></a>声明多个变量</h2>
+<p>要声明多个相同类型的变量，请使用<strong>逗号分隔</strong>列表：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">,</span> z <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> x <span class="token operator">+</span> y <span class="token operator">+</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int x = 5, y = 6, z = 50;
+printf(&#x22;%d&#x22;, x + y + z);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>您还可以将<strong>相同的值</strong>分配给相同类型的多个变量：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">x <span class="token operator">=</span> y <span class="token operator">=</span> z <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> x <span class="token operator">+</span> y <span class="token operator">+</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int x, y, z;
+x = y = z = 50;
+printf(&#x22;%d&#x22;, x + y + z);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="c-变量名称"><a aria-hidden="true" tabindex="-1" href="#c-变量名称" class="anchor"><span class="icon icon-link"></span></a>C 变量名称</h2>
+<p>所有 C <strong>变量</strong>必须用<strong>唯一名称</strong> <strong>标识</strong>。</p>
+<p>这些唯一名称称为<strong>标识符</strong>。</p>
+<p>标识符可以是短名称（如 x 和 y）或更具描述性的名称（age、sum、totalVolume）。</p>
+<p><strong>注意：</strong> 建议使用描述性名称以创建可理解和可维护的代码：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 👍 Good </span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">int</span> minutesPerHour <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token comment">// 👎 正确的，但并不那么容易理解 `m` 实际上是什么</span>
+</span><span class="code-line line-number" line="4"><span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="// 👍 Good 
+int minutesPerHour = 60;
+// 👎 正确的，但并不那么容易理解 &#x60;m&#x60; 实际上是什么
+int m = 60;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>命名变量的 <strong>一般规则</strong> 是：</p>
+<ul>
+<li>名称可以包含字母、数字和下划线</li>
+<li>名称必须以字母或下划线 (_) 开头</li>
+<li>名称区分大小写（<code>myVar</code> 和 <code>myvar</code> 是不同的变量）</li>
+<li>名称不能包含空格或特殊字符，如 <code>!</code>、<code>#</code>、<code>%</code> 等。</li>
+<li>保留字（如<code>int</code>）不能用作名称</li>
+</ul>
+    
+
+<div class="previous">
+  
+  <a class="prev" href="c_comments.html">
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+    </svg>
+    <span>
+      C 注释 Comments
+    </span>
+  </a>
+  
+  
+  <a class="next" href="c_data_types.html">
+    <span>
+      C Data Types
+    </span>
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+    </svg>
+  </a>
+  
+</div>
+
+
+
+<section class="article-footer">
+  <a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_variables.md" class="edit-button" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>
+    <span>GitHub 上编辑此页</span>
+  </a>
+  
+  <span class="atime">2022/05/01</span>
+  
+</section>
+
+  </markdown-style>
+  
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#声明创建变量" class="tocs-link">声明（创建）变量</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#语法-syntax" class="tocs-link">语法 Syntax</a>
+                
+              </li>
+            
+              <li>
+                <a href="#示例-1" class="tocs-link">示例 1</a>
+                
+              </li>
+            
+              <li>
+                <a href="#示例-2" class="tocs-link">示例 2</a>
+                
+              </li>
+            
+              <li>
+                <a href="#示例-3" class="tocs-link">示例 3</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#输出变量" class="tocs-link">输出变量</a>
+        
+      </li>
+    
+      <li>
+        <a href="#格式说明符" class="tocs-link">格式说明符</a>
+        
+      </li>
+    
+      <li>
+        <a href="#添加变量相加" class="tocs-link">添加变量相加</a>
+        
+      </li>
+    
+      <li>
+        <a href="#声明多个变量" class="tocs-link">声明多个变量</a>
+        
+      </li>
+    
+      <li>
+        <a href="#c-变量名称" class="tocs-link">C 变量名称</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
+</nav>
+
+</div>
+
+<script src="js/demo-preview.js?v=1.17.9"></script>
+
+
+<div class="footer warpper">
+  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.9
+
+</div>
+
+
+<script src="js/tocbot.js?v=1.17.9"></script>
+
+</body>
+</html>
