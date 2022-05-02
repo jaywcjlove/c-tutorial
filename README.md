@@ -55,3 +55,17 @@ C 和 C++ 的主要区别在于 C++ 支持类和对象，而 C 不支持
 - [C 结构](docs/c_structs.md)
 
 <!--idoc:ignore:end-->
+
+## Contributors
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/jaywcjlove/c-tutorial/graphs/contributors">
+  <img src="https://jaywcjlove.github.io/c-tutorial/CONTRIBUTORS.svg" />
+</a>
+
+Made with [action-contributors](https://github.com/jaywcjlove/github-action-contributors).
+
+## License
+
+Licensed under the MIT License.
