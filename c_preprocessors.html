@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C 预处理器 C Tutorial </title>
+  
+  <meta name="description" content="C 预处理器不是编译器的组成部分，但是它是编译过程中一个单独的步骤。简言之，C 预处理器只不过是一个文本替换工具而已，它们会指示编译器在实际编译之前完成所需的预处理。我们将把 C 预处理器（C Preprocessor）简写为 CPP。">
+  
+  
+  <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.10">
+  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.17.10">
+  <link rel="stylesheet" type="text/css" href="css/media.css?v=1.17.10">
+  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.17.10">
+  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.17.10">
+  <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.17.10">
+  
+    <link rel="icon" href="logo.svg" type="image/x-icon">
+  
+  <script src="js/copy.js?v=1.17.10"></script>
+  <script src="js/dark-mode.js?v=1.17.10"></script>
+  <script src="js/markdown-style.js?v=1.17.10"></script>
+</head>
+<body id="idoctotop">
+  <a href="#idoctotop" class="gototop">top</a>
+<header class="header">
+  <article class="inner warpper">
+    <a class="logo" href="index.html">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
+  <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"/>
+  <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"/>
+  <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"/>
+  <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"/>
+</svg>
+      
+      <span class="title">C Tutorial</span>
+    </a>
+    <div class="content">
+      <ul class="menu">
+        
+        <li>
+          <a href="index.html" target="" class=""> Home </a>
+        </li>
+        
+      </ul>
+      
+        <a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      
+      <dark-mode permanent></dark-mode>
+    </div>
+  </article>
+</header>
+
+<div class="warpper-content warpper sidebar ">
+  
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    
+      
+        <label>Tutorial</label>
+      
+    
+      
+        <a href="c_getstarted.html" class="">C 开始 Get Started</a>
+      
+    
+      
+        <a href="c_syntax.html" class="">C 语法 Syntax</a>
+      
+    
+      
+        <a href="c_output.html" class="">C 输出(打印文本) Output</a>
+      
+    
+      
+        <a href="c_comments.html" class="">C 注释 Comments</a>
+      
+    
+      
+        <a href="c_variables.html" class="">C 变量 Variables</a>
+      
+    
+      
+        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
+      
+    
+      
+        <a href="c_constants.html" class="">C 常量 Constants</a>
+      
+    
+      
+        <a href="c_operators.html" class="">C 运算符 Operators</a>
+      
+    
+      
+        <a href="c_conditions.html" class="">C If...Else</a>
+      
+    
+      
+        <a href="c_switch.html" class="">C Switch</a>
+      
+    
+      
+        <a href="c_while_loop.html" class="">C While 循环</a>
+      
+    
+      
+        <a href="c_for_loop.html" class="">C For 循环</a>
+      
+    
+      
+        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
+      
+    
+      
+        <a href="c_arrays.html" class="">C 数组 Arrays</a>
+      
+    
+      
+        <a href="c_enum.html" class="">C 枚举 Enum</a>
+      
+    
+      
+        <a href="c_strings.html" class="">C 字符串 Strings</a>
+      
+    
+      
+        <a href="c_user_input.html" class="">C 用户输入 User Input</a>
+      
+    
+      
+        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
+      
+    
+      
+        <a href="c_pointers.html" class="">C 指针 Pointers</a>
+      
+    
+      
+        <a href="c_preprocessors.html" class="active">C 预处理器</a>
+      
+    
+      
+        <label>函数</label>
+      
+    
+      
+        <a href="c_functions.html" class="">C 函数 Functions</a>
+      
+    
+      
+        <a href="c_functions_parameters.html" class="">C 函数参数</a>
+      
+    
+      
+        <a href="c_functions_decl.html" class="">C 函数声明</a>
+      
+    
+      
+        <a href="c_functions_recursion.html" class="">C 递归</a>
+      
+    
+      
+        <a href="c_math.html" class="">C 数学函数</a>
+      
+    
+      
+        <label>结构</label>
+      
+    
+      
+        <a href="c_structs.html" class="">C 结构 Structures</a>
+      
+    
+      
+        <label>参考</label>
+      
+    
+      
+        <a href="c_keywords.html" class="">C 关键字 Keywords</a>
+      
+    
+    </div>
+  </aside>
+</div>
+
+  <markdown-style>
+    <h1 id="c-预处理器"><a aria-hidden="true" tabindex="-1" href="#c-预处理器" class="anchor"><span class="icon icon-link"></span></a>C 预处理器</h1>
+<p>C 预处理器不是编译器的组成部分，但是它是编译过程中一个单独的步骤。简言之，C 预处理器只不过是一个文本替换工具而已，它们会指示编译器在实际编译之前完成所需的预处理。我们将把 C 预处理器（C Preprocessor）简写为 CPP。</p>
+<h2 id="预处理器指令"><a aria-hidden="true" tabindex="-1" href="#预处理器指令" class="anchor"><span class="icon icon-link"></span></a>预处理器指令</h2>
+<p>所有的预处理器命令都是以井号（<code>#</code>）开头。它必须是第一个非空字符，为了增强可读性，预处理器指令应从第一列开始。下面列出了所有重要的预处理器指令：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>指令</th><th>描述</th></tr></thead><tbody><tr><td><code>#define</code></td><td>定义宏</td></tr><tr><td><code>#include</code></td><td>包含一个源代码文件</td></tr><tr><td><code>#undef</code></td><td>取消已定义的宏</td></tr><tr><td><code>#ifdef</code></td><td>如果宏已经定义，则返回真</td></tr><tr><td><code>#ifndef</code></td><td>如果宏没有定义，则返回真</td></tr><tr><td><code>#if</code></td><td>如果给定条件为真，则编译下面代码</td></tr><tr><td><code>#else</code></td><td><code>#if</code> 的替代方案</td></tr><tr><td><code>#elif</code></td><td>如果前面的 <code>#if</code> 给定条件不为真，当前条件为真，则编译下面代码</td></tr><tr><td><code>#endif</code></td><td>结束一个 <code>#if……#else</code> 条件编译块</td></tr><tr><td><code>#error</code></td><td>当遇到标准错误时，输出错误消息</td></tr><tr><td><code>#pragma</code></td><td>使用标准化方法，向编译器发布特殊的命令到编译器中</td></tr></tbody></table>
+<h2 id="预处理器实例"><a aria-hidden="true" tabindex="-1" href="#预处理器实例" class="anchor"><span class="icon icon-link"></span></a>预处理器实例</h2>
+<p>分析下面的实例来理解不同的指令。</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MAX_ARRAY_LENGTH</span> <span class="token expression"><span class="token number">20</span></span></span>
+</span></code><input type="hidden" value="#define MAX_ARRAY_LENGTH 20
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这个指令告诉 <code>CPP</code> 把所有的 <code>MAX_ARRAY_LENGTH</code> 替换为 <code>20</code>。使用 <code>#define</code> 定义常量来增强可读性。</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+</span><span class="code-line line-number" line="2"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"myheader.h"</span></span>
+</span></code><input type="hidden" value="#include <stdio.h>
+#include &#x22;myheader.h&#x22;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这些指令告诉 <code>CPP</code> 从系统库中获取 <code>stdio.h</code>，并添加文本到当前的源文件中。下一行告诉 CPP 从本地目录中获取 <code>myheader.h</code>，并添加内容到当前的源文件中。</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">undef</span>  <span class="token expression">FILE_SIZE</span></span>
+</span><span class="code-line line-number" line="2"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">FILE_SIZE</span> <span class="token expression"><span class="token number">42</span></span></span>
+</span></code><input type="hidden" value="#undef  FILE_SIZE
+#define FILE_SIZE 42
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这个指令告诉 <code>CPP</code> 取消已定义的 <code>FILE_SIZE</code>，并定义它为 <code>42</code>。</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">MESSAGE</span></span>
+</span><span class="code-line line-number" line="2">  <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MESSAGE</span> <span class="token string">"You wish!"</span></span>
+</span><span class="code-line line-number" line="3"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+</span></code><input type="hidden" value="#ifndef MESSAGE
+  #define MESSAGE &#x22;You wish!&#x22;
+#endif
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这个指令告诉 <code>CPP</code> 只有当 <code>MESSAGE</code> 未定义时，才定义 <code>MESSAGE</code>。</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">DEBUG</span></span>
+</span><span class="code-line line-number" line="2">   <span class="token comment">/* 您的调试语句在这里 */</span>
+</span><span class="code-line line-number" line="3"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+</span></code><input type="hidden" value="#ifdef DEBUG
+   /* 您的调试语句在这里 */
+#endif
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这个指令告诉 <code>CPP</code> 如果定义了 <code>DEBUG</code>，则执行处理语句。在编译时，如果您向 <code>gcc</code> 编译器传递了 <code>DDEBUG</code> 开关量，这个指令就非常有用。它定义了 <code>DEBUG</code>，您可以在编译期间随时开启或关闭调试。</p>
+<h2 id="预定义宏"><a aria-hidden="true" tabindex="-1" href="#预定义宏" class="anchor"><span class="icon icon-link"></span></a>预定义宏</h2>
+<p>ANSI C 定义了许多宏。在编程中您可以使用这些宏，但是不能直接修改这些预定义的宏。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>宏</th><th>描述</th></tr></thead><tbody><tr><td><code>__DATE__</code></td><td>当前日期，一个以 "MMM DD YYYY" 格式表示的字符常量。</td></tr><tr><td><code>__TIME__</code></td><td>当前时间，一个以 "HH:MM:SS" 格式表示的字符常量。</td></tr><tr><td><code>__FILE__</code></td><td>这会包含当前文件名，一个字符串常量。</td></tr><tr><td><code>__LINE__</code></td><td>这会包含当前行号，一个十进制常量。</td></tr><tr><td><code>__STDC__</code></td><td>当编译器以 <code>ANSI</code> 标准编译时，则定义为 <code>1</code>。</td></tr></tbody></table>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="4">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"File :%s\n"</span><span class="token punctuation">,</span> <span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Date :%s\n"</span><span class="token punctuation">,</span> <span class="token constant">__DATE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Time :%s\n"</span><span class="token punctuation">,</span> <span class="token constant">__TIME__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Line :%d\n"</span><span class="token punctuation">,</span> <span class="token constant">__LINE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ANSI :%d\n"</span><span class="token punctuation">,</span> __STDC__<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="#include <stdio.h>
+
+int main() {
+  printf(&#x22;File :%s\n&#x22;, __FILE__);
+  printf(&#x22;Date :%s\n&#x22;, __DATE__);
+  printf(&#x22;Time :%s\n&#x22;, __TIME__);
+  printf(&#x22;Line :%d\n&#x22;, __LINE__);
+  printf(&#x22;ANSI :%d\n&#x22;, __STDC__);
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="预处理器运算符"><a aria-hidden="true" tabindex="-1" href="#预处理器运算符" class="anchor"><span class="icon icon-link"></span></a>预处理器运算符</h2>
+<p>C 预处理器提供了下列的运算符来帮助您创建宏：</p>
+<h3 id="宏延续运算符"><a aria-hidden="true" tabindex="-1" href="#宏延续运算符" class="anchor"><span class="icon icon-link"></span></a>宏延续运算符（\）</h3>
+<p>一个宏通常写在一个单行上。但是如果宏太长，一个单行容纳不下，则使用宏延续运算符 <code>\</code>。例如：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span>  <span class="token macro-name function">message_for</span><span class="token expression"><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>  </span><span class="token punctuation">\</span>
+</span></span><span class="code-line line-number" line="2"><span class="token macro property">    <span class="token expression"><span class="token function">printf</span><span class="token punctuation">(</span>#a </span><span class="token string">" and "</span> <span class="token expression"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">b</span> </span></span><span class="token string">": We love you!\n"</span><span class="token expression"><span class="token punctuation">)</span></span></span>
+</span></code><input type="hidden" value="#define  message_for(a, b)  \
+    printf(#a &#x22; and &#x22; #b &#x22;: We love you!\n&#x22;)
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="字符串常量化运算符"><a aria-hidden="true" tabindex="-1" href="#字符串常量化运算符" class="anchor"><span class="icon icon-link"></span></a>字符串常量化运算符（#）</h3>
+<p>在宏定义中，当需要把一个宏的参数转换为字符串常量时，则使用字符串常量化运算符 <code>#</code>。在宏中使用的该运算符有一个特定的参数或参数列表。例如：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span>  <span class="token macro-name function">message_for</span><span class="token expression"><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>  </span><span class="token punctuation">\</span>
+</span></span><span class="code-line line-number" line="4"><span class="token macro property">    <span class="token expression"><span class="token function">printf</span><span class="token punctuation">(</span>#a </span><span class="token string">" and "</span> <span class="token expression"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">b</span> </span></span><span class="token string">": We love you!\n"</span><span class="token expression"><span class="token punctuation">)</span></span></span>
+</span><span class="code-line line-number" line="5">
+</span><span class="code-line line-number" line="6"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="7">   <span class="token function">message_for</span><span class="token punctuation">(</span>Carole<span class="token punctuation">,</span> Debra<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="#include <stdio.h>
+
+#define  message_for(a, b)  \
+    printf(#a &#x22; and &#x22; #b &#x22;: We love you!\n&#x22;)
+
+int main(void) {
+   message_for(Carole, Debra);
+   return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre><code class="code-highlight"><span class="code-line line-number" line="1">Carole and Debra: We love you!
+</span></code><input type="hidden" value="Carole and Debra: We love you!
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="标记粘贴运算符"><a aria-hidden="true" tabindex="-1" href="#标记粘贴运算符" class="anchor"><span class="icon icon-link"></span></a>标记粘贴运算符（##）</h3>
+<p>宏定义内的标记粘贴运算符（##）会合并两个参数。它允许在宏定义中两个独立的标记被合并为一个标记。例如：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">tokenpaster</span><span class="token expression"><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token function">printf</span> <span class="token punctuation">(</span></span><span class="token string">"token"</span> <span class="token expression"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">n</span> </span></span><span class="token string">" = %d"</span><span class="token expression"><span class="token punctuation">,</span> token</span><span class="token punctuation">##</span><span class="token expression">n<span class="token punctuation">)</span></span></span>
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="6">   <span class="token keyword">int</span> token34 <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7">   
+</span><span class="code-line line-number" line="8">   <span class="token function">tokenpaster</span><span class="token punctuation">(</span><span class="token number">34</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9">   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="10"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="#include <stdio.h>
+
+#define tokenpaster(n) printf (&#x22;token&#x22; #n &#x22; = %d&#x22;, token##n)
+
+int main(void){
+   int token34 = 40;
+   
+   tokenpaster(34);
+   return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1">token34 <span class="token operator">=</span> <span class="token number">40</span>
+</span></code><input type="hidden" value="token34 = 40
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这是怎么发生的，因为这个实例会从编译器产生下列的实际输出：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"token34 = %d"</span><span class="token punctuation">,</span> token34<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="printf (&#x22;token34 = %d&#x22;, token34);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这个实例演示了 <code>token##n</code> 会连接到 <code>token34</code> 中，在这里，我们使用了<strong>字符串常量化运算符（#）<strong>和</strong>标记粘贴运算符（##）</strong>。</p>
+<h3 id="defined-运算符"><a aria-hidden="true" tabindex="-1" href="#defined-运算符" class="anchor"><span class="icon icon-link"></span></a>defined() 运算符</h3>
+<p>预处理器 <code>defined</code> 运算符是用在常量表达式中的，用来确定一个标识符是否已经使用 <code>#define</code> 定义过。如果指定的标识符已定义，则值为真（非零）。如果指定的标识符未定义，则值为假（零）。下面的实例演示了 <code>defined()</code> 运算符的用法：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token operator">!</span><span class="token function">defined</span> <span class="token punctuation">(</span>MESSAGE<span class="token punctuation">)</span></span></span>
+</span><span class="code-line line-number" line="4">   <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MESSAGE</span> <span class="token string">"You wish!"</span></span>
+</span><span class="code-line line-number" line="5"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="8">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Here is the message: %s\n"</span><span class="token punctuation">,</span> MESSAGE<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+</span><span class="code-line line-number" line="9">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="10"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="#include <stdio.h>
+
+#if !defined (MESSAGE)
+   #define MESSAGE &#x22;You wish!&#x22;
+#endif
+
+int main(void) {
+  printf(&#x22;Here is the message: %s\n&#x22;, MESSAGE);  
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre><code class="code-highlight"><span class="code-line line-number" line="1">Here is the message: You wish!
+</span></code><input type="hidden" value="Here is the message: You wish!
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="参数化的宏"><a aria-hidden="true" tabindex="-1" href="#参数化的宏" class="anchor"><span class="icon icon-link"></span></a>参数化的宏</h2>
+<p>CPP 一个强大的功能是可以使用参数化的宏来模拟函数。例如，下面的代码是计算一个数的平方：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">square</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">   <span class="token keyword">return</span> x <span class="token operator">*</span> x<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="int square(int x) {
+   return x * x;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>我们可以使用宏重写上面的代码，如下：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">square</span><span class="token expression"><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span></span></span>
+</span></code><input type="hidden" value="#define square(x) ((x) * (x))
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>在使用带有参数的宏之前，必须使用 <code>#define</code> 指令定义。参数列表是括在圆括号内，且必须紧跟在宏名称的后边。宏名称和左圆括号之间不允许有空格。例如：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">MAX</span><span class="token expression"><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span></span></span>
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="6">   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Max between 20 and 10 is %d\n"</span><span class="token punctuation">,</span> <span class="token function">MAX</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+</span><span class="code-line line-number" line="7">   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="#include <stdio.h>
+
+#define MAX(x,y) ((x) > (y) ? (x) : (y))
+
+int main(void) {
+   printf(&#x22;Max between 20 and 10 is %d\n&#x22;, MAX(10, 20));  
+   return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1">Max between <span class="token number">20</span> and <span class="token number">10</span> is <span class="token number">20</span>
+</span></code><input type="hidden" value="Max between 20 and 10 is 20
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+    
+
+<div class="previous">
+  
+  <a class="prev" href="c_pointers.html">
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+    </svg>
+    <span>
+      C 指针 Pointers
+    </span>
+  </a>
+  
+  
+  <a class="next" href="c_functions.html">
+    <span>
+      C 函数 Functions
+    </span>
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+    </svg>
+  </a>
+  
+</div>
+
+
+
+<section class="article-footer">
+  <a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_preprocessors.md" class="edit-button" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+    </svg>
+    <span>GitHub 上编辑此页</span>
+  </a>
+  
+  <span class="atime">2022/05/02</span>
+  
+</section>
+
+  </markdown-style>
+  
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#预处理器指令" class="tocs-link">预处理器指令</a>
+        
+      </li>
+    
+      <li>
+        <a href="#预处理器实例" class="tocs-link">预处理器实例</a>
+        
+      </li>
+    
+      <li>
+        <a href="#预定义宏" class="tocs-link">预定义宏</a>
+        
+      </li>
+    
+      <li>
+        <a href="#预处理器运算符" class="tocs-link">预处理器运算符</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#宏延续运算符" class="tocs-link">宏延续运算符（\）</a>
+                
+              </li>
+            
+              <li>
+                <a href="#字符串常量化运算符" class="tocs-link">字符串常量化运算符（#）</a>
+                
+              </li>
+            
+              <li>
+                <a href="#标记粘贴运算符" class="tocs-link">标记粘贴运算符（##）</a>
+                
+              </li>
+            
+              <li>
+                <a href="#defined-运算符" class="tocs-link">defined() 运算符</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#参数化的宏" class="tocs-link">参数化的宏</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
+</nav>
+
+</div>
+
+<script src="js/demo-preview.js?v=1.17.10"></script>
+
+
+<div class="footer warpper">
+  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.10
+
+</div>
+
+
+<script src="js/tocbot.js?v=1.17.10"></script>
+
+</body>
+</html>
