@@ -100,12 +100,14 @@ int main() {
   return 0;
 }
 ```
+<!--rehype:style= background: #ff000036;-->
 
 会出现错误：
 
 ```bash
 prog.c:12:15: error: assignment to expression with array type
 ```
+<!--rehype:style= background: #ff000036;-->
 
 但是，有一个解决方案！ 您可以使用 `strcpy()` 函数并将值分配给 `s1.myString`，如下所示：
 
