@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> C Tutorial </title>
+  <title>C 数组 Arrays C Tutorial </title>
+  
+  <meta name="description" content="数组用于在单个变量中存储多个值，而不是为每个值声明单独的变量。">
   
   
   <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.9">
@@ -55,7 +57,7 @@
   </article>
 </header>
 
-<div class="warpper-content warpper sidebar notocs">
+<div class="warpper-content warpper sidebar ">
   
 <div class="sidebar-border">
   <aside class="sidebar" role="navigation">
@@ -86,15 +88,15 @@
       
     
       
-        <a href="c_data_types.html" class="">C Data Types</a>
+        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
       
     
       
-        <a href="c_constants.html" class="">C Constants</a>
+        <a href="c_constants.html" class="">C 常量 Constants</a>
       
     
       
-        <a href="c_operators.html" class="">C Operators</a>
+        <a href="c_operators.html" class="">C 运算符 Operators</a>
       
     
       
@@ -106,23 +108,23 @@
       
     
       
-        <a href="c_while_loop.html" class="">C While Loop</a>
+        <a href="c_while_loop.html" class="">C While 循环</a>
       
     
       
-        <a href="c_for_loop.html" class="">C For Loop</a>
+        <a href="c_for_loop.html" class="">C For 循环</a>
       
     
       
-        <a href="c_break_continue.html" class="">C Break/Continue</a>
+        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
       
     
       
-        <a href="c_arrays.html" class="active">C Arrays</a>
+        <a href="c_arrays.html" class="active">C 数组 Arrays</a>
       
     
       
-        <a href="c_strings.html" class="">C Strings</a>
+        <a href="c_strings.html" class="">C 字符串 Strings</a>
       
     
       
@@ -130,43 +132,43 @@
       
     
       
-        <a href="c_memory_address.html" class="">C Memory Address</a>
+        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
       
     
       
-        <a href="c_pointers.html" class="">C Pointers</a>
+        <a href="c_pointers.html" class="">C 指针 Pointers</a>
       
     
       
-        <label>Functions</label>
+        <label>函数</label>
       
     
       
-        <a href="c_functions.html" class="">C Functions</a>
+        <a href="c_functions.html" class="">C 函数 Functions</a>
       
     
       
-        <a href="c_functions_parameters.html" class="">C Function Parameters</a>
+        <a href="c_functions_parameters.html" class="">C 函数参数</a>
       
     
       
-        <a href="c_functions_decl.html" class="">C Function Declaration</a>
+        <a href="c_functions_decl.html" class="">C 函数声明</a>
       
     
       
-        <a href="c_functions_recursion.html" class="">C Recursion</a>
+        <a href="c_functions_recursion.html" class="">C 递归</a>
       
     
       
-        <a href="c_math.html" class="">C Math Functions</a>
+        <a href="c_math.html" class="">C 数学函数</a>
       
     
       
-        <label>Structures</label>
+        <label>结构</label>
       
     
       
-        <a href="c_structs.html" class="">C Structures</a>
+        <a href="c_structs.html" class="">C 结构 Structures</a>
       
     
     </div>
@@ -174,7 +176,82 @@
 </div>
 
   <markdown-style>
-    
+    <h1 id="c-数组-arrays"><a aria-hidden="true" tabindex="-1" href="#c-数组-arrays" class="anchor"><span class="icon icon-link"></span></a>C 数组 Arrays</h1>
+<p>数组用于在单个变量中存储多个值，而不是为每个值声明单独的变量。</p>
+<p>要创建一个数组，请定义数据类型（如<code>int</code>）并指定数组的名称，后跟<strong>方括号<code>[]</code></strong>。</p>
+<p>要向其中插入值，请在花括号 <code>{}</code> 内使用逗号 <code>,</code> 分隔的列表：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNumbers<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int myNumbers[] = {25, 50, 75, 100};
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>我们现在创建了一个包含四个整数的数组的变量。</p>
+<h2 id="访问数组的元素"><a aria-hidden="true" tabindex="-1" href="#访问数组的元素" class="anchor"><span class="icon icon-link"></span></a>访问数组的元素</h2>
+<p>要访问数组元素，请参考其<strong>索引号</strong>。</p>
+<p>数组索引以 <strong>0</strong> 开头：<code>[0]</code> 是第一个元素。<code>[1]</code> 是第二个元素，依此类推。</p>
+<p>此语句访问 <code>myNumbers</code> 中的<strong>第一个元素 [0]</strong> 的值：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNumbers<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> myNumbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment">// 输出 25</span>
+</span></code><input type="hidden" value="int myNumbers[] = {25, 50, 75, 100};
+printf(&#x22;%d&#x22;, myNumbers[0]);
+
+// 输出 25
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="更改数组元素"><a aria-hidden="true" tabindex="-1" href="#更改数组元素" class="anchor"><span class="icon icon-link"></span></a>更改数组元素</h2>
+<p>要更改特定元素的值，请参阅索引号：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1">myNumbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">33</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="myNumbers[0] = 33;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNumbers<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">myNumbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">33</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> myNumbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">
+</span><span class="code-line line-number" line="6"><span class="token comment">// 现在输出 33 而不是 25</span>
+</span></code><input type="hidden" value="int myNumbers[] = {25, 50, 75, 100};
+myNumbers[0] = 33;
+
+printf(&#x22;%d&#x22;, myNumbers[0]);
+
+// 现在输出 33 而不是 25
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="循环遍历数组"><a aria-hidden="true" tabindex="-1" href="#循环遍历数组" class="anchor"><span class="icon icon-link"></span></a>循环遍历数组</h2>
+<p>您可以使用 <a href="./c_for_loop.html"><code>for</code></a> 循环遍历数组元素。</p>
+<p>以下示例输出 <code>myNumbers</code> 数组中的所有元素：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNumbers<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">int</span> i<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="5">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> myNumbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="int myNumbers[] = {25, 50, 75, 100};
+int i;
+
+for (i = 0; i < 4; i++) {
+  printf(&#x22;%d\n&#x22;, myNumbers[i]);
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="设置数组大小"><a aria-hidden="true" tabindex="-1" href="#设置数组大小" class="anchor"><span class="icon icon-link"></span></a>设置数组大小</h2>
+<p>另一种创建数组的常用方法是指定数组的大小，然后再添加元素：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 声明一个由四个整数组成的数组：</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">int</span> myNumbers<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment">// 添加元素</span>
+</span><span class="code-line line-number" line="5">myNumbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">myNumbers<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7">myNumbers<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">75</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">myNumbers<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="// 声明一个由四个整数组成的数组：
+int myNumbers[4];
+
+// 添加元素
+myNumbers[0] = 25;
+myNumbers[1] = 50;
+myNumbers[2] = 75;
+myNumbers[3] = 100;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>使用这种方法，**你必须知道数组的大小，**才能让程序存储足够的内存。</p>
+<p>您无法在创建后更改数组的大小。</p>
     
 
 <div class="previous">
@@ -185,14 +262,14 @@
       <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
     </svg>
     <span>
-      C Break/Continue
+      C 跳出循环 Break/Continue
     </span>
   </a>
   
   
   <a class="next" href="c_strings.html">
     <span>
-      C Strings
+      C 字符串 Strings
     </span>
     <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
       <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
@@ -212,12 +289,40 @@
     <span>GitHub 上编辑此页</span>
   </a>
   
-  <span class="atime">2022/05/01</span>
+  <span class="atime">2022/05/02</span>
   
 </section>
 
   </markdown-style>
   
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#访问数组的元素" class="tocs-link">访问数组的元素</a>
+        
+      </li>
+    
+      <li>
+        <a href="#更改数组元素" class="tocs-link">更改数组元素</a>
+        
+      </li>
+    
+      <li>
+        <a href="#循环遍历数组" class="tocs-link">循环遍历数组</a>
+        
+      </li>
+    
+      <li>
+        <a href="#设置数组大小" class="tocs-link">设置数组大小</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
+</nav>
+
 </div>
 
 <script src="js/demo-preview.js?v=1.17.9"></script>

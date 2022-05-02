@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C 输出（打印文本） C Tutorial </title>
+  <title>C Structures (structs) C Tutorial </title>
   
-  <meta name="description" content="printf() 函数用于输出值/打印文本：">
+  <meta name="description" content="结构（也称为结构）是一种将多个相关变量组合到一个位置的方法。 结构中的每个变量都称为结构的成员。">
   
   
   <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.9">
@@ -57,7 +57,7 @@
   </article>
 </header>
 
-<div class="warpper-content warpper sidebar notocs">
+<div class="warpper-content warpper sidebar ">
   
 <div class="sidebar-border">
   <aside class="sidebar" role="navigation">
@@ -88,15 +88,15 @@
       
     
       
-        <a href="c_data_types.html" class="">C Data Types</a>
+        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
       
     
       
-        <a href="c_constants.html" class="">C Constants</a>
+        <a href="c_constants.html" class="">C 常量 Constants</a>
       
     
       
-        <a href="c_operators.html" class="">C Operators</a>
+        <a href="c_operators.html" class="">C 运算符 Operators</a>
       
     
       
@@ -108,23 +108,23 @@
       
     
       
-        <a href="c_while_loop.html" class="">C While Loop</a>
+        <a href="c_while_loop.html" class="">C While 循环</a>
       
     
       
-        <a href="c_for_loop.html" class="">C For Loop</a>
+        <a href="c_for_loop.html" class="">C For 循环</a>
       
     
       
-        <a href="c_break_continue.html" class="">C Break/Continue</a>
+        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
       
     
       
-        <a href="c_arrays.html" class="">C Arrays</a>
+        <a href="c_arrays.html" class="">C 数组 Arrays</a>
       
     
       
-        <a href="c_strings.html" class="">C Strings</a>
+        <a href="c_strings.html" class="">C 字符串 Strings</a>
       
     
       
@@ -132,43 +132,43 @@
       
     
       
-        <a href="c_memory_address.html" class="">C Memory Address</a>
+        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
       
     
       
-        <a href="c_pointers.html" class="">C Pointers</a>
+        <a href="c_pointers.html" class="">C 指针 Pointers</a>
       
     
       
-        <label>Functions</label>
+        <label>函数</label>
       
     
       
-        <a href="c_functions.html" class="">C Functions</a>
+        <a href="c_functions.html" class="">C 函数 Functions</a>
       
     
       
-        <a href="c_functions_parameters.html" class="">C Function Parameters</a>
+        <a href="c_functions_parameters.html" class="">C 函数参数</a>
       
     
       
-        <a href="c_functions_decl.html" class="">C Function Declaration</a>
+        <a href="c_functions_decl.html" class="">C 函数声明</a>
       
     
       
-        <a href="c_functions_recursion.html" class="">C Recursion</a>
+        <a href="c_functions_recursion.html" class="">C 递归</a>
       
     
       
-        <a href="c_math.html" class="">C Math Functions</a>
+        <a href="c_math.html" class="">C 数学函数</a>
       
     
       
-        <label>Structures</label>
+        <label>结构</label>
       
     
       
-        <a href="c_structs.html" class="active">C Structures</a>
+        <a href="c_structs.html" class="active">C 结构 Structures</a>
       
     
     </div>
@@ -176,7 +176,352 @@
 </div>
 
   <markdown-style>
-    
+    <h1 id="c-structures-structs"><a aria-hidden="true" tabindex="-1" href="#c-structures-structs" class="anchor"><span class="icon icon-link"></span></a>C Structures (structs)</h1>
+<p>结构（也称为结构）是一种将多个相关变量组合到一个位置的方法。 结构中的每个变量都称为结构的<strong>成员</strong>。</p>
+<p>与 <a href="c_arrays.html">array</a> 不同，结构可以包含许多不同的数据类型（int、float、char 等）。</p>
+<h2 id="创建结构"><a aria-hidden="true" tabindex="-1" href="#创建结构" class="anchor"><span class="icon icon-link"></span></a>创建结构</h2>
+<p>您可以使用 <code>struct</code> 关键字创建结构，并在花括号内声明其每个成员：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">struct</span> <span class="token class-name">MyStructure</span> <span class="token punctuation">{</span>   <span class="token comment">// 结构声明</span>
+</span><span class="code-line line-number" line="2">  <span class="token keyword">int</span> myNum<span class="token punctuation">;</span>           <span class="token comment">// 成员（int 变量）</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">char</span> myLetter<span class="token punctuation">;</span>       <span class="token comment">// 成员（char 变量）</span>
+</span><span class="code-line line-number" line="4"><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// 用分号结束结构</span>
+</span></code><input type="hidden" value="struct MyStructure {   // 结构声明
+  int myNum;           // 成员（int 变量）
+  char myLetter;       // 成员（char 变量）
+}; // 用分号结束结构
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>要访问该结构，您必须为其创建一个变量。</p>
+<p>在 <code>main()</code> 方法中使用 <code>struct</code> 关键字，后跟结构的名称，然后是结构变量的名称：</p>
+<p>创建一个名为 <code>s1</code> 的结构变量：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token keyword">int</span> myNum<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">char</span> myLetter<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4"><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">
+</span><span class="code-line line-number" line="6"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="7">  <span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="struct myStructure {
+  int myNum;
+  char myLetter;
+};
+
+int main() {
+  struct myStructure s1;
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="访问结构成员"><a aria-hidden="true" tabindex="-1" href="#访问结构成员" class="anchor"><span class="icon icon-link"></span></a>访问结构成员</h2>
+<p>要访问结构的成员，请使用点语法 (<code>.</code>)：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建一个名为 myStructure 的结构</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">int</span> myNum<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token keyword">char</span> myLetter<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5"><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="8">  <span class="token comment">// 创建一个名为 **s1** 的 myStructure 结构变量</span>
+</span><span class="code-line line-number" line="9">  <span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="10">
+</span><span class="code-line line-number" line="11">  <span class="token comment">// 为 s1 的成员赋值</span>
+</span><span class="code-line line-number" line="12">  s1<span class="token punctuation">.</span>myNum <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="13">  s1<span class="token punctuation">.</span>myLetter <span class="token operator">=</span> <span class="token char">'B'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15">  <span class="token comment">// 打印值</span>
+</span><span class="code-line line-number" line="16">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My number: %d\n"</span><span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="17">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My letter: %c\n"</span><span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myLetter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="18">
+</span><span class="code-line line-number" line="19">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="20"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="// 创建一个名为 myStructure 的结构
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
+
+int main() {
+  // 创建一个名为 **s1** 的 myStructure 结构变量
+  struct myStructure s1;
+
+  // 为 s1 的成员赋值
+  s1.myNum = 13;
+  s1.myLetter = &#x27;B&#x27;;
+
+  // 打印值
+  printf(&#x22;My number: %d\n&#x22;, s1.myNum);
+  printf(&#x22;My letter: %c\n&#x22;, s1.myLetter);
+
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>现在，您只需使用一个结构即可轻松创建具有不同值的多个结构变量：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建不同的结构变量</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s2<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5"><span class="token comment">// 为不同的结构变量赋值</span>
+</span><span class="code-line line-number" line="6">s1<span class="token punctuation">.</span>myNum <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7">s1<span class="token punctuation">.</span>myLetter <span class="token operator">=</span> <span class="token char">'B'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">
+</span><span class="code-line line-number" line="9">s2<span class="token punctuation">.</span>myNum <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="10">s2<span class="token punctuation">.</span>myLetter <span class="token operator">=</span> <span class="token char">'C'</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="// 创建不同的结构变量
+struct myStructure s1;
+struct myStructure s2;
+
+// 为不同的结构变量赋值
+s1.myNum = 13;
+s1.myLetter = &#x27;B&#x27;;
+
+s2.myNum = 20;
+s2.myLetter = &#x27;C&#x27;;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="结构中的字符串呢"><a aria-hidden="true" tabindex="-1" href="#结构中的字符串呢" class="anchor"><span class="icon icon-link"></span></a>结构中的字符串呢？</h2>
+<p>请记住，C 中的字符串实际上是一个字符数组，不幸的是，您不能像这样为数组赋值：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token keyword">int</span> myNum<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">char</span> myLetter<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token keyword">char</span> myString<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// String</span>
+</span><span class="code-line line-number" line="5"><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="8">  <span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9">
+</span><span class="code-line line-number" line="10">  <span class="token comment">// 试图为字符串赋值</span>
+</span><span class="code-line line-number" line="11">  s1<span class="token punctuation">.</span>myString <span class="token operator">=</span> <span class="token string">"Some text"</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="12">
+</span><span class="code-line line-number" line="13">  <span class="token comment">// 尝试打印值</span>
+</span><span class="code-line line-number" line="14">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My string: %s"</span><span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="15">
+</span><span class="code-line line-number" line="16">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="17"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];  // String
+};
+
+int main() {
+  struct myStructure s1;
+
+  // 试图为字符串赋值
+  s1.myString = &#x22;Some text&#x22;;
+
+  // 尝试打印值
+  printf(&#x22;My string: %s&#x22;, s1.myString);
+
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>会出现错误：</p>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">prog.c:12:15: error: assignment to expression with array <span class="token builtin class-name">type</span>
+</span></code><input type="hidden" value="prog.c:12:15: error: assignment to expression with array type
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>但是，有一个解决方案！ 您可以使用 <code>strcpy()</code> 函数并将值分配给 <code>s1.myString</code>，如下所示：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token keyword">int</span> myNum<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">char</span> myLetter<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token keyword">char</span> myString<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// String</span>
+</span><span class="code-line line-number" line="5"><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="8">  <span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9">
+</span><span class="code-line line-number" line="10">  <span class="token comment">// 使用 strcpy 函数为字符串赋值</span>
+</span><span class="code-line line-number" line="11">  <span class="token function">strcpy</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>myString<span class="token punctuation">,</span> <span class="token string">"Some text"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="12">
+</span><span class="code-line line-number" line="13">  <span class="token comment">// 打印值</span>
+</span><span class="code-line line-number" line="14">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My string: %s"</span><span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="15">
+</span><span class="code-line line-number" line="16">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="17"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30]; // String
+};
+
+int main() {
+  struct myStructure s1;
+
+  // 使用 strcpy 函数为字符串赋值
+  strcpy(s1.myString, &#x22;Some text&#x22;);
+
+  // 打印值
+  printf(&#x22;My string: %s&#x22;, s1.myString);
+
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>结果：</p>
+<p><code>My string: Some text</code></p>
+<h2 id="更简单的语法"><a aria-hidden="true" tabindex="-1" href="#更简单的语法" class="anchor"><span class="icon icon-link"></span></a>更简单的语法</h2>
+<p>您还可以在声明时在一行中为结构变量的成员赋值。</p>
+<p>只需将值插入花括号 <code>{}</code> 内的逗号分隔列表中。 请注意，您不必通过这种技术对字符串值使用 <code>strcpy()</code> 函数：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建结构</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">int</span> myNum<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token keyword">char</span> myLetter<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">  <span class="token keyword">char</span> myString<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6"><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7">
+</span><span class="code-line line-number" line="8"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="9">  <span class="token comment">// 创建一个结构变量并为其赋值</span>
+</span><span class="code-line line-number" line="10">  <span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token char">'B'</span><span class="token punctuation">,</span> <span class="token string">"Some text"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="11">
+</span><span class="code-line line-number" line="12">  <span class="token comment">// 打印值</span>
+</span><span class="code-line line-number" line="13">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %c %s"</span><span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myNum<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myLetter<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="16"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="// 创建结构
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];
+};
+
+int main() {
+  // 创建一个结构变量并为其赋值
+  struct myStructure s1 = {13, &#x27;B&#x27;, &#x22;Some text&#x22;};
+
+  // 打印值
+  printf(&#x22;%d %c %s&#x22;, s1.myNum, s1.myLetter, s1.myString);
+
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p><strong>注意：</strong> 插入值的顺序必须与结构中声明的变量类型的顺序相匹配（13 表示 int，'B' 表示 char 等）。</p>
+<h2 id="复制结构"><a aria-hidden="true" tabindex="-1" href="#复制结构" class="anchor"><span class="icon icon-link"></span></a>复制结构</h2>
+<p>您还可以将一种结构分配给另一种结构。</p>
+<p>在以下示例中，将 s1 的值复制到 s2：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token char">'B'</span><span class="token punctuation">,</span> <span class="token string">"Some text"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s2<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">s2 <span class="token operator">=</span> s1<span class="token punctuation">;</span>
+</span></code><input type="hidden" value="struct myStructure s1 = {13, &#x27;B&#x27;, &#x22;Some text&#x22;};
+struct myStructure s2;
+s2 = s1;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="修改值"><a aria-hidden="true" tabindex="-1" href="#修改值" class="anchor"><span class="icon icon-link"></span></a>修改值</h2>
+<p>如果要更改/修改值，可以使用点语法 (<code>.</code>)。</p>
+<p>要修改字符串值，<code>strcpy()</code> 函数再次很有用：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token keyword">int</span> myNum<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">char</span> myLetter<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token keyword">char</span> myString<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5"><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="8">  <span class="token comment">// 创建一个结构变量并为其赋值</span>
+</span><span class="code-line line-number" line="9">  <span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token char">'B'</span><span class="token punctuation">,</span> <span class="token string">"Some text"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="10">
+</span><span class="code-line line-number" line="11">  <span class="token comment">// 修改值</span>
+</span><span class="code-line line-number" line="12">  s1<span class="token punctuation">.</span>myNum <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="13">  s1<span class="token punctuation">.</span>myLetter <span class="token operator">=</span> <span class="token char">'C'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">  <span class="token function">strcpy</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>myString<span class="token punctuation">,</span> <span class="token string">"Something else"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="15">
+</span><span class="code-line line-number" line="16">  <span class="token comment">// 打印值</span>
+</span><span class="code-line line-number" line="17">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %c %s"</span><span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myNum<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myLetter<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="18">
+</span><span class="code-line line-number" line="19">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="20"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];
+};
+
+int main() {
+  // 创建一个结构变量并为其赋值
+  struct myStructure s1 = {13, &#x27;B&#x27;, &#x22;Some text&#x22;};
+
+  // 修改值
+  s1.myNum = 30;
+  s1.myLetter = &#x27;C&#x27;;
+  strcpy(s1.myString, &#x22;Something else&#x22;);
+
+  // 打印值
+  printf(&#x22;%d %c %s&#x22;, s1.myNum, s1.myLetter, s1.myString);
+
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>当您复制结构值时，修改值特别有用：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建一个结构变量并为其赋值</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token char">'B'</span><span class="token punctuation">,</span> <span class="token string">"Some text"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token comment">// 创建另一个结构变量</span>
+</span><span class="code-line line-number" line="5"><span class="token keyword">struct</span> <span class="token class-name">myStructure</span> s2<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token comment">// 将 s1 值复制到 s2</span>
+</span><span class="code-line line-number" line="8">s2 <span class="token operator">=</span> s1<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9">
+</span><span class="code-line line-number" line="10"><span class="token comment">// 更改 s2 值</span>
+</span><span class="code-line line-number" line="11">s2<span class="token punctuation">.</span>myNum <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="12">s2<span class="token punctuation">.</span>myLetter <span class="token operator">=</span> <span class="token char">'C'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="13"><span class="token function">strcpy</span><span class="token punctuation">(</span>s2<span class="token punctuation">.</span>myString<span class="token punctuation">,</span> <span class="token string">"Something else"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15"><span class="token comment">// 打印值</span>
+</span><span class="code-line line-number" line="16"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %c %s\n"</span><span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myNum<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myLetter<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>myString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="17"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %c %s\n"</span><span class="token punctuation">,</span> s2<span class="token punctuation">.</span>myNum<span class="token punctuation">,</span> s2<span class="token punctuation">.</span>myLetter<span class="token punctuation">,</span> s2<span class="token punctuation">.</span>myString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="// 创建一个结构变量并为其赋值
+struct myStructure s1 = {13, &#x27;B&#x27;, &#x22;Some text&#x22;};
+
+// 创建另一个结构变量
+struct myStructure s2;
+
+// 将 s1 值复制到 s2
+s2 = s1;
+
+// 更改 s2 值
+s2.myNum = 30;
+s2.myLetter = &#x27;C&#x27;;
+strcpy(s2.myString, &#x22;Something else&#x22;);
+
+// 打印值
+printf(&#x22;%d %c %s\n&#x22;, s1.myNum, s1.myLetter, s1.myString);
+printf(&#x22;%d %c %s\n&#x22;, s2.myNum, s2.myLetter, s2.myString);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p><strong>好的，那么，结构如何有用？</strong></p>
+<p>想象一下，您必须编写一个程序来存储有关汽车的不同信息，例如品牌、型号和年份。 结构的优点在于您可以创建一个“汽车模板”并将其用于您制造的每辆汽车。 请参阅下面的真实示例。</p>
+<h2 id="现实生活中的例子"><a aria-hidden="true" tabindex="-1" href="#现实生活中的例子" class="anchor"><span class="icon icon-link"></span></a>现实生活中的例子</h2>
+<p>使用一个结构来存储关于 Cars 的不同信息：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">struct</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token keyword">char</span> brand<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">char</span> model<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token keyword">int</span> year<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5"><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="8">  <span class="token keyword">struct</span> <span class="token class-name">Car</span> car1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"BMW"</span><span class="token punctuation">,</span> <span class="token string">"X5"</span><span class="token punctuation">,</span> <span class="token number">1999</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9">  <span class="token keyword">struct</span> <span class="token class-name">Car</span> car2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Ford"</span><span class="token punctuation">,</span> <span class="token string">"Mustang"</span><span class="token punctuation">,</span> <span class="token number">1969</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="10">  <span class="token keyword">struct</span> <span class="token class-name">Car</span> car3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Toyota"</span><span class="token punctuation">,</span> <span class="token string">"Corolla"</span><span class="token punctuation">,</span> <span class="token number">2011</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="11">
+</span><span class="code-line line-number" line="12">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s %s %d\n"</span><span class="token punctuation">,</span> car1<span class="token punctuation">.</span>brand<span class="token punctuation">,</span> car1<span class="token punctuation">.</span>model<span class="token punctuation">,</span> car1<span class="token punctuation">.</span>year<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="13">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s %s %d\n"</span><span class="token punctuation">,</span> car2<span class="token punctuation">.</span>brand<span class="token punctuation">,</span> car2<span class="token punctuation">.</span>model<span class="token punctuation">,</span> car2<span class="token punctuation">.</span>year<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s %s %d\n"</span><span class="token punctuation">,</span> car3<span class="token punctuation">.</span>brand<span class="token punctuation">,</span> car3<span class="token punctuation">.</span>model<span class="token punctuation">,</span> car3<span class="token punctuation">.</span>year<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="15">
+</span><span class="code-line line-number" line="16">  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="17"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="struct Car {
+  char brand[50];
+  char model[50];
+  int year;
+};
+
+int main() {
+  struct Car car1 = {&#x22;BMW&#x22;, &#x22;X5&#x22;, 1999};
+  struct Car car2 = {&#x22;Ford&#x22;, &#x22;Mustang&#x22;, 1969};
+  struct Car car3 = {&#x22;Toyota&#x22;, &#x22;Corolla&#x22;, 2011};
+
+  printf(&#x22;%s %s %d\n&#x22;, car1.brand, car1.model, car1.year);
+  printf(&#x22;%s %s %d\n&#x22;, car2.brand, car2.model, car2.year);
+  printf(&#x22;%s %s %d\n&#x22;, car3.brand, car3.model, car3.year);
+
+  return 0;
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -187,7 +532,7 @@
       <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
     </svg>
     <span>
-      C Math Functions
+      C 数学函数
     </span>
   </a>
   
@@ -206,12 +551,55 @@
     <span>GitHub 上编辑此页</span>
   </a>
   
-  <span class="atime">2022/05/01</span>
+  <span class="atime">2022/05/02</span>
   
 </section>
 
   </markdown-style>
   
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#创建结构" class="tocs-link">创建结构</a>
+        
+      </li>
+    
+      <li>
+        <a href="#访问结构成员" class="tocs-link">访问结构成员</a>
+        
+      </li>
+    
+      <li>
+        <a href="#结构中的字符串呢" class="tocs-link">结构中的字符串呢？</a>
+        
+      </li>
+    
+      <li>
+        <a href="#更简单的语法" class="tocs-link">更简单的语法</a>
+        
+      </li>
+    
+      <li>
+        <a href="#复制结构" class="tocs-link">复制结构</a>
+        
+      </li>
+    
+      <li>
+        <a href="#修改值" class="tocs-link">修改值</a>
+        
+      </li>
+    
+      <li>
+        <a href="#现实生活中的例子" class="tocs-link">现实生活中的例子</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
+</nav>
+
 </div>
 
 <script src="js/demo-preview.js?v=1.17.9"></script>

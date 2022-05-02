@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C 输出（打印文本） C Tutorial </title>
+  <title>C Switch C Tutorial </title>
   
-  <meta name="description" content="printf() 函数用于输出值/打印文本：">
+  <meta name="description" content="您可以使用 switch 语句，而不是编写 许多 if..else 语句。">
   
   
   <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.9">
@@ -57,7 +57,7 @@
   </article>
 </header>
 
-<div class="warpper-content warpper sidebar notocs">
+<div class="warpper-content warpper sidebar ">
   
 <div class="sidebar-border">
   <aside class="sidebar" role="navigation">
@@ -88,15 +88,15 @@
       
     
       
-        <a href="c_data_types.html" class="">C Data Types</a>
+        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
       
     
       
-        <a href="c_constants.html" class="">C Constants</a>
+        <a href="c_constants.html" class="">C 常量 Constants</a>
       
     
       
-        <a href="c_operators.html" class="">C Operators</a>
+        <a href="c_operators.html" class="">C 运算符 Operators</a>
       
     
       
@@ -108,23 +108,23 @@
       
     
       
-        <a href="c_while_loop.html" class="">C While Loop</a>
+        <a href="c_while_loop.html" class="">C While 循环</a>
       
     
       
-        <a href="c_for_loop.html" class="">C For Loop</a>
+        <a href="c_for_loop.html" class="">C For 循环</a>
       
     
       
-        <a href="c_break_continue.html" class="">C Break/Continue</a>
+        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
       
     
       
-        <a href="c_arrays.html" class="">C Arrays</a>
+        <a href="c_arrays.html" class="">C 数组 Arrays</a>
       
     
       
-        <a href="c_strings.html" class="">C Strings</a>
+        <a href="c_strings.html" class="">C 字符串 Strings</a>
       
     
       
@@ -132,43 +132,43 @@
       
     
       
-        <a href="c_memory_address.html" class="">C Memory Address</a>
+        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
       
     
       
-        <a href="c_pointers.html" class="">C Pointers</a>
+        <a href="c_pointers.html" class="">C 指针 Pointers</a>
       
     
       
-        <label>Functions</label>
+        <label>函数</label>
       
     
       
-        <a href="c_functions.html" class="">C Functions</a>
+        <a href="c_functions.html" class="">C 函数 Functions</a>
       
     
       
-        <a href="c_functions_parameters.html" class="">C Function Parameters</a>
+        <a href="c_functions_parameters.html" class="">C 函数参数</a>
       
     
       
-        <a href="c_functions_decl.html" class="">C Function Declaration</a>
+        <a href="c_functions_decl.html" class="">C 函数声明</a>
       
     
       
-        <a href="c_functions_recursion.html" class="">C Recursion</a>
+        <a href="c_functions_recursion.html" class="">C 递归</a>
       
     
       
-        <a href="c_math.html" class="">C Math Functions</a>
+        <a href="c_math.html" class="">C 数学函数</a>
       
     
       
-        <label>Structures</label>
+        <label>结构</label>
       
     
       
-        <a href="c_structs.html" class="">C Structures</a>
+        <a href="c_structs.html" class="">C 结构 Structures</a>
       
     
     </div>
@@ -176,7 +176,145 @@
 </div>
 
   <markdown-style>
-    
+    <h1 id="c-switch"><a aria-hidden="true" tabindex="-1" href="#c-switch" class="anchor"><span class="icon icon-link"></span></a>C Switch</h1>
+<h2 id="switch-语句"><a aria-hidden="true" tabindex="-1" href="#switch-语句" class="anchor"><span class="icon icon-link"></span></a>Switch 语句</h2>
+<p>您可以使用 <code>switch</code> 语句，而不是编写 <strong>许多</strong> <code>if..else</code> 语句。</p>
+<p><code>switch</code> 语句选择要执行的许多代码块之一：</p>
+<h3 id="语法"><a aria-hidden="true" tabindex="-1" href="#语法" class="anchor"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">switch</span><span class="token punctuation">(</span>表达式<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token keyword">case</span> 整型数值<span class="token number">1</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="3">    <span class="token comment">// 代码块 1</span>
+</span><span class="code-line line-number" line="4">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">  <span class="token keyword">case</span> 整型数值<span class="token number">2</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="6">    <span class="token comment">// 代码块 2</span>
+</span><span class="code-line line-number" line="7">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">  <span class="token keyword">default</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="9">    <span class="token comment">// 代码块 3</span>
+</span><span class="code-line line-number" line="10"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="switch(表达式) {
+  case 整型数值1:
+    // 代码块 1
+    break;
+  case 整型数值2:
+    // 代码块 2
+    break;
+  default:
+    // 代码块 3
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>这是它的工作原理：</p>
+<ul>
+<li><code>switch</code> 表达式被计算一次</li>
+<li>将表达式的值与每个 <code>case</code> 的值进行比较</li>
+<li>如果匹配，则执行关联的代码块</li>
+<li><code>break</code> 语句跳出 switch 块并停止执行</li>
+<li><code>default</code> 语句是可选的，指定在没有大小写匹配时运行的一些代码</li>
+</ul>
+<p>下面的示例使用工作日编号来计算工作日名称：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> day <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">switch</span> <span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="3">  <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="4">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"周一"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">  <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="7">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"周二"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9">  <span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="10">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"周三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="11">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="12">  <span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="13">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"周四"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="15">  <span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="16">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"周五"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="17">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="18">  <span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="19">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"周六"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="20">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="21">  <span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="22">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"周日"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="23">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="24"><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="25"><span class="token comment">// 输出 -> "周四" (day 4)</span>
+</span></code><input type="hidden" value="int day = 4;
+switch (day) {
+  case 1:
+    printf(&#x22;周一&#x22;);
+    break;
+  case 2:
+    printf(&#x22;周二&#x22;);
+    break;
+  case 3:
+    printf(&#x22;周三&#x22;);
+    break;
+  case 4:
+    printf(&#x22;周四&#x22;);
+    break;
+  case 5:
+    printf(&#x22;周五&#x22;);
+    break;
+  case 6:
+    printf(&#x22;周六&#x22;);
+    break;
+  case 7:
+    printf(&#x22;周日&#x22;);
+    break;
+}
+// 输出 -> &#x22;周四&#x22; (day 4)
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="中断关键字-break"><a aria-hidden="true" tabindex="-1" href="#中断关键字-break" class="anchor"><span class="icon icon-link"></span></a>中断关键字 break</h2>
+<p>当 C 到达一个 <code>break</code> 关键字时，它会跳出 <code>switch</code> 块。</p>
+<p>这将停止在块内执行更多代码和案例测试。</p>
+<p>找到匹配项并完成工作后，就该休息一下了。 无需进行更多测试。</p>
+<p>中断可以节省大量执行时间，因为它“忽略”了 switch 块中所有其余代码的执行。</p>
+<h2 id="默认关键字-default"><a aria-hidden="true" tabindex="-1" href="#默认关键字-default" class="anchor"><span class="icon icon-link"></span></a>默认关键字 default</h2>
+<p><code>default</code> 关键字指定在没有大小写匹配时运行的一些代码：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> day <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3"><span class="token keyword">switch</span> <span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="4">  <span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="5">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"今天是星期六"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7">  <span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="8">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"今天是星期日"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9">    <span class="token keyword">break</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="10">  <span class="token keyword">default</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="11">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"期待周末"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="12"><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="13">
+</span><span class="code-line line-number" line="14"><span class="token comment">// 输出 -> "期待周末"</span>
+</span></code><input type="hidden" value="int day = 4;
+
+switch (day) {
+  case 6:
+    printf(&#x22;今天是星期六&#x22;);
+    break;
+  case 7:
+    printf(&#x22;今天是星期日&#x22;);
+    break;
+  default:
+    printf(&#x22;期待周末&#x22;);
+}
+
+// 输出 -> &#x22;期待周末&#x22;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p><strong>注意：</strong> <code>switch</code> 中的最后一条语句必须使用 <code>default</code> 关键字，并且不需要 <code>break</code>。<code>default</code> 不是必须的。当没有 <code>default</code> 时，如果所有 <code>case</code> 都匹配失败，那么就什么都不执行。</p>
+<h2 id="关键字-case"><a aria-hidden="true" tabindex="-1" href="#关键字-case" class="anchor"><span class="icon icon-link"></span></a>关键字 case</h2>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span>     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// ✅ 💯 正确</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">case</span> <span class="token number">8</span><span class="token operator">+</span><span class="token number">9</span><span class="token operator">:</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// ✅ 💯 正确</span>
+</span><span class="code-line line-number" line="3"><span class="token keyword">case</span> <span class="token char">'A'</span><span class="token operator">:</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// ✅ 💯 正确，字符和整数可以相互转换</span>
+</span><span class="code-line line-number" line="4"><span class="token keyword">case</span> <span class="token char">'A'</span><span class="token operator">+</span><span class="token number">19</span><span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// ✅ 💯 正确，字符和整数可以相互转换</span>
+</span><span class="code-line line-number" line="5"><span class="token keyword">case</span> <span class="token number">9.5</span><span class="token operator">:</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// ❌ 错误，不能为小数</span>
+</span><span class="code-line line-number" line="6"><span class="token keyword">case</span> a<span class="token operator">:</span>      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// ❌ 错误，不能包含变量</span>
+</span><span class="code-line line-number" line="7"><span class="token keyword">case</span> a<span class="token operator">+</span><span class="token number">10</span><span class="token operator">:</span>   <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span>   <span class="token comment">// ❌ 错误，不能包含变量</span>
+</span></code><input type="hidden" value="case 10:     printf(&#x22;...&#x22;); break;   // ✅ 💯 正确
+case 8+9:    printf(&#x22;...&#x22;); break;   // ✅ 💯 正确
+case &#x27;A&#x27;:    printf(&#x22;...&#x22;); break;   // ✅ 💯 正确，字符和整数可以相互转换
+case &#x27;A&#x27;+19: printf(&#x22;...&#x22;); break;   // ✅ 💯 正确，字符和整数可以相互转换
+case 9.5:    printf(&#x22;...&#x22;); break;   // ❌ 错误，不能为小数
+case a:      printf(&#x22;...&#x22;); break;   // ❌ 错误，不能包含变量
+case a+10:   printf(&#x22;...&#x22;); break;   // ❌ 错误，不能包含变量
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -194,7 +332,7 @@
   
   <a class="next" href="c_while_loop.html">
     <span>
-      C While Loop
+      C While 循环
     </span>
     <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
       <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
@@ -214,12 +352,49 @@
     <span>GitHub 上编辑此页</span>
   </a>
   
-  <span class="atime">2022/05/01</span>
+  <span class="atime">2022/05/02</span>
   
 </section>
 
   </markdown-style>
   
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#switch-语句" class="tocs-link">Switch 语句</a>
+        
+          <ol class="tocs-list is-collapsed">
+            
+              <li>
+                <a href="#语法" class="tocs-link">语法</a>
+                
+              </li>
+            
+          </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#中断关键字-break" class="tocs-link">中断关键字 break</a>
+        
+      </li>
+    
+      <li>
+        <a href="#默认关键字-default" class="tocs-link">默认关键字 default</a>
+        
+      </li>
+    
+      <li>
+        <a href="#关键字-case" class="tocs-link">关键字 case</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
+</nav>
+
 </div>
 
 <script src="js/demo-preview.js?v=1.17.9"></script>

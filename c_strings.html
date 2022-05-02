@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C 输出（打印文本） C Tutorial </title>
+  <title>C 字符串 Strings C Tutorial </title>
   
-  <meta name="description" content="printf() 函数用于输出值/打印文本：">
+  <meta name="description" content="字符串用于存储文本/字符。">
   
   
   <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.9">
@@ -57,7 +57,7 @@
   </article>
 </header>
 
-<div class="warpper-content warpper sidebar notocs">
+<div class="warpper-content warpper sidebar ">
   
 <div class="sidebar-border">
   <aside class="sidebar" role="navigation">
@@ -88,15 +88,15 @@
       
     
       
-        <a href="c_data_types.html" class="">C Data Types</a>
+        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
       
     
       
-        <a href="c_constants.html" class="">C Constants</a>
+        <a href="c_constants.html" class="">C 常量 Constants</a>
       
     
       
-        <a href="c_operators.html" class="">C Operators</a>
+        <a href="c_operators.html" class="">C 运算符 Operators</a>
       
     
       
@@ -108,23 +108,23 @@
       
     
       
-        <a href="c_while_loop.html" class="">C While Loop</a>
+        <a href="c_while_loop.html" class="">C While 循环</a>
       
     
       
-        <a href="c_for_loop.html" class="">C For Loop</a>
+        <a href="c_for_loop.html" class="">C For 循环</a>
       
     
       
-        <a href="c_break_continue.html" class="">C Break/Continue</a>
+        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
       
     
       
-        <a href="c_arrays.html" class="">C Arrays</a>
+        <a href="c_arrays.html" class="">C 数组 Arrays</a>
       
     
       
-        <a href="c_strings.html" class="active">C Strings</a>
+        <a href="c_strings.html" class="active">C 字符串 Strings</a>
       
     
       
@@ -132,43 +132,43 @@
       
     
       
-        <a href="c_memory_address.html" class="">C Memory Address</a>
+        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
       
     
       
-        <a href="c_pointers.html" class="">C Pointers</a>
+        <a href="c_pointers.html" class="">C 指针 Pointers</a>
       
     
       
-        <label>Functions</label>
+        <label>函数</label>
       
     
       
-        <a href="c_functions.html" class="">C Functions</a>
+        <a href="c_functions.html" class="">C 函数 Functions</a>
       
     
       
-        <a href="c_functions_parameters.html" class="">C Function Parameters</a>
+        <a href="c_functions_parameters.html" class="">C 函数参数</a>
       
     
       
-        <a href="c_functions_decl.html" class="">C Function Declaration</a>
+        <a href="c_functions_decl.html" class="">C 函数声明</a>
       
     
       
-        <a href="c_functions_recursion.html" class="">C Recursion</a>
+        <a href="c_functions_recursion.html" class="">C 递归</a>
       
     
       
-        <a href="c_math.html" class="">C Math Functions</a>
+        <a href="c_math.html" class="">C 数学函数</a>
       
     
       
-        <label>Structures</label>
+        <label>结构</label>
       
     
       
-        <a href="c_structs.html" class="">C Structures</a>
+        <a href="c_structs.html" class="">C 结构 Structures</a>
       
     
     </div>
@@ -176,7 +176,63 @@
 </div>
 
   <markdown-style>
-    
+    <h1 id="c-字符串-strings"><a aria-hidden="true" tabindex="-1" href="#c-字符串-strings" class="anchor"><span class="icon icon-link"></span></a>C 字符串 Strings</h1>
+<p>字符串用于存储文本/字符。</p>
+<p>例如，“Hello World”是一个字符串。</p>
+<p>与许多其他编程语言不同，C 没有 <strong>String 类型</strong> 来轻松创建字符串变量。但是，您可以使用 <code>char</code> 类型并创建一个字符 <a href="c_arrays.html">array</a> 以在 C 中创建一个字符串：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> greetings<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="char greetings[] = &#x22;Hello World!&#x22;;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>请注意，您必须使用双引号。</p>
+<p>要输出字符串，您可以使用 <a href="./c_output.html"><code>printf()</code></a> 函数和格式说明符 <code>%s</code> 来告诉 C 我们现在正在处理字符串：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> greetings<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> greetings<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="char greetings[] = &#x22;Hello World!&#x22;;
+printf(&#x22;%s&#x22;, greetings);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="访问字符串"><a aria-hidden="true" tabindex="-1" href="#访问字符串" class="anchor"><span class="icon icon-link"></span></a>访问字符串</h2>
+<p>由于字符串实际上是 C 中的数组，因此您可以通过在方括号 <code>[]</code> 中引用其索引号来访问字符串。</p>
+<p>此示例打印 <strong>greetings</strong> 中的<strong>第一个字符 (0)</strong>：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> greetings<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span> greetings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="char greetings[] = &#x22;Hello World!&#x22;;
+printf(&#x22;%c&#x22;, greetings[0]);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>请注意，我们必须使用 <code>%c</code> 格式说明符来打印<strong>单个字符</strong>。</p>
+<h2 id="修改字符串"><a aria-hidden="true" tabindex="-1" href="#修改字符串" class="anchor"><span class="icon icon-link"></span></a>修改字符串</h2>
+<p>要更改字符串中特定字符的值，请参考索引号，并使用<strong>单引号</strong>：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> greetings<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">greetings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'J'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> greetings<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4"><span class="token comment">// 输出 "Jello World!" 而不是 "Hello World!"</span>
+</span></code><input type="hidden" value="char greetings[] = &#x22;Hello World!&#x22;;
+greetings[0] = &#x27;J&#x27;;
+printf(&#x22;%s&#x22;, greetings);
+// 输出 &#x22;Jello World!&#x22; 而不是 &#x22;Hello World!&#x22;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="另一种创建字符串的方法"><a aria-hidden="true" tabindex="-1" href="#另一种创建字符串的方法" class="anchor"><span class="icon icon-link"></span></a>另一种创建字符串的方法</h2>
+<p>在上面的示例中，我们使用 “字符串文字(string literal)” 来创建字符串变量。 这是在 C 中创建字符串的最简单方法。</p>
+<p>您还应该注意，您可以使用一组字符创建一个字符串。 此示例将产生与上述示例相同的结果：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> greetings<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token char">'H'</span><span class="token punctuation">,</span> <span class="token char">'e'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'o'</span><span class="token punctuation">,</span> <span class="token char">' '</span><span class="token punctuation">,</span> <span class="token char">'W'</span><span class="token punctuation">,</span> <span class="token char">'o'</span><span class="token punctuation">,</span> <span class="token char">'r'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'d'</span><span class="token punctuation">,</span> <span class="token char">'!'</span><span class="token punctuation">,</span> <span class="token char">'\0'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> greetings<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="char greetings[] = {&#x27;H&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;o&#x27;, &#x27; &#x27;, &#x27;W&#x27;, &#x27;o&#x27;, &#x27;r&#x27;, &#x27;l&#x27;, &#x27;d&#x27;, &#x27;!&#x27;, &#x27;\0&#x27;};
+printf(&#x22;%s&#x22;, greetings);
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p><strong>为什么我们在末尾包含 <code>\0</code> 字符？</strong> 这被称为 “空终止字符(null termininating character)”，在使用此方法创建字符串时必须包含。 它告诉 C 这是字符串的结尾。</p>
+<h2 id="差异"><a aria-hidden="true" tabindex="-1" href="#差异" class="anchor"><span class="icon icon-link"></span></a>差异</h2>
+<p>两种创建字符串的方法之间的区别在于，第一种方法更容易编写，并且您不必包含 <code>\0</code> 字符，因为 C 会为您完成。</p>
+<p>您应该注意，两个数组的大小是相同的：它们都有 <strong>13 个字符</strong>（顺便说一下，空格也算作一个字符），包括 <code>\0</code> 字符：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> greetings<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token char">'H'</span><span class="token punctuation">,</span> <span class="token char">'e'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'o'</span><span class="token punctuation">,</span> <span class="token char">' '</span><span class="token punctuation">,</span> <span class="token char">'W'</span><span class="token punctuation">,</span> <span class="token char">'o'</span><span class="token punctuation">,</span> <span class="token char">'r'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'d'</span><span class="token punctuation">,</span> <span class="token char">'!'</span><span class="token punctuation">,</span> <span class="token char">'\0'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">char</span> greetings2<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello World!"</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">
+</span><span class="code-line line-number" line="4"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lu\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>greetings<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 输出 13</span>
+</span><span class="code-line line-number" line="5"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lu\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>greetings2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 输出 13</span>
+</span></code><input type="hidden" value="char greetings[] = {&#x27;H&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;o&#x27;, &#x27; &#x27;, &#x27;W&#x27;, &#x27;o&#x27;, &#x27;r&#x27;, &#x27;l&#x27;, &#x27;d&#x27;, &#x27;!&#x27;, &#x27;\0&#x27;};
+char greetings2[] = &#x22;Hello World!&#x22;;
+
+printf(&#x22;%lu\n&#x22;, sizeof(greetings));   // 输出 13
+printf(&#x22;%lu\n&#x22;, sizeof(greetings2));  // 输出 13
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -187,7 +243,7 @@
       <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
     </svg>
     <span>
-      C Arrays
+      C 数组 Arrays
     </span>
   </a>
   
@@ -214,12 +270,40 @@
     <span>GitHub 上编辑此页</span>
   </a>
   
-  <span class="atime">2022/05/01</span>
+  <span class="atime">2022/05/02</span>
   
 </section>
 
   </markdown-style>
   
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#访问字符串" class="tocs-link">访问字符串</a>
+        
+      </li>
+    
+      <li>
+        <a href="#修改字符串" class="tocs-link">修改字符串</a>
+        
+      </li>
+    
+      <li>
+        <a href="#另一种创建字符串的方法" class="tocs-link">另一种创建字符串的方法</a>
+        
+      </li>
+    
+      <li>
+        <a href="#差异" class="tocs-link">差异</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
+</nav>
+
 </div>
 
 <script src="js/demo-preview.js?v=1.17.9"></script>

@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>开始使用 C C Tutorial </title>
+  <title>C 运算符 Operators C Tutorial </title>
   
-  <meta name="description" content="要开始使用 C，您需要做两件事：">
+  <meta name="description" content="运算符用于对变量和值执行操作。">
   
   
   <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.9">
@@ -57,7 +57,7 @@
   </article>
 </header>
 
-<div class="warpper-content warpper sidebar notocs">
+<div class="warpper-content warpper sidebar ">
   
 <div class="sidebar-border">
   <aside class="sidebar" role="navigation">
@@ -88,15 +88,15 @@
       
     
       
-        <a href="c_data_types.html" class="">C Data Types</a>
+        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
       
     
       
-        <a href="c_constants.html" class="">C Constants</a>
+        <a href="c_constants.html" class="">C 常量 Constants</a>
       
     
       
-        <a href="c_operators.html" class="active">C Operators</a>
+        <a href="c_operators.html" class="active">C 运算符 Operators</a>
       
     
       
@@ -108,23 +108,23 @@
       
     
       
-        <a href="c_while_loop.html" class="">C While Loop</a>
+        <a href="c_while_loop.html" class="">C While 循环</a>
       
     
       
-        <a href="c_for_loop.html" class="">C For Loop</a>
+        <a href="c_for_loop.html" class="">C For 循环</a>
       
     
       
-        <a href="c_break_continue.html" class="">C Break/Continue</a>
+        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
       
     
       
-        <a href="c_arrays.html" class="">C Arrays</a>
+        <a href="c_arrays.html" class="">C 数组 Arrays</a>
       
     
       
-        <a href="c_strings.html" class="">C Strings</a>
+        <a href="c_strings.html" class="">C 字符串 Strings</a>
       
     
       
@@ -132,43 +132,43 @@
       
     
       
-        <a href="c_memory_address.html" class="">C Memory Address</a>
+        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
       
     
       
-        <a href="c_pointers.html" class="">C Pointers</a>
+        <a href="c_pointers.html" class="">C 指针 Pointers</a>
       
     
       
-        <label>Functions</label>
+        <label>函数</label>
       
     
       
-        <a href="c_functions.html" class="">C Functions</a>
+        <a href="c_functions.html" class="">C 函数 Functions</a>
       
     
       
-        <a href="c_functions_parameters.html" class="">C Function Parameters</a>
+        <a href="c_functions_parameters.html" class="">C 函数参数</a>
       
     
       
-        <a href="c_functions_decl.html" class="">C Function Declaration</a>
+        <a href="c_functions_decl.html" class="">C 函数声明</a>
       
     
       
-        <a href="c_functions_recursion.html" class="">C Recursion</a>
+        <a href="c_functions_recursion.html" class="">C 递归</a>
       
     
       
-        <a href="c_math.html" class="">C Math Functions</a>
+        <a href="c_math.html" class="">C 数学函数</a>
       
     
       
-        <label>Structures</label>
+        <label>结构</label>
       
     
       
-        <a href="c_structs.html" class="">C Structures</a>
+        <a href="c_structs.html" class="">C 结构 Structures</a>
       
     
     </div>
@@ -176,7 +176,270 @@
 </div>
 
   <markdown-style>
-    
+    <h1 id="c-运算符-operators"><a aria-hidden="true" tabindex="-1" href="#c-运算符-operators" class="anchor"><span class="icon icon-link"></span></a>C 运算符 Operators</h1>
+<h2 id="运算符"><a aria-hidden="true" tabindex="-1" href="#运算符" class="anchor"><span class="icon icon-link"></span></a>运算符</h2>
+<p>运算符用于对变量和值执行操作。</p>
+<p>在下面的示例中，我们使用 <code>+</code> <strong>运算符</strong> 将两个值相加：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token number">50</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int myNum = 100 + 50;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>尽管 <code>+</code> 运算符经常用于将两个值相加，就像上面的示例一样，它也可以用于将一个变量和一个值相加，或者一个变量和另一个变量相加：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> sum1 <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token number">50</span><span class="token punctuation">;</span>        <span class="token comment">// 150 (100 + 50)</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">int</span> sum2 <span class="token operator">=</span> sum1 <span class="token operator">+</span> <span class="token number">250</span><span class="token punctuation">;</span>      <span class="token comment">// 400 (150 + 250)</span>
+</span><span class="code-line line-number" line="3"><span class="token keyword">int</span> sum3 <span class="token operator">=</span> sum2 <span class="token operator">+</span> sum2<span class="token punctuation">;</span>     <span class="token comment">// 800 (400 + 400)</span>
+</span></code><input type="hidden" value="int sum1 = 100 + 50;        // 150 (100 + 50)
+int sum2 = sum1 + 250;      // 400 (150 + 250)
+int sum3 = sum2 + sum2;     // 800 (400 + 400)
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>C 将运算符分为以下几组：</p>
+<ul>
+<li><a href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6">算术运算符</a> (Arithmetic operators)</li>
+<li><a href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">赋值运算符</a> (Assignment operators)</li>
+<li><a href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">比较运算符</a> (Comparison operators)</li>
+<li><a href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a> (Logical operators)</li>
+<li>位运算符 (Bitwise operators)</li>
+</ul>
+<h2 id="算术运算符"><a aria-hidden="true" tabindex="-1" href="#算术运算符" class="anchor"><span class="icon icon-link"></span></a>算术运算符</h2>
+<p>算术运算符用于执行常见的数学运算。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Operator</th><th>Name</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>+</td><td>加 Addition</td><td>将两个值相加</td><td>x + y</td></tr><tr><td>-</td><td>减 Subtraction</td><td>从另一个值中减去一个值</td><td>x - y</td></tr><tr><td>*</td><td>乘 Multiplication</td><td>将两个值相乘</td><td>x * y</td></tr><tr><td>/</td><td>除 Division</td><td>将一个值除以另一个</td><td>x / y</td></tr><tr><td>%</td><td>取模 Modulus</td><td>返回除法余数</td><td>x % y</td></tr><tr><td>++</td><td>增量 Increment</td><td>将变量的值增加 1</td><td>++x</td></tr><tr><td>--</td><td>乘量 Decrement</td><td>将变量的值减 1</td><td>--x</td></tr></tbody></table>
+<h2 id="赋值运算符"><a aria-hidden="true" tabindex="-1" href="#赋值运算符" class="anchor"><span class="icon icon-link"></span></a>赋值运算符</h2>
+<p>赋值运算符用于为变量赋值。</p>
+<p>在下面的示例中，我们使用 <strong>赋值</strong> 运算符 (<code>=</code>) 将值 <strong>10</strong> 分配给名为 <strong>x</strong> 的变量：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int x = 10;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p><strong>加法赋值</strong>运算符 (<code>+=</code>) 将值添加到变量：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">x <span class="token operator">+=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int x = 10;
+x += 5;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>所有赋值运算符的列表：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>符号</th><th>示例</th><th>如同</th></tr></thead><tbody><tr><td>=</td><td>x = 5</td><td>x = 5</td></tr><tr><td>+=</td><td>x += 3</td><td>x = x + 3</td></tr><tr><td>-=</td><td>x -= 3</td><td>x = x - 3</td></tr><tr><td>*=</td><td>x *= 3</td><td>x = x * 3</td></tr><tr><td>/=</td><td>x /= 3</td><td>x = x / 3</td></tr><tr><td>%=</td><td>x %= 3</td><td>x = x % 3</td></tr><tr><td>&#x26;=</td><td>x &#x26;= 3</td><td>x = x &#x26; 3</td></tr><tr><td>|=</td><td>x |= 3</td><td>x = x | 3</td></tr><tr><td>^=</td><td>x ^= 3</td><td>x = x ^ 3</td></tr><tr><td>>>=</td><td>x >>= 3</td><td>x = x >> 3</td></tr><tr><td>&#x3C;&#x3C;=</td><td>x &#x3C;&#x3C;= 3</td><td>x = x &#x3C;&#x3C; 3</td></tr></tbody></table>
+<h2 id="比较运算符"><a aria-hidden="true" tabindex="-1" href="#比较运算符" class="anchor"><span class="icon icon-link"></span></a>比较运算符</h2>
+<p>比较运算符用于比较两个值。</p>
+<p><strong>注意：</strong> 比较的返回值为 true (<code>1</code>) 或 false (<code>0</code>)。</p>
+<p>在以下示例中，我们使用 <strong>大于</strong> 运算符 (<code>></code>) 来确定 5 是否大于 3：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> x <span class="token operator">></span> y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 返回 1（真），因为 5 大于 3</span>
+</span></code><input type="hidden" value="int x = 5;
+int y = 3;
+printf(&#x22;%d&#x22;, x > y); // 返回 1（真），因为 5 大于 3
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>所有比较运算符的列表：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>符号</th><th>名称</th><th>示例</th></tr></thead><tbody><tr><td>==</td><td>等于</td><td>x == y</td></tr><tr><td>!=</td><td>不等于</td><td>x != y</td></tr><tr><td>></td><td>大于</td><td>x > y</td></tr><tr><td>&#x3C;</td><td>小于</td><td>x &#x3C; y</td></tr><tr><td>>=</td><td>大于或等于</td><td>x >= y</td></tr><tr><td>&#x3C;=</td><td>小于或等于</td><td>x &#x3C;= y</td></tr></tbody></table>
+<h2 id="逻辑运算符"><a aria-hidden="true" tabindex="-1" href="#逻辑运算符" class="anchor"><span class="icon icon-link"></span></a>逻辑运算符</h2>
+<p>逻辑运算符用于确定变量或值之间的逻辑：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>符号</th><th>名称</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td>&#x26;&#x26; </td><td>与逻辑</td><td>如果两个语句都为真，则返回真</td><td>x &#x3C; 5 &#x26;&#x26;  x &#x3C; 10</td></tr><tr><td>|| </td><td>或逻辑</td><td>如果其中一个语句为真，则返回真</td><td>x &#x3C; 5 || x &#x3C; 4</td></tr><tr><td>!</td><td>非逻辑</td><td>反转结果，如果结果为真则返回假</td><td>!(x &#x3C; 5 &#x26;&#x26; x &#x3C; 10)</td></tr></tbody></table>
+<h2 id="sizeof-运算符"><a aria-hidden="true" tabindex="-1" href="#sizeof-运算符" class="anchor"><span class="icon icon-link"></span></a>sizeof 运算符</h2>
+<p>可以使用 <code>sizeof</code> 运算符找到数据类型或变量的内存大小（以字节为单位）：</p>
+<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myInt<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword">float</span> myFloat<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"><span class="token keyword">double</span> myDouble<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4"><span class="token keyword">char</span> myChar<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">
+</span><span class="code-line line-number" line="6"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lu\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>myInt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lu\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>myFloat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lu\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>myDouble<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="9"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lu\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>myChar<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></code><input type="hidden" value="int myInt;
+float myFloat;
+double myDouble;
+char myChar;
+
+printf(&#x22;%lu\n&#x22;, sizeof(myInt));
+printf(&#x22;%lu\n&#x22;, sizeof(myFloat));
+printf(&#x22;%lu\n&#x22;, sizeof(myDouble));
+printf(&#x22;%lu\n&#x22;, sizeof(myChar));
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -187,7 +450,7 @@
       <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
     </svg>
     <span>
-      C Constants
+      C 常量 Constants
     </span>
   </a>
   
@@ -214,12 +477,50 @@
     <span>GitHub 上编辑此页</span>
   </a>
   
-  <span class="atime">2022/05/01</span>
+  <span class="atime">2022/05/02</span>
   
 </section>
 
   </markdown-style>
   
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#运算符" class="tocs-link">运算符</a>
+        
+      </li>
+    
+      <li>
+        <a href="#算术运算符" class="tocs-link">算术运算符</a>
+        
+      </li>
+    
+      <li>
+        <a href="#赋值运算符" class="tocs-link">赋值运算符</a>
+        
+      </li>
+    
+      <li>
+        <a href="#比较运算符" class="tocs-link">比较运算符</a>
+        
+      </li>
+    
+      <li>
+        <a href="#逻辑运算符" class="tocs-link">逻辑运算符</a>
+        
+      </li>
+    
+      <li>
+        <a href="#sizeof-运算符" class="tocs-link">sizeof 运算符</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
+</nav>
+
 </div>
 
 <script src="js/demo-preview.js?v=1.17.9"></script>
