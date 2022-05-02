@@ -16,6 +16,7 @@
 - c_for_loop.md: C For 循环
 - c_break_continue.md: C 跳出循环 Break/Continue
 - c_arrays.md: C 数组 Arrays
+- c_enum.md: C 枚举 Enum
 - c_strings.md: C 字符串 Strings
 - c_user_input.md: C 用户输入 User Input
 - c_memory_address.md: C 内存地址 Memory Address

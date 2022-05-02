@@ -43,6 +43,7 @@ C 和 C++ 的主要区别在于 C++ 支持类和对象，而 C 不支持
 - [C For 循环](docs/c_for_loop.md)
 - [C 跳出循环 Break/Continue](docs/c_break_continue.md)
 - [C 数组 Arrays](docs/c_arrays.md)
+- [C 枚举 Enum](docs/c_enum.md)
 - [C 字符串 Strings](docs/c_strings.md)
 - [C 用户输入 User Input](docs/c_user_input.md)
 - [C 内存地址 Memory Address](docs/c_memory_address.md)
