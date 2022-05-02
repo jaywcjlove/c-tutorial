@@ -3,7 +3,10 @@ logo: ./logo.svg
 favicon: ./logo.svg
 
 menus:
-  Home: index.html
+  首页: index.html
+  官方文档: 
+    url: https://zh.cppreference.com/w/c
+    target: __blank
 
 editButton: 
   label: GitHub 上编辑此页

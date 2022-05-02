@@ -39,7 +39,7 @@ C 和 C++ 的主要区别在于 C++ 支持类和对象，而 C 不支持
 - [C 运算符 Operators](docs/c_operators.md)
 - [C If...Else](docs/c_conditions.md)
 - [C Switch](docs/c_switch.md)
-- [C C While 循环](docs/c_while_loop.md)
+- [C While 循环](docs/c_while_loop.md)
 - [C For 循环](docs/c_for_loop.md)
 - [C 跳出循环 Break/Continue](docs/c_break_continue.md)
 - [C 数组 Arrays](docs/c_arrays.md)
