@@ -48,12 +48,14 @@ C 和 C++ 的主要区别在于 C++ 支持类和对象，而 C 不支持
 - [C 用户输入 User Input](docs/c_user_input.md)
 - [C 内存地址 Memory Address](docs/c_memory_address.md)
 - [C 指针 Pointers](docs/c_pointers.md)
+- [C 预处理器](docs/c_preprocessors.md)
 - [C 函数 Functions](docs/c_functions.md)
 - [C 函数参数](docs/c_functions_parameters.md)
 - [C 函数声明](docs/c_functions_decl.md)
 - [C 递归](docs/c_functions_recursion.md)
 - [C 数学函数](docs/c_math.md)
 - [C 结构](docs/c_structs.md)
+- [C 关键字 Keywords](docs/c_keywords.md)
 
 <!--idoc:ignore:end-->
 
