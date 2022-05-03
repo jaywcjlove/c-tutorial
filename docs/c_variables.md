@@ -61,7 +61,7 @@ printf("Hello World!");
 
 ```c
 int myNum = 15;
-printf(myNum);  // 没发生什么事
+printf(myNum);  // 没发生什么事
 ```
 <!--rehype:style= background: #ff000036;-->
 
@@ -77,16 +77,16 @@ printf(myNum);  // 没发生什么事
 
 ```c
 int myNum = 15;
-printf("%d", myNum);  // 输出 15
+printf("%d", myNum);  // 输出 15
 ```
 
 要打印其他类型，请使用 `%c` 表示 `char` 和 `%f` 表示 `float`：
 
 ```c
 // 创建变量
-int myNum = 5;             // 整数 Integer (whole number)
-float myFloatNum = 5.99;   // 浮点数 Floating point number
-char myLetter = 'D';       // 字符串 Character
+int myNum = 5;             // 整数 Integer (whole number)
+float myFloatNum = 5.99;   // 浮点数 Floating point number
+char myLetter = 'D';       // 字符串 Character
 
 // 打印变量
 printf("%d\n", myNum);

@@ -29,7 +29,7 @@ C 有以下条件语句：
 
 ```c
 if (条件) {
-  // 条件为真(true)时执行的代码块
+  // 条件为真(true)时执行的代码块
 }
 ```
 
@@ -56,7 +56,7 @@ if (条件) {
 
 ```c
 if (20 > 18) {
-  printf("20 大于 18");
+  printf("20 大于 18");
 }
 ```
 
@@ -66,7 +66,7 @@ if (20 > 18) {
 int x = 20;
 int y = 18;
 if (x > y) {
-  printf("x 大于 y");
+  printf("x 大于 y");
 }
 ```
 
@@ -106,9 +106,9 @@ if (条件) {
 ```c
 int time = 20;
 if (time < 18) {
-  printf("再会！");
+  printf("再会！");
 } else {
-  printf("晚上好！");
+  printf("晚上好！");
 }
 // 输出 -> "晚上好！"
 ```
@@ -125,22 +125,22 @@ if (time < 18) {
 
 ```c
 if (条件1) {
-  // 如果 条件 1 为真(true)，则要执行的代码块
+  // 如果 条件 1 为真(true)，则要执行的代码块
 } else if (条件2) {
-  // 如果 条件 1 为假(false)且 条件 2 为真(true)，则要执行的代码块
+  // 如果 条件 1 为假(false)且 条件 2 为真(true)，则要执行的代码块
 } else {
-  // 如果 条件 1 为假(false)且 条件 2 为假(false)，则要执行的代码块
+  // 如果 条件 1 为假(false)且 条件 2 为假(false)，则要执行的代码块
 }
 ```
 
 ```c
 int time = 22;
 if (time < 10) {
-  printf("早上好！");
+  printf("早上好！");
 } else if (time < 20) {
-  printf("再会！");
+  printf("再会！");
 } else {
-  printf("晚上好！");
+  printf("晚上好！");
 }
 // 输出 -> "晚上好！"
 ```
@@ -159,11 +159,11 @@ if (time < 10) {
 int myNum = 10; // Is this a positive or negative number?
 
 if (myNum > 0)
-  printf("该值为正数。");
+  printf("该值为正数。");
 else if (myNum < 0)
-  printf("该值为负数。");
+  printf("该值为负数。");
 else
-  printf("值为 0。");
+  printf("值为 0。");
 ```
 
 ## 三元运算符

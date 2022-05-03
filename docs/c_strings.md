@@ -67,6 +67,6 @@ printf("%s", greetings);
 char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0'};
 char greetings2[] = "Hello World!";
 
-printf("%lu\n", sizeof(greetings));   // 输出 13
-printf("%lu\n", sizeof(greetings2));  // 输出 13
+printf("%lu\n", sizeof(greetings));   // 输出 13
+printf("%lu\n", sizeof(greetings2));  // 输出 13
 ```

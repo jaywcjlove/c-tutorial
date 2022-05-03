@@ -8,12 +8,12 @@ C 函数声明和定义
 ```c
 // 创建函数
 void myFunction() {
-  printf("晚上好！");
+  printf("晚上好！");
 }
 
 int main() {
-  myFunction(); // 调用函数
-  return 0;
+  myFunction(); // 调用函数
+  return 0;
 }
 ```
 
@@ -24,7 +24,7 @@ int main() {
 
 ```c
 void myFunction() { // 声明 declaration
-  // 函数体（要执行的代码）(definition)
+  // 函数体（要执行的代码）(definition)
 }
 ```
 
@@ -40,13 +40,13 @@ void myFunction();
 
 // 主要方法
 int main() {
-  myFunction();  // 调用函数
-  return 0;
+  myFunction();  // 调用函数
+  return 0;
 }
 
 // 函数定义
 void myFunction() {
-  printf("晚上好！");
+  printf("晚上好！");
 }
 ```
 
@@ -56,14 +56,14 @@ void myFunction() {
 
 ```c
 int myFunction(int x, int y) {
-  return x + y;
+  return x + y;
 }
 
 int main() {
-  int result = myFunction(5, 3);
-  printf("Result is = %d", result);
+  int result = myFunction(5, 3);
+  printf("Result is = %d", result);
 
-  return 0;
+  return 0;
 }
 // 输出 8 (5 + 3)
 ```
@@ -76,14 +76,14 @@ int myFunction(int, int);
 
 // 主要方法
 int main() {
-  int result = myFunction(5, 3); // 调用函数
-  printf("Result is = %d", result);
+  int result = myFunction(5, 3); // 调用函数
+  printf("Result is = %d", result);
 
-  return 0;
+  return 0;
 }
 
 // 函数定义
 int myFunction(int x, int y) {
-  return x + y;
+  return x + y;
 }
 ```

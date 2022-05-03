@@ -8,9 +8,9 @@ C 数据类型 Data Types
 
 ```c
 // 创建变量
-int myNum = 5;             // 整数
-float myFloatNum = 5.99;   // 浮点数
-char myLetter = 'D';       // 字符串
+int myNum = 5;             // 整数
+float myFloatNum = 5.99;   // 浮点数
+char myLetter = 'D';       // 字符串
 
 // 打印输出变量
 printf("%d\n", myNum);

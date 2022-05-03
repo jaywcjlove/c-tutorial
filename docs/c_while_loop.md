@@ -15,7 +15,7 @@ C While 循环
 
 ```c
 while (条件) {
-  // 要执行的代码块
+  // 要执行的代码块
 }
 ```
 
@@ -25,8 +25,8 @@ while (条件) {
 int i = 0;
 
 while (i < 5) {
-  printf("%d\n", i);
-  i++;
+  printf("%d\n", i);
+  i++;
 }
 ```
 
@@ -40,7 +40,7 @@ while (i < 5) {
 
 ```c
 do {
-  // 要执行的代码块
+  // 要执行的代码块
 } while (条件);
 ```
 
@@ -50,8 +50,8 @@ do {
 int i = 0;
 
 do {
-  printf("%d\n", i);
-  i++;
+  printf("%d\n", i);
+  i++;
 } while (i < 5);
 ```
 
