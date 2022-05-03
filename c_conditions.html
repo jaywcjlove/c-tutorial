@@ -219,10 +219,10 @@
 <p>使用 <code>if</code> 语句指定在条件为 <code>true</code> 时要执行的 C 代码块。</p>
 <h3 id="语法"><a aria-hidden="true" tabindex="-1" href="#语法" class="anchor"><span class="icon icon-link"></span></a>语法</h3>
 <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">if</span> <span class="token punctuation">(</span>条件<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="2">  <span class="token comment">// 条件为真(true)时执行的代码块</span>
+</span><span class="code-line line-number" line="2">  <span class="token comment">// 条件为真(true)时执行的代码块</span>
 </span><span class="code-line line-number" line="3"><span class="token punctuation">}</span>
 </span></code><input type="hidden" value="if (条件) {
-  // 条件为真(true)时执行的代码块
+  // 条件为真(true)时执行的代码块
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>其执行过程可表示为下图：</p>
@@ -252,22 +252,22 @@
 <p>请注意，<code>if</code> 是小写字母。 大写字母（If 或 IF）会产生错误。</p>
 <p>在下面的示例中，我们测试两个值来确定 20 是否大于 18。如果条件为 <code>true</code>，则打印一些文本：</p>
 <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">20</span> <span class="token operator">></span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="2">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"20 大于 18"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"20 大于 18"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="3"><span class="token punctuation">}</span>
 </span></code><input type="hidden" value="if (20 > 18) {
-  printf(&#x22;20 大于 18&#x22;);
+  printf(&#x22;20 大于 18&#x22;);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>我们还可以测试变量：</p>
 <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="3"><span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="4">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"x 大于 y"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"x 大于 y"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="5"><span class="token punctuation">}</span>
 </span></code><input type="hidden" value="int x = 20;
 int y = 18;
 if (x > y) {
-  printf(&#x22;x 大于 y&#x22;);
+  printf(&#x22;x 大于 y&#x22;);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p><strong>示例说明</strong></p>
@@ -310,16 +310,16 @@ if (x > y) {
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> time <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">if</span> <span class="token punctuation">(</span>time <span class="token operator">&#x3C;</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="3">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"再会！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"再会！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4"><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="5">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"晚上好！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"晚上好！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="6"><span class="token punctuation">}</span>
 </span><span class="code-line line-number" line="7"><span class="token comment">// 输出 -> "晚上好！"</span>
 </span></code><input type="hidden" value="int time = 20;
 if (time < 18) {
-  printf(&#x22;再会！&#x22;);
+  printf(&#x22;再会！&#x22;);
 } else {
-  printf(&#x22;晚上好！&#x22;);
+  printf(&#x22;晚上好！&#x22;);
 }
 // 输出 -> &#x22;晚上好！&#x22;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
@@ -329,36 +329,36 @@ if (time < 18) {
 <p>如果第一个条件为 <code>false</code>，则使用 <code>else if</code> 语句指定新条件。</p>
 <h3 id="语法-2"><a aria-hidden="true" tabindex="-1" href="#语法-2" class="anchor"><span class="icon icon-link"></span></a>语法</h3>
 <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">if</span> <span class="token punctuation">(</span>条件<span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="2">  <span class="token comment">// 如果 条件 1 为真(true)，则要执行的代码块</span>
+</span><span class="code-line line-number" line="2">  <span class="token comment">// 如果 条件 1 为真(true)，则要执行的代码块</span>
 </span><span class="code-line line-number" line="3"><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>条件<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="4">  <span class="token comment">// 如果 条件 1 为假(false)且 条件 2 为真(true)，则要执行的代码块</span>
+</span><span class="code-line line-number" line="4">  <span class="token comment">// 如果 条件 1 为假(false)且 条件 2 为真(true)，则要执行的代码块</span>
 </span><span class="code-line line-number" line="5"><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="6">  <span class="token comment">// 如果 条件 1 为假(false)且 条件 2 为假(false)，则要执行的代码块</span>
+</span><span class="code-line line-number" line="6">  <span class="token comment">// 如果 条件 1 为假(false)且 条件 2 为假(false)，则要执行的代码块</span>
 </span><span class="code-line line-number" line="7"><span class="token punctuation">}</span>
 </span></code><input type="hidden" value="if (条件1) {
-  // 如果 条件 1 为真(true)，则要执行的代码块
+  // 如果 条件 1 为真(true)，则要执行的代码块
 } else if (条件2) {
-  // 如果 条件 1 为假(false)且 条件 2 为真(true)，则要执行的代码块
+  // 如果 条件 1 为假(false)且 条件 2 为真(true)，则要执行的代码块
 } else {
-  // 如果 条件 1 为假(false)且 条件 2 为假(false)，则要执行的代码块
+  // 如果 条件 1 为假(false)且 条件 2 为假(false)，则要执行的代码块
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> time <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">if</span> <span class="token punctuation">(</span>time <span class="token operator">&#x3C;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="3">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"早上好！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"早上好！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4"><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>time <span class="token operator">&#x3C;</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="5">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"再会！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="5">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"再会！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="6"><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="7">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"晚上好！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="7">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"晚上好！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="8"><span class="token punctuation">}</span>
 </span><span class="code-line line-number" line="9"><span class="token comment">// 输出 -> "晚上好！"</span>
 </span></code><input type="hidden" value="int time = 22;
 if (time < 10) {
-  printf(&#x22;早上好！&#x22;);
+  printf(&#x22;早上好！&#x22;);
 } else if (time < 20) {
-  printf(&#x22;再会！&#x22;);
+  printf(&#x22;再会！&#x22;);
 } else {
-  printf(&#x22;晚上好！&#x22;);
+  printf(&#x22;晚上好！&#x22;);
 }
 // 输出 -> &#x22;晚上好！&#x22;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
@@ -370,19 +370,19 @@ if (time < 10) {
 <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// Is this a positive or negative number?</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3"><span class="token keyword">if</span> <span class="token punctuation">(</span>myNum <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
-</span><span class="code-line line-number" line="4">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"该值为正数。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="4">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"该值为正数。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="5"><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>myNum <span class="token operator">&#x3C;</span> <span class="token number">0</span><span class="token punctuation">)</span>
-</span><span class="code-line line-number" line="6">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"该值为负数。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="6">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"该值为负数。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="7"><span class="token keyword">else</span>
-</span><span class="code-line line-number" line="8">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"值为 0。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="8">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"值为 0。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></code><input type="hidden" value="int myNum = 10; // Is this a positive or negative number?
 
 if (myNum > 0)
-  printf(&#x22;该值为正数。&#x22;);
+  printf(&#x22;该值为正数。&#x22;);
 else if (myNum < 0)
-  printf(&#x22;该值为负数。&#x22;);
+  printf(&#x22;该值为负数。&#x22;);
 else
-  printf(&#x22;值为 0。&#x22;);
+  printf(&#x22;值为 0。&#x22;);
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="三元运算符"><a aria-hidden="true" tabindex="-1" href="#三元运算符" class="anchor"><span class="icon icon-link"></span></a>三元运算符</h2>
 <p>还有一个简写 <code>if else</code>，它被称为三元运算符，因为它由三个操作数组成。它可用于用单行替换多行代码。它通常用于替换简单的 <code>if else</code> 语句：</p>
@@ -447,7 +447,7 @@ if (time < 18) {
     <span>GitHub 上编辑此页</span>
   </a>
   
-  <span class="atime">2022/05/02</span>
+  <span class="atime">2022/05/03</span>
   
 </section>
 
