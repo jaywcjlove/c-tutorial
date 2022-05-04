@@ -7,11 +7,25 @@ C 语言是一种功能强大、简洁的计算机语言，通过它可以编写
 
 ## 什么是 C？
 
-C 是 Dennis Ritchie (丹尼斯·里奇) 和 Brian Kernighan (布莱恩·柯林汉) 于 1972 年在贝尔实验室创建的通用编程语言。
+C 是 Dennis Ritchie (丹尼斯·里奇) 和 Brian Kernighan (布莱恩·柯林汉) 于 1972 年在贝尔实验室创建的通用编程语言，Dennis Ritchie 被称为 C 语言的创始人。
 
 这是一种非常流行的语言，尽管它很古老。
 
-C 与 UNIX 密切相关，因为它是为编写 UNIX 操作系统而开发的。
+C 与 UNIX 密切相关，因为最初，C 语言被开发用于 UNIX 操作系统。它继承了以前语言如 B 和 BCPL 的许多特性。
+
+让我们看看在 C 语言之前开发的编程语言。
+
+Language | Year | Developed By
+---- | ---- | ----
+Algol | 1960 | International Group
+BCPL | 1967 | Martin Richard
+B | 1970 | Ken Thompson
+Traditional C | 1972 | Dennis Ritchie
+K & R C | 1978 | Kernighan & Dennis Ritchie
+ANSI C | 1989 | ANSI Committee
+ANSI/ISO C | 1990 | ISO Committee
+C99 | 1999 | Standardization Committee
+<!--rehype:style=width: 100%; display: inline-table;-->
 
 ## 为什么要学习 C？
 
