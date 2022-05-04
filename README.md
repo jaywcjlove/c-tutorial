@@ -69,6 +69,7 @@ C 和 C++ 的主要区别在于 C++ 支持类和对象，而 C 不支持
 - [C 递归](docs/c_functions_recursion.md)
 - [C 数学函数](docs/c_math.md)
 - [C 结构](docs/c_structs.md)
+- [C 中文件处理](docs/c_file_io.md)
 - [C 关键字 Keywords](docs/c_keywords.md)
 
 <!--idoc:ignore:end-->

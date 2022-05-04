@@ -37,6 +37,9 @@
 - /: 结构
 - c_structs.md: C 结构 Structures
 
+- /: 文件处理
+- c_file_io.md: C 文件处理
+
 - /: 参考
 - c_keywords.md: C 关键字 Keywords
 

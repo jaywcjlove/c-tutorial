@@ -21,3 +21,4 @@ unsigned | 声明无符号类型变量或函数  | [break](./c_break_continue.md
 signed | 声明有符号类型变量或函数  | default | 开关语句中的“其他”分支 
 extern | 声明变量是在其他文件正声明  | sizeof | 计算数据类型长度 
 register | 声明寄存器变量  | return | 子程序返回语句(可以带参数，也可不带参数)循环条件 
+<!--rehype:style=width: 100%; display: inline-table;-->
