@@ -1,347 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C 中文件处理 C Tutorial </title>
-  
-  <meta name="description" content="在编程中，我们可能需要多次生成某些特定的输入数据。有时，仅在控制台上显示数据是不够的。要显示的数据可能非常大，在控制台上只能显示有限的数据，而且由于内存是容易丢失的，不可能一次又一次地恢复程序生成的数据。 但是，如果我们需要这样做，我们可以">
-  
-  
-  <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/media.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.17.11">
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C 中文件处理 C Tutorial</title>
+    <meta name="description" content="在编程中，我们可能需要多次生成某些特定的输入数据。有时，仅在控制台上显示数据是不够的。要显示的数据可能非常大，在控制台上只能显示有限的数据，而且由于内存是容易丢失的，不可能一次又一次地恢复程序生成的数据。 但是，如果我们需要这样做，我们可以">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/media.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.21.1">
     <link rel="icon" href="logo.svg" type="image/x-icon">
-  
-  <script src="js/copy.js?v=1.17.11"></script>
-  <script src="js/dark-mode.js?v=1.17.11"></script>
-  <script src="js/markdown-style.js?v=1.17.11"></script>
-</head>
-<body id="idoctotop">
-  <a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-  <article class="inner warpper">
-    <a class="logo" href="index.html">
-      
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
-  <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"/>
-  <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"/>
-  <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"/>
-  <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"/>
-</svg>
-      
-      <span class="title">C Tutorial</span>
-    </a>
-    <div class="content">
-      <ul class="menu">
-        
-        <li>
-          <a href="index.html" target="" class=""> 首页 </a>
-        </li>
-        
-        <li>
-          <a href="https://zh.cppreference.com/w/c" target="__blank" class=""> 官方文档 </a>
-        </li>
-        
-      </ul>
-      
-        <a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    <script src="js/copy.js?v=1.21.1"></script>
+    <script src="js/dark-mode.js?v=1.21.1"></script>
+    <script src="js/markdown-style.js?v=1.21.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
+            <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"></path>
+            <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"></path>
+            <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"></path>
+            <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"></path>
           </svg>
-        </a>
-      
-      <dark-mode permanent></dark-mode>
-    </div>
-  </article>
-</header>
-
-<div class="warpper-content warpper sidebar ">
-  
-<div class="sidebar-border">
-  <aside class="sidebar" role="navigation">
-    <div>
-    
-      
-        <label>Tutorial</label>
-      
-    
-      
-        <a href="c_getstarted.html" class="">C 开始 Get Started</a>
-      
-    
-      
-        <a href="c_syntax.html" class="">C 语法 Syntax</a>
-      
-    
-      
-        <a href="c_output.html" class="">C 输出(打印文本) Output</a>
-      
-    
-      
-        <a href="c_comments.html" class="">C 注释 Comments</a>
-      
-    
-      
-        <a href="c_variables.html" class="">C 变量 Variables</a>
-      
-    
-      
-        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
-      
-    
-      
-        <a href="c_constants.html" class="">C 常量 Constants</a>
-      
-    
-      
-        <a href="c_operators.html" class="">C 运算符 Operators</a>
-      
-    
-      
-        <a href="c_conditions.html" class="">C If...Else</a>
-      
-    
-      
-        <a href="c_switch.html" class="">C Switch</a>
-      
-    
-      
-        <a href="c_while_loop.html" class="">C While 循环</a>
-      
-    
-      
-        <a href="c_for_loop.html" class="">C For 循环</a>
-      
-    
-      
-        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
-      
-    
-      
-        <a href="c_arrays.html" class="">C 数组 Arrays</a>
-      
-    
-      
-        <a href="c_enum.html" class="">C 枚举 Enum</a>
-      
-    
-      
-        <a href="c_strings.html" class="">C 字符串 Strings</a>
-      
-    
-      
-        <a href="c_user_input.html" class="">C 用户输入 User Input</a>
-      
-    
-      
-        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
-      
-    
-      
-        <a href="c_pointers.html" class="">C 指针 Pointers</a>
-      
-    
-      
-        <a href="c_preprocessors.html" class="">C 预处理器</a>
-      
-    
-      
-        <label>函数</label>
-      
-    
-      
-        <a href="c_functions.html" class="">C 函数 Functions</a>
-      
-    
-      
-        <a href="c_functions_parameters.html" class="">C 函数参数</a>
-      
-    
-      
-        <a href="c_functions_decl.html" class="">C 函数声明</a>
-      
-    
-      
-        <a href="c_functions_recursion.html" class="">C 递归</a>
-      
-    
-      
-        <a href="c_math.html" class="">C 数学函数</a>
-      
-    
-      
-        <label>结构</label>
-      
-    
-      
-        <a href="c_structs.html" class="">C 结构 Structures</a>
-      
-    
-      
-        <label>文件处理</label>
-      
-    
-      
-        <a href="c_file_io.html" class="active">C 文件处理</a>
-      
-    
-      
-        <label>参考</label>
-      
-    
-      
-        <a href="c_keywords.html" class="">C 关键字 Keywords</a>
-      
-    
-    </div>
-  </aside>
-</div>
-
-  <markdown-style>
-    <h1 id="c-中文件处理"><a aria-hidden="true" tabindex="-1" href="#c-中文件处理" class="anchor"><span class="icon icon-link"></span></a>C 中文件处理</h1>
-<p>在编程中，我们可能需要多次生成某些特定的输入数据。有时，仅在控制台上显示数据是不够的。要显示的数据可能非常大，在控制台上只能显示有限的数据，而且由于内存是容易丢失的，不可能一次又一次地恢复程序生成的数据。 但是，如果我们需要这样做，我们可以将其存储到本地文件系统中，该文件系统是易失的，并且每次都可以访问。 在这里，需要在 C 中处理文件。</p>
-<p>C 中的文件处理使我们能够通过我们的 C 程序创建、更新、读取和删除存储在本地文件系统中的文件。 可以对文件执行以下操作。</p>
-<ul>
-<li>创建新文件</li>
-<li>打开现有文件</li>
-<li>从文件中读取</li>
-<li>写入文件</li>
-<li>删除文件</li>
-</ul>
-<h2 id="文件处理函数"><a aria-hidden="true" tabindex="-1" href="#文件处理函数" class="anchor"><span class="icon icon-link"></span></a>文件处理函数</h2>
-<p>C 库中有许多函数可以打开、读取、写入、搜索和关闭文件。 文件函数列表如下：</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table style="width: 100%; display: inline-table;"><thead><tr><th>函数</th><th>描述 Description</th></tr></thead><tbody><tr><td>fopen()</td><td>打开新文件或现有文件</td></tr><tr><td>fprintf()</td><td>将数据写入文件</td></tr><tr><td>fscanf()</td><td>从文件中读取数据</td></tr><tr><td>fputc()</td><td>将一个字符写入文件</td></tr><tr><td>fgetc()</td><td>从文件中读取一个字符</td></tr><tr><td>fclose()</td><td>关闭文件</td></tr><tr><td>fseek()</td><td>将文件指针设置到给定位置</td></tr><tr><td>fputw()</td><td>将整数写入文件</td></tr><tr><td>fgetw()</td><td>从文件中读取一个整数</td></tr><tr><td>ftell()</td><td>返回当前位置</td></tr><tr><td>rewind()</td><td>将文件指针设置为文件的开头</td></tr></tbody></table>
-<!--rehype:style=width: 100%; display: inline-table;-->
-<h2 id="打开文件fopen"><a aria-hidden="true" tabindex="-1" href="#打开文件fopen" class="anchor"><span class="icon icon-link"></span></a>打开文件：fopen()</h2>
-<p>我们必须先打开一个文件，然后它才能被读取、写入或更新。<code>fopen()</code> 函数用于打开文件。<code>fopen()</code> 的语法如下所示：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1">FILE <span class="token operator">*</span><span class="token function">fopen</span><span class="token punctuation">(</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> filename<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> mode <span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="title">C Tutorial</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="index.html" target="" class="">首页</a></li>
+            <li><a href="https://zh.cppreference.com/w/c" target="__blank" class="">官方文档</a></li>
+          </ul><a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <label>Tutorial</label>
+            <a href="c_getstarted.html" class="">C 开始 Get Started</a>
+            <a href="c_syntax.html" class="">C 语法 Syntax</a>
+            <a href="c_output.html" class="">C 输出(打印文本) Output</a>
+            <a href="c_comments.html" class="">C 注释 Comments</a>
+            <a href="c_variables.html" class="">C 变量 Variables</a>
+            <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
+            <a href="c_constants.html" class="">C 常量 Constants</a>
+            <a href="c_operators.html" class="">C 运算符 Operators</a>
+            <a href="c_conditions.html" class="">C If...Else</a>
+            <a href="c_switch.html" class="">C Switch</a>
+            <a href="c_while_loop.html" class="">C While 循环</a>
+            <a href="c_for_loop.html" class="">C For 循环</a>
+            <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
+            <a href="c_arrays.html" class="">C 数组 Arrays</a>
+            <a href="c_enum.html" class="">C 枚举 Enum</a>
+            <a href="c_strings.html" class="">C 字符串 Strings</a>
+            <a href="c_user_input.html" class="">C 用户输入 User Input</a>
+            <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
+            <a href="c_pointers.html" class="">C 指针 Pointers</a>
+            <a href="c_preprocessors.html" class="">C 预处理器</a>
+            <label>函数</label>
+            <a href="c_functions.html" class="">C 函数 Functions</a>
+            <a href="c_functions_parameters.html" class="">C 函数参数</a>
+            <a href="c_functions_decl.html" class="">C 函数声明</a>
+            <a href="c_functions_recursion.html" class="">C 递归</a>
+            <a href="c_math.html" class="">C 数学函数</a>
+            <label>结构</label>
+            <a href="c_structs.html" class="">C 结构 Structures</a>
+            <label>文件处理</label>
+            <a href="c_file_io.html" class="active">C 文件处理</a>
+            <label>参考</label>
+            <a href="c_keywords.html" class="">C 关键字 Keywords</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="c-中文件处理"><a aria-hidden="true" tabindex="-1" href="#c-中文件处理" class="anchor"><span class="icon icon-link"></span></a>C 中文件处理</h1>
+        <p>在编程中，我们可能需要多次生成某些特定的输入数据。有时，仅在控制台上显示数据是不够的。要显示的数据可能非常大，在控制台上只能显示有限的数据，而且由于内存是容易丢失的，不可能一次又一次地恢复程序生成的数据。 但是，如果我们需要这样做，我们可以将其存储到本地文件系统中，该文件系统是易失的，并且每次都可以访问。 在这里，需要在 C 中处理文件。</p>
+        <p>C 中的文件处理使我们能够通过我们的 C 程序创建、更新、读取和删除存储在本地文件系统中的文件。 可以对文件执行以下操作。</p>
+        <ul>
+          <li>创建新文件</li>
+          <li>打开现有文件</li>
+          <li>从文件中读取</li>
+          <li>写入文件</li>
+          <li>删除文件</li>
+        </ul>
+        <h2 id="文件处理函数"><a aria-hidden="true" tabindex="-1" href="#文件处理函数" class="anchor"><span class="icon icon-link"></span></a>文件处理函数</h2>
+        <p>C 库中有许多函数可以打开、读取、写入、搜索和关闭文件。 文件函数列表如下：</p>
+        <table style="width: 100%; display: inline-table;">
+          <thead>
+            <tr>
+              <th>函数</th>
+              <th>描述 Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>fopen()</td>
+              <td>打开新文件或现有文件</td>
+            </tr>
+            <tr>
+              <td>fprintf()</td>
+              <td>将数据写入文件</td>
+            </tr>
+            <tr>
+              <td>fscanf()</td>
+              <td>从文件中读取数据</td>
+            </tr>
+            <tr>
+              <td>fputc()</td>
+              <td>将一个字符写入文件</td>
+            </tr>
+            <tr>
+              <td>fgetc()</td>
+              <td>从文件中读取一个字符</td>
+            </tr>
+            <tr>
+              <td>fclose()</td>
+              <td>关闭文件</td>
+            </tr>
+            <tr>
+              <td>fseek()</td>
+              <td>将文件指针设置到给定位置</td>
+            </tr>
+            <tr>
+              <td>fputw()</td>
+              <td>将整数写入文件</td>
+            </tr>
+            <tr>
+              <td>fgetw()</td>
+              <td>从文件中读取一个整数</td>
+            </tr>
+            <tr>
+              <td>ftell()</td>
+              <td>返回当前位置</td>
+            </tr>
+            <tr>
+              <td>rewind()</td>
+              <td>将文件指针设置为文件的开头</td>
+            </tr>
+          </tbody>
+        </table><!--rehype:style=width: 100%; display: inline-table;-->
+        <h2 id="打开文件fopen"><a aria-hidden="true" tabindex="-1" href="#打开文件fopen" class="anchor"><span class="icon icon-link"></span></a>打开文件：fopen()</h2>
+        <p>我们必须先打开一个文件，然后它才能被读取、写入或更新。<code>fopen()</code> 函数用于打开文件。<code>fopen()</code> 的语法如下所示：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1">FILE <span class="token operator">*</span><span class="token function">fopen</span><span class="token punctuation">(</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> filename<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> mode <span class="token punctuation">)</span><span class="token punctuation">;</span>  
 </span></code><input type="hidden" value="FILE *fopen( const char * filename, const char * mode );  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>fopen() 函数接受两个参数：</p>
-<ul>
-<li>文件名（字符串）。 如果文件存储在某个特定位置，那么我们必须提及文件存储的路径。例如，文件名可以像“/some_folder/some_file.ext”。</li>
-<li>打开文件的模式。 它是一个字符串。</li>
-</ul>
-<p>我们可以在 fopen() 函数中使用以下模式之一。</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th>模式 Mode</th><th>描述 Description</th></tr></thead><tbody><tr><td>r</td><td>以读取模式打开一个文本文件，允许读取文件。</td></tr><tr><td>w</td><td>以写模式打开一个文本文件，允许写入文件。</td></tr><tr><td>a</td><td>以追加模式打开一个文本文件，如果文件不存在，则会创建一个新文件。</td></tr><tr><td>r+</td><td>以读写模式打开一个文本文件，允许读写文件。</td></tr><tr><td>w+</td><td>以读写模式打开一个文本文件，允许读写文件。</td></tr><tr><td>a+</td><td>以读写模式打开一个文本文件，允许读写文件。</td></tr><tr><td>rb</td><td>以读取模式打开二进制文件</td></tr><tr><td>wb</td><td>以写入模式打开二进制文件</td></tr><tr><td>ab</td><td>以追加模式打开二进制文件</td></tr><tr><td>rb+</td><td>以读写模式打开二进制文件</td></tr><tr><td>wb+</td><td>以读写模式打开二进制文件</td></tr><tr><td>ab+</td><td>以读写模式打开二进制文件</td></tr></tbody></table>
-<!--rehype:style=width: 100%; display: inline-table;-->
-<pre class="language-c" data-type="rehyp"><code class="language-c code-highlight" style="width: 100%; display: inline-table;"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
+        <p>fopen() 函数接受两个参数：</p>
+        <ul>
+          <li>文件名（字符串）。 如果文件存储在某个特定位置，那么我们必须提及文件存储的路径。例如，文件名可以像“/some_folder/some_file.ext”。</li>
+          <li>打开文件的模式。 它是一个字符串。</li>
+        </ul>
+        <p>我们可以在 fopen() 函数中使用以下模式之一。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>模式 Mode</th>
+              <th>描述 Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>r</td>
+              <td>以读取模式打开一个文本文件，允许读取文件。</td>
+            </tr>
+            <tr>
+              <td>w</td>
+              <td>以写模式打开一个文本文件，允许写入文件。</td>
+            </tr>
+            <tr>
+              <td>a</td>
+              <td>以追加模式打开一个文本文件，如果文件不存在，则会创建一个新文件。</td>
+            </tr>
+            <tr>
+              <td>r+</td>
+              <td>以读写模式打开一个文本文件，允许读写文件。</td>
+            </tr>
+            <tr>
+              <td>w+</td>
+              <td>以读写模式打开一个文本文件，允许读写文件。</td>
+            </tr>
+            <tr>
+              <td>a+</td>
+              <td>以读写模式打开一个文本文件，允许读写文件。</td>
+            </tr>
+            <tr>
+              <td>rb</td>
+              <td>以读取模式打开二进制文件</td>
+            </tr>
+            <tr>
+              <td>wb</td>
+              <td>以写入模式打开二进制文件</td>
+            </tr>
+            <tr>
+              <td>ab</td>
+              <td>以追加模式打开二进制文件</td>
+            </tr>
+            <tr>
+              <td>rb+</td>
+              <td>以读写模式打开二进制文件</td>
+            </tr>
+            <tr>
+              <td>wb+</td>
+              <td>以读写模式打开二进制文件</td>
+            </tr>
+            <tr>
+              <td>ab+</td>
+              <td>以读写模式打开二进制文件</td>
+            </tr>
+          </tbody>
+        </table><!--rehype:style=width: 100%; display: inline-table;-->
+        <pre class="language-c" data-type="rehyp"><code class="language-c code-highlight" style="width: 100%; display: inline-table;"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">char</span> ch<span class="token punctuation">;</span>
@@ -368,8 +240,8 @@ void main( ) {
   fclose(fp);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>输出，将打印文件的内容：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment">#include&#x3C;stdio.h></span>
+        <p>输出，将打印文件的内容：</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token comment">#include&#x3C;stdio.h></span>
 </span><span class="code-line line-number" line="2">void <span class="token function-name function">main</span><span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  FILE *fp<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  char ch<span class="token punctuation">;</span>
@@ -396,17 +268,17 @@ void main( ) {
   fclose(fp);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="关闭文件fclose"><a aria-hidden="true" tabindex="-1" href="#关闭文件fclose" class="anchor"><span class="icon icon-link"></span></a>关闭文件：fclose()</h2>
-<p><code>fclose()</code> 函数用于关闭文件。 对文件执行所有操作后，必须关闭该文件。<code>fclose()</code> 函数的语法如下：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fclose</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>fp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <h2 id="关闭文件fclose"><a aria-hidden="true" tabindex="-1" href="#关闭文件fclose" class="anchor"><span class="icon icon-link"></span></a>关闭文件：fclose()</h2>
+        <p><code>fclose()</code> 函数用于关闭文件。 对文件执行所有操作后，必须关闭该文件。<code>fclose()</code> 函数的语法如下：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fclose</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>fp<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></code><input type="hidden" value="int fclose(FILE *fp);
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="写入文件fprintf"><a aria-hidden="true" tabindex="-1" href="#写入文件fprintf" class="anchor"><span class="icon icon-link"></span></a>写入文件：fprintf()</h2>
-<p><code>fprintf()</code> 函数用于将字符集写入文件。 它将格式化的输出发送到流。</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fprintf</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format <span class="token punctuation">[</span><span class="token punctuation">,</span> argument<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+        <h2 id="写入文件fprintf"><a aria-hidden="true" tabindex="-1" href="#写入文件fprintf" class="anchor"><span class="icon icon-link"></span></a>写入文件：fprintf()</h2>
+        <p><code>fprintf()</code> 函数用于将字符集写入文件。 它将格式化的输出发送到流。</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fprintf</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format <span class="token punctuation">[</span><span class="token punctuation">,</span> argument<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
 </span></code><input type="hidden" value="int fprintf(FILE *stream, const char *format [, argument, ...])  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span>  </span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span>  </span>
 </span><span class="code-line line-number" line="2"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"file.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打开文件</span>
@@ -421,12 +293,12 @@ main() {
   fclose(fp); // 关闭文件  
 }  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="读取文件fscanf"><a aria-hidden="true" tabindex="-1" href="#读取文件fscanf" class="anchor"><span class="icon icon-link"></span></a>读取文件：fscanf()</h2>
-<p><code>fscanf()</code> 函数用于从文件中读取字符集。 它从文件中读取一个单词并在文件末尾返回 EOF。</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fscanf</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format <span class="token punctuation">[</span><span class="token punctuation">,</span> argument<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
+        <h2 id="读取文件fscanf"><a aria-hidden="true" tabindex="-1" href="#读取文件fscanf" class="anchor"><span class="icon icon-link"></span></a>读取文件：fscanf()</h2>
+        <p><code>fscanf()</code> 函数用于从文件中读取字符集。 它从文件中读取一个单词并在文件末尾返回 EOF。</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fscanf</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format <span class="token punctuation">[</span><span class="token punctuation">,</span> argument<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
 </span></code><input type="hidden" value="int fscanf(FILE *stream, const char *format [, argument, ...])  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span>  </span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span>  </span>
 </span><span class="code-line line-number" line="2"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">char</span> buff<span class="token punctuation">[</span><span class="token number">255</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 创建 char 数组来存储文件数据</span>
@@ -447,9 +319,9 @@ main(){
   fclose(fp);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="c-文件示例存储员工信息"><a aria-hidden="true" tabindex="-1" href="#c-文件示例存储员工信息" class="anchor"><span class="icon icon-link"></span></a>C 文件示例：存储员工信息</h2>
-<p>让我们看一个文件处理示例，用于存储用户从控制台输入的员工信息。 我们将存储员工的 ID、姓名和薪水。</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span>  </span>
+        <h2 id="c-文件示例存储员工信息"><a aria-hidden="true" tabindex="-1" href="#c-文件示例存储员工信息" class="anchor"><span class="icon icon-link"></span></a>C 文件示例：存储员工信息</h2>
+        <p>让我们看一个文件处理示例，用于存储用户从控制台输入的员工信息。 我们将存储员工的 ID、姓名和薪水。</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span>  </span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  FILE <span class="token operator">*</span>fptr<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">int</span> id<span class="token punctuation">;</span>
@@ -494,8 +366,8 @@ void main() {
   fclose(fptr);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>输出</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">Enter the <span class="token function">id</span> 
+        <p>输出</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">Enter the <span class="token function">id</span> 
 </span><span class="code-line line-number" line="2"><span class="token number">1</span>
 </span><span class="code-line line-number" line="3">Enter the name 
 </span><span class="code-line line-number" line="4">kenny
@@ -508,20 +380,20 @@ kenny
 Enter the salary
 120000 
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>现在从当前目录打开文件。你会看到 emp.txt 文件。它有以下信息：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token assign-left variable">Id</span><span class="token operator">=</span> <span class="token number">1</span>
+        <p>现在从当前目录打开文件。你会看到 emp.txt 文件。它有以下信息：</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token assign-left variable">Id</span><span class="token operator">=</span> <span class="token number">1</span>
 </span><span class="code-line line-number" line="2"><span class="token assign-left variable">Name</span><span class="token operator">=</span> kenny
 </span><span class="code-line line-number" line="3"><span class="token assign-left variable">Salary</span><span class="token operator">=</span> <span class="token number">120000</span> 
 </span></code><input type="hidden" value="Id= 1
 Name= kenny
 Salary= 120000 
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="写入文件fputc"><a aria-hidden="true" tabindex="-1" href="#写入文件fputc" class="anchor"><span class="icon icon-link"></span></a>写入文件：fputc()</h2>
-<p><code>fputc()</code> 函数用于将单个字符写入文件。它将一个字符输出到一个字符串</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fputc</span><span class="token punctuation">(</span><span class="token keyword">int</span> c<span class="token punctuation">,</span> FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>
+        <h2 id="写入文件fputc"><a aria-hidden="true" tabindex="-1" href="#写入文件fputc" class="anchor"><span class="icon icon-link"></span></a>写入文件：fputc()</h2>
+        <p><code>fputc()</code> 函数用于将单个字符写入文件。它将一个字符输出到一个字符串</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fputc</span><span class="token punctuation">(</span><span class="token keyword">int</span> c<span class="token punctuation">,</span> FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>
 </span></code><input type="hidden" value="int fputc(int c, FILE *stream)
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"file1.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打开文件</span>
@@ -536,12 +408,12 @@ main(){
   fclose(fp);    // 关闭文件
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="读取文件fgetc"><a aria-hidden="true" tabindex="-1" href="#读取文件fgetc" class="anchor"><span class="icon icon-link"></span></a>读取文件：fgetc()</h2>
-<p><code>fgetc()</code> 函数从文件中返回单个字符。它从流中获取一个字符。它在文件末尾返回 EOF：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fgetc</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>  
+        <h2 id="读取文件fgetc"><a aria-hidden="true" tabindex="-1" href="#读取文件fgetc" class="anchor"><span class="icon icon-link"></span></a>读取文件：fgetc()</h2>
+        <p><code>fgetc()</code> 函数从文件中返回单个字符。它从流中获取一个字符。它在文件末尾返回 EOF：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fgetc</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>  
 </span></code><input type="hidden" value="int fgetc(FILE *stream)  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;conio.h></span></span>
 </span><span class="code-line line-number" line="3"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
@@ -568,12 +440,12 @@ void main() {
   getch();
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="写入文件fputs"><a aria-hidden="true" tabindex="-1" href="#写入文件fputs" class="anchor"><span class="icon icon-link"></span></a>写入文件：fputs()</h2>
-<p><code>fputs()</code> 函数将一行字符写入文件。它将字符串输出到流</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fputs</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">,</span> FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>
+        <h2 id="写入文件fputs"><a aria-hidden="true" tabindex="-1" href="#写入文件fputs" class="anchor"><span class="icon icon-link"></span></a>写入文件：fputs()</h2>
+        <p><code>fputs()</code> 函数将一行字符写入文件。它将字符串输出到流</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fputs</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">,</span> FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>
 </span></code><input type="hidden" value="int fputs(const char *s, FILE *stream)
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;conio.h></span></span>
 </span><span class="code-line line-number" line="3"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
@@ -594,12 +466,12 @@ void main(){
   getch();
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="读取文件fgets"><a aria-hidden="true" tabindex="-1" href="#读取文件fgets" class="anchor"><span class="icon icon-link"></span></a>读取文件：fgets()</h2>
-<p><code>fgets()</code> 函数从文件中读取一行字符。 它从流中获取字符串：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">fgets</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>  
+        <h2 id="读取文件fgets"><a aria-hidden="true" tabindex="-1" href="#读取文件fgets" class="anchor"><span class="icon icon-link"></span></a>读取文件：fgets()</h2>
+        <p><code>fgets()</code> 函数从文件中读取一行字符。 它从流中获取字符串：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span><span class="token operator">*</span> <span class="token function">fgets</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>  
 </span></code><input type="hidden" value="char* fgets(char *s, int n, FILE *stream)  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;conio.h></span></span>
 </span><span class="code-line line-number" line="3"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
@@ -624,13 +496,13 @@ void main() {
   getch();
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="fseek"><a aria-hidden="true" tabindex="-1" href="#fseek" class="anchor"><span class="icon icon-link"></span></a>fseek()</h2>
-<p><code>fseek()</code> 函数用于将文件指针设置为指定的偏移量。 它用于将数据写入所需位置的文件：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fseek</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">,</span> <span class="token keyword">long</span> <span class="token keyword">int</span> offset<span class="token punctuation">,</span> <span class="token keyword">int</span> whence<span class="token punctuation">)</span>  
+        <h2 id="fseek"><a aria-hidden="true" tabindex="-1" href="#fseek" class="anchor"><span class="icon icon-link"></span></a>fseek()</h2>
+        <p><code>fseek()</code> 函数用于将文件指针设置为指定的偏移量。 它用于将数据写入所需位置的文件：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> <span class="token function">fseek</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">,</span> <span class="token keyword">long</span> <span class="token keyword">int</span> offset<span class="token punctuation">,</span> <span class="token keyword">int</span> whence<span class="token punctuation">)</span>  
 </span></code><input type="hidden" value="int fseek(FILE *stream, long int offset, int whence)  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p><code>fseek()</code> 函数中使用了 3 个常量：<code>SEEK_SET</code>、<code>SEEK_CUR</code> 和 <code>SEEK_END</code>。</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+        <p><code>fseek()</code> 函数中使用了 3 个常量：<code>SEEK_SET</code>、<code>SEEK_CUR</code> 和 <code>SEEK_END</code>。</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"myfile.txt"</span><span class="token punctuation">,</span><span class="token string">"w+"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -651,12 +523,12 @@ void main(){
   fclose(fp);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="rewind"><a aria-hidden="true" tabindex="-1" href="#rewind" class="anchor"><span class="icon icon-link"></span></a>rewind()</h2>
-<p><code>rewind()</code> 函数将文件指针设置在流的开头。 如果您必须多次使用流，这很有用：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">void</span> <span class="token function">rewind</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>
+        <h2 id="rewind"><a aria-hidden="true" tabindex="-1" href="#rewind" class="anchor"><span class="icon icon-link"></span></a>rewind()</h2>
+        <p><code>rewind()</code> 函数将文件指针设置在流的开头。 如果您必须多次使用流，这很有用：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">void</span> <span class="token function">rewind</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>
 </span></code><input type="hidden" value="void rewind(FILE *stream)
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&#x3C;conio.h></span></span>
 </span><span class="code-line line-number" line="3"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
@@ -695,13 +567,13 @@ void main(){
 // 输出
 // Hello World!Hello World!
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>如您所见，<code>rewind()</code> 函数将文件指针移动到文件的开头，这就是 <code>Hello World!</code> 被打印 2 次的原因。 如果你不调用 <code>rewind()</code> 函数，“Hello World!” 将只打印一次。</p>
-<h2 id="ftell"><a aria-hidden="true" tabindex="-1" href="#ftell" class="anchor"><span class="icon icon-link"></span></a>ftell()</h2>
-<p><code>ftell()</code> 函数返回指定流的当前文件位置。 我们可以使用 <code>ftell()</code> 函数在文件末尾移动文件指针后获取文件的总大小。 我们可以使用 <code>SEEK_END</code> 常量将文件指针移动到文件末尾。</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">long</span> <span class="token keyword">int</span> <span class="token function">ftell</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>  
+        <p>如您所见，<code>rewind()</code> 函数将文件指针移动到文件的开头，这就是 <code>Hello World!</code> 被打印 2 次的原因。 如果你不调用 <code>rewind()</code> 函数，“Hello World!” 将只打印一次。</p>
+        <h2 id="ftell"><a aria-hidden="true" tabindex="-1" href="#ftell" class="anchor"><span class="icon icon-link"></span></a>ftell()</h2>
+        <p><code>ftell()</code> 函数返回指定流的当前文件位置。 我们可以使用 <code>ftell()</code> 函数在文件末尾移动文件指针后获取文件的总大小。 我们可以使用 <code>SEEK_END</code> 常量将文件指针移动到文件末尾。</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">long</span> <span class="token keyword">int</span> <span class="token function">ftell</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>stream<span class="token punctuation">)</span>  
 </span></code><input type="hidden" value="long int ftell(FILE *stream)  
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;conio.h></span></span>
 </span><span class="code-line line-number" line="3"><span class="token keyword">void</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">   FILE <span class="token operator">*</span>fp<span class="token punctuation">;</span>
@@ -736,135 +608,44 @@ void main (){
 // 输出
 // Size of file: 18 bytes
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-    
-
-<div class="previous">
-  
-  <a class="prev" href="c_structs.html">
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
-      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
-    </svg>
-    <span>
-      C 结构 Structures
-    </span>
-  </a>
-  
-  
-  <a class="next" href="c_keywords.html">
-    <span>
-      C 关键字 Keywords
-    </span>
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-    </svg>
-  </a>
-  
-</div>
-
-
-
-<section class="article-footer">
-  <a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_file_io.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-    </svg>
-    <span>GitHub 上编辑此页</span>
-  </a>
-  
-  <span class="atime">2022/05/04</span>
-  
-</section>
-
-  </markdown-style>
-  
-<nav class="tocs">
-  <aside class="inner toc">
-    <ol class="tocs-list">
-    
-      <li>
-        <a href="#文件处理函数" class="tocs-link">文件处理函数</a>
-        
-      </li>
-    
-      <li>
-        <a href="#打开文件fopen" class="tocs-link">打开文件：fopen()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#关闭文件fclose" class="tocs-link">关闭文件：fclose()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#写入文件fprintf" class="tocs-link">写入文件：fprintf()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#读取文件fscanf" class="tocs-link">读取文件：fscanf()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#c-文件示例存储员工信息" class="tocs-link">C 文件示例：存储员工信息</a>
-        
-      </li>
-    
-      <li>
-        <a href="#写入文件fputc" class="tocs-link">写入文件：fputc()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#读取文件fgetc" class="tocs-link">读取文件：fgetc()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#写入文件fputs" class="tocs-link">写入文件：fputs()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#读取文件fgets" class="tocs-link">读取文件：fgets()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#fseek" class="tocs-link">fseek()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#rewind" class="tocs-link">rewind()</a>
-        
-      </li>
-    
-      <li>
-        <a href="#ftell" class="tocs-link">ftell()</a>
-        
-      </li>
-    
-    </ol>
-  </aside>
-</nav>
-
-</div>
-
-<script src="js/demo-preview.js?v=1.17.11"></script>
-
-
-<div class="footer warpper">
-  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.11
-
-</div>
-
-
-<script src="js/tocbot.js?v=1.17.11"></script>
-
-</body>
+        <div class="previous"><a class="prev" href="c_structs.html"><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+              <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+            </svg>
+<span>C 结构 Structures
+</span></a><a class="next" href="c_keywords.html"><span>C 关键字 Keywords
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_file_io.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+<span>GitHub 上编辑此页</span>
+</a><span class="atime">2022/05/04</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#文件处理函数" class="tocs-link">文件处理函数</a></li>
+            <li><a href="#打开文件fopen" class="tocs-link">打开文件：fopen()</a></li>
+            <li><a href="#关闭文件fclose" class="tocs-link">关闭文件：fclose()</a></li>
+            <li><a href="#写入文件fprintf" class="tocs-link">写入文件：fprintf()</a></li>
+            <li><a href="#读取文件fscanf" class="tocs-link">读取文件：fscanf()</a></li>
+            <li><a href="#c-文件示例存储员工信息" class="tocs-link">C 文件示例：存储员工信息</a></li>
+            <li><a href="#写入文件fputc" class="tocs-link">写入文件：fputc()</a></li>
+            <li><a href="#读取文件fgetc" class="tocs-link">读取文件：fgetc()</a></li>
+            <li><a href="#写入文件fputs" class="tocs-link">写入文件：fputs()</a></li>
+            <li><a href="#读取文件fgets" class="tocs-link">读取文件：fgets()</a></li>
+            <li><a href="#fseek" class="tocs-link">fseek()</a></li>
+            <li><a href="#rewind" class="tocs-link">rewind()</a></li>
+            <li><a href="#ftell" class="tocs-link">ftell()</a></li>
+          </ol>
+        </aside>
+      </nav>
+    </div>
+    <script src="js/demo-preview.js?v=1.21.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
+    <script src="js/tocbot.js?v=1.21.1"></script>
+  </body>
 </html>

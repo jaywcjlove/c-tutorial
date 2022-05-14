@@ -1,213 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C 数据类型 Data Types C Tutorial </title>
-  
-  <meta name="description" content="如变量章节中所述，C 中的变量必须是指定的数据类型，并且必须在 printf() 函数中使用格式说明符才能显示 它：">
-  
-  
-  <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/media.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.17.11">
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C 数据类型 Data Types C Tutorial</title>
+    <meta name="description" content="如变量章节中所述，C 中的变量必须是指定的数据类型，并且必须在 printf() 函数中使用格式说明符才能显示 它：">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/media.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.21.1">
     <link rel="icon" href="logo.svg" type="image/x-icon">
-  
-  <script src="js/copy.js?v=1.17.11"></script>
-  <script src="js/dark-mode.js?v=1.17.11"></script>
-  <script src="js/markdown-style.js?v=1.17.11"></script>
-</head>
-<body id="idoctotop">
-  <a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-  <article class="inner warpper">
-    <a class="logo" href="index.html">
-      
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
-  <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"/>
-  <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"/>
-  <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"/>
-  <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"/>
-</svg>
-      
-      <span class="title">C Tutorial</span>
-    </a>
-    <div class="content">
-      <ul class="menu">
-        
-        <li>
-          <a href="index.html" target="" class=""> 首页 </a>
-        </li>
-        
-        <li>
-          <a href="https://zh.cppreference.com/w/c" target="__blank" class=""> 官方文档 </a>
-        </li>
-        
-      </ul>
-      
-        <a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    <script src="js/copy.js?v=1.21.1"></script>
+    <script src="js/dark-mode.js?v=1.21.1"></script>
+    <script src="js/markdown-style.js?v=1.21.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
+            <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"></path>
+            <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"></path>
+            <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"></path>
+            <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"></path>
           </svg>
-        </a>
-      
-      <dark-mode permanent></dark-mode>
-    </div>
-  </article>
-</header>
-
-<div class="warpper-content warpper sidebar ">
-  
-<div class="sidebar-border">
-  <aside class="sidebar" role="navigation">
-    <div>
-    
-      
-        <label>Tutorial</label>
-      
-    
-      
-        <a href="c_getstarted.html" class="">C 开始 Get Started</a>
-      
-    
-      
-        <a href="c_syntax.html" class="">C 语法 Syntax</a>
-      
-    
-      
-        <a href="c_output.html" class="">C 输出(打印文本) Output</a>
-      
-    
-      
-        <a href="c_comments.html" class="">C 注释 Comments</a>
-      
-    
-      
-        <a href="c_variables.html" class="">C 变量 Variables</a>
-      
-    
-      
-        <a href="c_data_types.html" class="active">C 数据类型 Data Types</a>
-      
-    
-      
-        <a href="c_constants.html" class="">C 常量 Constants</a>
-      
-    
-      
-        <a href="c_operators.html" class="">C 运算符 Operators</a>
-      
-    
-      
-        <a href="c_conditions.html" class="">C If...Else</a>
-      
-    
-      
-        <a href="c_switch.html" class="">C Switch</a>
-      
-    
-      
-        <a href="c_while_loop.html" class="">C While 循环</a>
-      
-    
-      
-        <a href="c_for_loop.html" class="">C For 循环</a>
-      
-    
-      
-        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
-      
-    
-      
-        <a href="c_arrays.html" class="">C 数组 Arrays</a>
-      
-    
-      
-        <a href="c_enum.html" class="">C 枚举 Enum</a>
-      
-    
-      
-        <a href="c_strings.html" class="">C 字符串 Strings</a>
-      
-    
-      
-        <a href="c_user_input.html" class="">C 用户输入 User Input</a>
-      
-    
-      
-        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
-      
-    
-      
-        <a href="c_pointers.html" class="">C 指针 Pointers</a>
-      
-    
-      
-        <a href="c_preprocessors.html" class="">C 预处理器</a>
-      
-    
-      
-        <label>函数</label>
-      
-    
-      
-        <a href="c_functions.html" class="">C 函数 Functions</a>
-      
-    
-      
-        <a href="c_functions_parameters.html" class="">C 函数参数</a>
-      
-    
-      
-        <a href="c_functions_decl.html" class="">C 函数声明</a>
-      
-    
-      
-        <a href="c_functions_recursion.html" class="">C 递归</a>
-      
-    
-      
-        <a href="c_math.html" class="">C 数学函数</a>
-      
-    
-      
-        <label>结构</label>
-      
-    
-      
-        <a href="c_structs.html" class="">C 结构 Structures</a>
-      
-    
-      
-        <label>文件处理</label>
-      
-    
-      
-        <a href="c_file_io.html" class="">C 文件处理</a>
-      
-    
-      
-        <label>参考</label>
-      
-    
-      
-        <a href="c_keywords.html" class="">C 关键字 Keywords</a>
-      
-    
-    </div>
-  </aside>
-</div>
-
-  <markdown-style>
-    <h1 id="c-数据类型-data-types"><a aria-hidden="true" tabindex="-1" href="#c-数据类型-data-types" class="anchor"><span class="icon icon-link"></span></a>C 数据类型 Data Types</h1>
-<h2 id="数据类型"><a aria-hidden="true" tabindex="-1" href="#数据类型" class="anchor"><span class="icon icon-link"></span></a>数据类型</h2>
-<p>如<a href="c_variables.html">变量章节</a>中所述，C 中的变量必须是指定的<strong>数据类型</strong>，并且必须在 <a href="./c_output.html"><code>printf()</code></a> 函数中使用<strong>格式说明符</strong>才能显示 它：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建变量</span>
+<span class="title">C Tutorial</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="index.html" target="" class="">首页</a></li>
+            <li><a href="https://zh.cppreference.com/w/c" target="__blank" class="">官方文档</a></li>
+          </ul><a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <label>Tutorial</label>
+            <a href="c_getstarted.html" class="">C 开始 Get Started</a>
+            <a href="c_syntax.html" class="">C 语法 Syntax</a>
+            <a href="c_output.html" class="">C 输出(打印文本) Output</a>
+            <a href="c_comments.html" class="">C 注释 Comments</a>
+            <a href="c_variables.html" class="">C 变量 Variables</a>
+            <a href="c_data_types.html" class="active">C 数据类型 Data Types</a>
+            <a href="c_constants.html" class="">C 常量 Constants</a>
+            <a href="c_operators.html" class="">C 运算符 Operators</a>
+            <a href="c_conditions.html" class="">C If...Else</a>
+            <a href="c_switch.html" class="">C Switch</a>
+            <a href="c_while_loop.html" class="">C While 循环</a>
+            <a href="c_for_loop.html" class="">C For 循环</a>
+            <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
+            <a href="c_arrays.html" class="">C 数组 Arrays</a>
+            <a href="c_enum.html" class="">C 枚举 Enum</a>
+            <a href="c_strings.html" class="">C 字符串 Strings</a>
+            <a href="c_user_input.html" class="">C 用户输入 User Input</a>
+            <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
+            <a href="c_pointers.html" class="">C 指针 Pointers</a>
+            <a href="c_preprocessors.html" class="">C 预处理器</a>
+            <label>函数</label>
+            <a href="c_functions.html" class="">C 函数 Functions</a>
+            <a href="c_functions_parameters.html" class="">C 函数参数</a>
+            <a href="c_functions_decl.html" class="">C 函数声明</a>
+            <a href="c_functions_recursion.html" class="">C 递归</a>
+            <a href="c_math.html" class="">C 数学函数</a>
+            <label>结构</label>
+            <a href="c_structs.html" class="">C 结构 Structures</a>
+            <label>文件处理</label>
+            <a href="c_file_io.html" class="">C 文件处理</a>
+            <label>参考</label>
+            <a href="c_keywords.html" class="">C 关键字 Keywords</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="c-数据类型-data-types"><a aria-hidden="true" tabindex="-1" href="#c-数据类型-data-types" class="anchor"><span class="icon icon-link"></span></a>C 数据类型 Data Types</h1>
+        <h2 id="数据类型"><a aria-hidden="true" tabindex="-1" href="#数据类型" class="anchor"><span class="icon icon-link"></span></a>数据类型</h2>
+        <p>如<a href="c_variables.html">变量章节</a>中所述，C 中的变量必须是指定的<strong>数据类型</strong>，并且必须在 <a href="./c_output.html"><code>printf()</code></a> 函数中使用<strong>格式说明符</strong>才能显示 它：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建变量</span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>             <span class="token comment">// 整数</span>
 </span><span class="code-line line-number" line="3"><span class="token keyword">float</span> myFloatNum <span class="token operator">=</span> <span class="token number">5.99</span><span class="token punctuation">;</span>   <span class="token comment">// 浮点数</span>
 </span><span class="code-line line-number" line="4"><span class="token keyword">char</span> myLetter <span class="token operator">=</span> <span class="token char">'D'</span><span class="token punctuation">;</span>       <span class="token comment">// 字符串</span>
@@ -226,201 +100,201 @@ printf(&#x22;%d\n&#x22;, myNum);
 printf(&#x22;%f\n&#x22;, myFloatNum);
 printf(&#x22;%c\n&#x22;, myLetter);
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="基本数据类型"><a aria-hidden="true" tabindex="-1" href="#基本数据类型" class="anchor"><span class="icon icon-link"></span></a>基本数据类型</h2>
-<p>数据类型指定变量将存储的信息的大小和类型。</p>
-<p>让我们看看基本的数据类型。它的大小是根据 32 位体系结构给出的：</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th>数据类型</th><th>大小 Size</th><th>范围 Range</th><th>描述 Description</th></tr></thead><tbody><tr><td><code>char</code></td><td>1 字节</td><td><code>−128</code> ~ <code>127</code></td><td>单个字符/字母/数字/ASCII</td></tr><tr><td>signed char</td><td>1 字节</td><td><code>−128</code> ~ <code>127</code></td><td>-</td></tr><tr><td>unsigned char</td><td>1 字节</td><td><code>0</code> ~ <code>255</code></td><td>-</td></tr><tr><td><code>int</code></td><td><code>2</code> 到 <code>4</code> 字节</td><td><code>−32,768</code> ~ <code>32,767</code></td><td>存储整数</td></tr><tr><td>signed int</td><td>2 字节</td><td><code>−32,768</code> ~ <code>32,767</code></td><td></td></tr><tr><td>unsigned int</td><td>2 字节</td><td><code>0</code> ~ <code>65,535</code></td><td></td></tr><tr><td>short int</td><td>2 字节</td><td><code>−32,768</code> ~ <code>32,767</code></td><td></td></tr><tr><td>signed short int</td><td>2 字节</td><td><code>−32,768</code> ~ <code>32,767</code></td><td></td></tr><tr><td>unsigned short int</td><td>2 字节</td><td><code>0</code> ~ <code>65,535</code></td><td></td></tr><tr><td>long int</td><td>4 字节</td><td><code>-2,147,483,648</code> ~ <code>2,147,483,647</code></td><td></td></tr><tr><td>signed long int</td><td>4 字节</td><td><code>-2,147,483,648</code> ~ <code>2,147,483,647</code></td><td></td></tr><tr><td>unsigned long int</td><td>4 字节</td><td><code>0</code> ~ <code>4,294,967,295</code></td><td></td></tr><tr><td><code>float</code></td><td>4 字节</td><td></td><td></td></tr><tr><td><code>double</code></td><td>8 字节</td><td></td><td></td></tr><tr><td>long double</td><td>10 字节</td><td></td><td></td></tr></tbody></table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th>说  明</th><th>字符型</th><th>短整型</th><th>整型</th><th>长整型</th><th>单精度浮点型</th><th>双精度浮点型</th><th>无类型</th></tr></thead><tbody><tr><td>数据类型</td><td>char</td><td>short</td><td>int</td><td>long</td><td>float</td><td>double</td><td>void</td></tr></tbody></table>
-<h2 id="基本格式说明符"><a aria-hidden="true" tabindex="-1" href="#基本格式说明符" class="anchor"><span class="icon icon-link"></span></a>基本格式说明符</h2>
-<p>每种数据类型都有不同的格式说明符。 这里是其中的一些：</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th>格式说明符</th><th>数据类型</th></tr></thead><tbody><tr><td><code>%d</code> 或 <code>%i</code></td><td><code>int</code> 整数</td></tr><tr><td><code>%f</code></td><td><code>float</code> 单精度的十进制类型</td></tr><tr><td><code>%lf</code></td><td><code>double</code> 高精度浮点数据或数字</td></tr><tr><td><code>%c</code></td><td><code>char</code> 字符</td></tr><tr><td><code>%s</code></td><td>用于 <strong><a href="c_strings.html">strings</a></strong>，您可以在 <a href="c_strings.html"><code>strings</code></a> 中了解更多信息</td></tr></tbody></table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th></th><th>short</th><th>int</th><th>long</th></tr></thead><tbody><tr><td>8 进制</td><td><code>%ho</code></td><td><code>%o</code></td><td><code>%lo</code></td></tr><tr><td>10 进制</td><td><code>%hd</code></td><td><code>%d</code></td><td><code>%ld</code></td></tr><tr><td>16 进制</td><td><code>%hx</code> 或者 <code>%hX</code></td><td><code>%x</code> 或者 <code>%X</code></td><td><code>%lx</code> 或者 <code>%lX</code></td></tr></tbody></table>
-<h3 id="int-整数"><a aria-hidden="true" tabindex="-1" href="#int-整数" class="anchor"><span class="icon icon-link"></span></a>int 整数</h3>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建 整数 变量</span>
+        <h2 id="基本数据类型"><a aria-hidden="true" tabindex="-1" href="#基本数据类型" class="anchor"><span class="icon icon-link"></span></a>基本数据类型</h2>
+        <p>数据类型指定变量将存储的信息的大小和类型。</p>
+        <p>让我们看看基本的数据类型。它的大小是根据 32 位体系结构给出的：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>数据类型</th>
+              <th>大小 Size</th>
+              <th>范围 Range</th>
+              <th>描述 Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>char</code></td>
+              <td>1 字节</td>
+              <td><code>−128</code> ~ <code>127</code></td>
+              <td>单个字符/字母/数字/ASCII</td>
+            </tr>
+            <tr>
+              <td>signed char</td>
+              <td>1 字节</td>
+              <td><code>−128</code> ~ <code>127</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>unsigned char</td>
+              <td>1 字节</td>
+              <td><code>0</code> ~ <code>255</code></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td><code>int</code></td>
+              <td><code>2</code> 到 <code>4</code> 字节</td>
+              <td><code>−32,768</code> ~ <code>32,767</code></td>
+              <td>存储整数</td>
+            </tr>
+            <tr>
+              <td>signed int</td>
+              <td>2 字节</td>
+              <td><code>−32,768</code> ~ <code>32,767</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>unsigned int</td>
+              <td>2 字节</td>
+              <td><code>0</code> ~ <code>65,535</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>short int</td>
+              <td>2 字节</td>
+              <td><code>−32,768</code> ~ <code>32,767</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>signed short int</td>
+              <td>2 字节</td>
+              <td><code>−32,768</code> ~ <code>32,767</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>unsigned short int</td>
+              <td>2 字节</td>
+              <td><code>0</code> ~ <code>65,535</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>long int</td>
+              <td>4 字节</td>
+              <td><code>-2,147,483,648</code> ~ <code>2,147,483,647</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>signed long int</td>
+              <td>4 字节</td>
+              <td><code>-2,147,483,648</code> ~ <code>2,147,483,647</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>unsigned long int</td>
+              <td>4 字节</td>
+              <td><code>0</code> ~ <code>4,294,967,295</code></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>float</code></td>
+              <td>4 字节</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>double</code></td>
+              <td>8 字节</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>long double</td>
+              <td>10 字节</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th>说 明</th>
+              <th>字符型</th>
+              <th>短整型</th>
+              <th>整型</th>
+              <th>长整型</th>
+              <th>单精度浮点型</th>
+              <th>双精度浮点型</th>
+              <th>无类型</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>数据类型</td>
+              <td>char</td>
+              <td>short</td>
+              <td>int</td>
+              <td>long</td>
+              <td>float</td>
+              <td>double</td>
+              <td>void</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="基本格式说明符"><a aria-hidden="true" tabindex="-1" href="#基本格式说明符" class="anchor"><span class="icon icon-link"></span></a>基本格式说明符</h2>
+        <p>每种数据类型都有不同的格式说明符。 这里是其中的一些：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>格式说明符</th>
+              <th>数据类型</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>%d</code> 或 <code>%i</code></td>
+              <td><code>int</code> 整数</td>
+            </tr>
+            <tr>
+              <td><code>%f</code></td>
+              <td><code>float</code> 单精度的十进制类型</td>
+            </tr>
+            <tr>
+              <td><code>%lf</code></td>
+              <td><code>double</code> 高精度浮点数据或数字</td>
+            </tr>
+            <tr>
+              <td><code>%c</code></td>
+              <td><code>char</code> 字符</td>
+            </tr>
+            <tr>
+              <td><code>%s</code></td>
+              <td>用于 <strong><a href="c_strings.html">strings</a></strong>，您可以在 <a href="c_strings.html"><code>strings</code></a> 中了解更多信息</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>short</th>
+              <th>int</th>
+              <th>long</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>8 进制</td>
+              <td><code>%ho</code></td>
+              <td><code>%o</code></td>
+              <td><code>%lo</code></td>
+            </tr>
+            <tr>
+              <td>10 进制</td>
+              <td><code>%hd</code></td>
+              <td><code>%d</code></td>
+              <td><code>%ld</code></td>
+            </tr>
+            <tr>
+              <td>16 进制</td>
+              <td><code>%hx</code> 或者 <code>%hX</code></td>
+              <td><code>%x</code> 或者 <code>%X</code></td>
+              <td><code>%lx</code> 或者 <code>%lX</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="int-整数"><a aria-hidden="true" tabindex="-1" href="#int-整数" class="anchor"><span class="icon icon-link"></span></a>int 整数</h3>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// 创建 整数 变量</span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">int</span> myNum <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="3"><span class="token comment">// 打印输出变量</span>
 </span><span class="code-line line-number" line="4"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> myNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -429,134 +303,66 @@ int myNum = 5;
 // 打印输出变量
 printf(&#x22;%d\n&#x22;, myNum);
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h3 id="float-单精度的十进制类型"><a aria-hidden="true" tabindex="-1" href="#float-单精度的十进制类型" class="anchor"><span class="icon icon-link"></span></a>float 单精度的十进制类型</h3>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">float</span> myFloatNum <span class="token operator">=</span> <span class="token number">5.99</span><span class="token punctuation">;</span> <span class="token comment">// 浮点数</span>
+        <h3 id="float-单精度的十进制类型"><a aria-hidden="true" tabindex="-1" href="#float-单精度的十进制类型" class="anchor"><span class="icon icon-link"></span></a>float 单精度的十进制类型</h3>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">float</span> myFloatNum <span class="token operator">=</span> <span class="token number">5.99</span><span class="token punctuation">;</span> <span class="token comment">// 浮点数</span>
 </span><span class="code-line line-number" line="2"><span class="token comment">// 打印输出变量</span>
 </span><span class="code-line line-number" line="3"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%f\n"</span><span class="token punctuation">,</span> myFloatNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></code><input type="hidden" value="float myFloatNum = 5.99; // 浮点数
 // 打印输出变量
 printf(&#x22;%f\n&#x22;, myFloatNum);
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h3 id="char-字符"><a aria-hidden="true" tabindex="-1" href="#char-字符" class="anchor"><span class="icon icon-link"></span></a>char 字符</h3>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> myLetter <span class="token operator">=</span> <span class="token char">'D'</span><span class="token punctuation">;</span> <span class="token comment">// 字符串</span>
+        <h3 id="char-字符"><a aria-hidden="true" tabindex="-1" href="#char-字符" class="anchor"><span class="icon icon-link"></span></a>char 字符</h3>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">char</span> myLetter <span class="token operator">=</span> <span class="token char">'D'</span><span class="token punctuation">;</span> <span class="token comment">// 字符串</span>
 </span><span class="code-line line-number" line="2"><span class="token comment">// 打印输出变量</span>
 </span><span class="code-line line-number" line="3"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c\n"</span><span class="token punctuation">,</span> myLetter<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></code><input type="hidden" value="char myLetter = &#x27;D&#x27;; // 字符串
 // 打印输出变量
 printf(&#x22;%c\n&#x22;, myLetter);
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h3 id="double-高精度浮点数据或数字"><a aria-hidden="true" tabindex="-1" href="#double-高精度浮点数据或数字" class="anchor"><span class="icon icon-link"></span></a>double 高精度浮点数据或数字</h3>
-<p>范围是 <code>1.7E-308</code> 到 <code>1.7E+308</code>。双精度数据可以用实数 (<code>1</code> 到 <code>10</code>)、小数 (<code>0.1</code> 到 <code>11.002</code>) 和负数 (-1 到 -0.00002) 表示。它可以容纳大约 15 到 16 位小数点前后的数字。</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">double</span> myDouble <span class="token operator">=</span> <span class="token number">3.2325467</span><span class="token punctuation">;</span>  
+        <h3 id="double-高精度浮点数据或数字"><a aria-hidden="true" tabindex="-1" href="#double-高精度浮点数据或数字" class="anchor"><span class="icon icon-link"></span></a>double 高精度浮点数据或数字</h3>
+        <p>范围是 <code>1.7E-308</code> 到 <code>1.7E+308</code>。双精度数据可以用实数 (<code>1</code> 到 <code>10</code>)、小数 (<code>0.1</code> 到 <code>11.002</code>) 和负数 (-1 到 -0.00002) 表示。它可以容纳大约 15 到 16 位小数点前后的数字。</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">double</span> myDouble <span class="token operator">=</span> <span class="token number">3.2325467</span><span class="token punctuation">;</span>  
 </span><span class="code-line line-number" line="2"><span class="token comment">// 打印输出变量</span>
 </span><span class="code-line line-number" line="3"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lf\n"</span><span class="token punctuation">,</span> myDouble<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </span></code><input type="hidden" value="double myDouble = 3.2325467;  
 // 打印输出变量
 printf(&#x22;%lf\n&#x22;, myDouble);
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-    
-
-<div class="previous">
-  
-  <a class="prev" href="c_variables.html">
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
-      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
-    </svg>
-    <span>
-      C 变量 Variables
-    </span>
-  </a>
-  
-  
-  <a class="next" href="c_constants.html">
-    <span>
-      C 常量 Constants
-    </span>
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-    </svg>
-  </a>
-  
-</div>
-
-
-
-<section class="article-footer">
-  <a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_data_types.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-    </svg>
-    <span>GitHub 上编辑此页</span>
-  </a>
-  
-  <span class="atime">2022/05/04</span>
-  
-</section>
-
-  </markdown-style>
-  
-<nav class="tocs">
-  <aside class="inner toc">
-    <ol class="tocs-list">
-    
-      <li>
-        <a href="#数据类型" class="tocs-link">数据类型</a>
-        
-      </li>
-    
-      <li>
-        <a href="#基本数据类型" class="tocs-link">基本数据类型</a>
-        
-      </li>
-    
-      <li>
-        <a href="#基本格式说明符" class="tocs-link">基本格式说明符</a>
-        
-          <ol class="tocs-list is-collapsed">
-            
-              <li>
-                <a href="#int-整数" class="tocs-link">int 整数</a>
-                
-              </li>
-            
-              <li>
-                <a href="#float-单精度的十进制类型" class="tocs-link">float 单精度的十进制类型</a>
-                
-              </li>
-            
-              <li>
-                <a href="#char-字符" class="tocs-link">char 字符</a>
-                
-              </li>
-            
-              <li>
-                <a href="#double-高精度浮点数据或数字" class="tocs-link">double 高精度浮点数据或数字</a>
-                
-              </li>
-            
+        <div class="previous"><a class="prev" href="c_variables.html"><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+              <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+            </svg>
+<span>C 变量 Variables
+</span></a><a class="next" href="c_constants.html"><span>C 常量 Constants
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_data_types.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+<span>GitHub 上编辑此页</span>
+</a><span class="atime">2022/05/03</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#数据类型" class="tocs-link">数据类型</a></li>
+            <li><a href="#基本数据类型" class="tocs-link">基本数据类型</a></li>
+            <li><a href="#基本格式说明符" class="tocs-link">基本格式说明符</a>
+              <ol class="tocs-list is-collapsed">
+                <li><a href="#int-整数" class="tocs-link">int 整数</a></li>
+                <li><a href="#float-单精度的十进制类型" class="tocs-link">float 单精度的十进制类型</a></li>
+                <li><a href="#char-字符" class="tocs-link">char 字符</a></li>
+                <li><a href="#double-高精度浮点数据或数字" class="tocs-link">double 高精度浮点数据或数字</a></li>
+              </ol>
+            </li>
           </ol>
-        
-      </li>
-    
-    </ol>
-  </aside>
-</nav>
-
-</div>
-
-<script src="js/demo-preview.js?v=1.17.11"></script>
-
-
-<div class="footer warpper">
-  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.11
-
-</div>
-
-
-<script src="js/tocbot.js?v=1.17.11"></script>
-
-</body>
+        </aside>
+      </nav>
+    </div>
+    <script src="js/demo-preview.js?v=1.21.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
+    <script src="js/tocbot.js?v=1.21.1"></script>
+  </body>
 </html>

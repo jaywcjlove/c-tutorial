@@ -1,215 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C 跳出循环 Break/Continue C Tutorial </title>
-  
-  <meta name="description" content="您已经看过本教程前面章节中使用的 break 语句。 它用于“跳出” switch 语句。">
-  
-  
-  <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/media.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.17.11">
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C 跳出循环 Break/Continue C Tutorial</title>
+    <meta name="description" content="您已经看过本教程前面章节中使用的 break 语句。 它用于“跳出” switch 语句。">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/media.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.21.1">
     <link rel="icon" href="logo.svg" type="image/x-icon">
-  
-  <script src="js/copy.js?v=1.17.11"></script>
-  <script src="js/dark-mode.js?v=1.17.11"></script>
-  <script src="js/markdown-style.js?v=1.17.11"></script>
-</head>
-<body id="idoctotop">
-  <a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-  <article class="inner warpper">
-    <a class="logo" href="index.html">
-      
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
-  <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"/>
-  <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"/>
-  <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"/>
-  <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"/>
-</svg>
-      
-      <span class="title">C Tutorial</span>
-    </a>
-    <div class="content">
-      <ul class="menu">
-        
-        <li>
-          <a href="index.html" target="" class=""> 首页 </a>
-        </li>
-        
-        <li>
-          <a href="https://zh.cppreference.com/w/c" target="__blank" class=""> 官方文档 </a>
-        </li>
-        
-      </ul>
-      
-        <a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    <script src="js/copy.js?v=1.21.1"></script>
+    <script src="js/dark-mode.js?v=1.21.1"></script>
+    <script src="js/markdown-style.js?v=1.21.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
+            <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"></path>
+            <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"></path>
+            <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"></path>
+            <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"></path>
           </svg>
-        </a>
-      
-      <dark-mode permanent></dark-mode>
-    </div>
-  </article>
-</header>
-
-<div class="warpper-content warpper sidebar ">
-  
-<div class="sidebar-border">
-  <aside class="sidebar" role="navigation">
-    <div>
-    
-      
-        <label>Tutorial</label>
-      
-    
-      
-        <a href="c_getstarted.html" class="">C 开始 Get Started</a>
-      
-    
-      
-        <a href="c_syntax.html" class="">C 语法 Syntax</a>
-      
-    
-      
-        <a href="c_output.html" class="">C 输出(打印文本) Output</a>
-      
-    
-      
-        <a href="c_comments.html" class="">C 注释 Comments</a>
-      
-    
-      
-        <a href="c_variables.html" class="">C 变量 Variables</a>
-      
-    
-      
-        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
-      
-    
-      
-        <a href="c_constants.html" class="">C 常量 Constants</a>
-      
-    
-      
-        <a href="c_operators.html" class="">C 运算符 Operators</a>
-      
-    
-      
-        <a href="c_conditions.html" class="">C If...Else</a>
-      
-    
-      
-        <a href="c_switch.html" class="">C Switch</a>
-      
-    
-      
-        <a href="c_while_loop.html" class="">C While 循环</a>
-      
-    
-      
-        <a href="c_for_loop.html" class="">C For 循环</a>
-      
-    
-      
-        <a href="c_break_continue.html" class="active">C 跳出循环 Break/Continue</a>
-      
-    
-      
-        <a href="c_arrays.html" class="">C 数组 Arrays</a>
-      
-    
-      
-        <a href="c_enum.html" class="">C 枚举 Enum</a>
-      
-    
-      
-        <a href="c_strings.html" class="">C 字符串 Strings</a>
-      
-    
-      
-        <a href="c_user_input.html" class="">C 用户输入 User Input</a>
-      
-    
-      
-        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
-      
-    
-      
-        <a href="c_pointers.html" class="">C 指针 Pointers</a>
-      
-    
-      
-        <a href="c_preprocessors.html" class="">C 预处理器</a>
-      
-    
-      
-        <label>函数</label>
-      
-    
-      
-        <a href="c_functions.html" class="">C 函数 Functions</a>
-      
-    
-      
-        <a href="c_functions_parameters.html" class="">C 函数参数</a>
-      
-    
-      
-        <a href="c_functions_decl.html" class="">C 函数声明</a>
-      
-    
-      
-        <a href="c_functions_recursion.html" class="">C 递归</a>
-      
-    
-      
-        <a href="c_math.html" class="">C 数学函数</a>
-      
-    
-      
-        <label>结构</label>
-      
-    
-      
-        <a href="c_structs.html" class="">C 结构 Structures</a>
-      
-    
-      
-        <label>文件处理</label>
-      
-    
-      
-        <a href="c_file_io.html" class="">C 文件处理</a>
-      
-    
-      
-        <label>参考</label>
-      
-    
-      
-        <a href="c_keywords.html" class="">C 关键字 Keywords</a>
-      
-    
-    </div>
-  </aside>
-</div>
-
-  <markdown-style>
-    <h1 id="c-跳出循环-breakcontinue"><a aria-hidden="true" tabindex="-1" href="#c-跳出循环-breakcontinue" class="anchor"><span class="icon icon-link"></span></a>C 跳出循环 Break/Continue</h1>
-<h2 id="break"><a aria-hidden="true" tabindex="-1" href="#break" class="anchor"><span class="icon icon-link"></span></a>Break</h2>
-<p>您已经看过本教程前面章节中使用的 <code>break</code> 语句。 它用于“跳出” <a href="./c_switch.html"><code>switch</code></a> 语句。</p>
-<p><code>break</code> 语句也可用于跳出<strong>循环</strong>。</p>
-<p>这个例子在 <code>i</code> 等于 4 时跳出循环：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i<span class="token punctuation">;</span>
+<span class="title">C Tutorial</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="index.html" target="" class="">首页</a></li>
+            <li><a href="https://zh.cppreference.com/w/c" target="__blank" class="">官方文档</a></li>
+          </ul><a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <label>Tutorial</label>
+            <a href="c_getstarted.html" class="">C 开始 Get Started</a>
+            <a href="c_syntax.html" class="">C 语法 Syntax</a>
+            <a href="c_output.html" class="">C 输出(打印文本) Output</a>
+            <a href="c_comments.html" class="">C 注释 Comments</a>
+            <a href="c_variables.html" class="">C 变量 Variables</a>
+            <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
+            <a href="c_constants.html" class="">C 常量 Constants</a>
+            <a href="c_operators.html" class="">C 运算符 Operators</a>
+            <a href="c_conditions.html" class="">C If...Else</a>
+            <a href="c_switch.html" class="">C Switch</a>
+            <a href="c_while_loop.html" class="">C While 循环</a>
+            <a href="c_for_loop.html" class="">C For 循环</a>
+            <a href="c_break_continue.html" class="active">C 跳出循环 Break/Continue</a>
+            <a href="c_arrays.html" class="">C 数组 Arrays</a>
+            <a href="c_enum.html" class="">C 枚举 Enum</a>
+            <a href="c_strings.html" class="">C 字符串 Strings</a>
+            <a href="c_user_input.html" class="">C 用户输入 User Input</a>
+            <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
+            <a href="c_pointers.html" class="">C 指针 Pointers</a>
+            <a href="c_preprocessors.html" class="">C 预处理器</a>
+            <label>函数</label>
+            <a href="c_functions.html" class="">C 函数 Functions</a>
+            <a href="c_functions_parameters.html" class="">C 函数参数</a>
+            <a href="c_functions_decl.html" class="">C 函数声明</a>
+            <a href="c_functions_recursion.html" class="">C 递归</a>
+            <a href="c_math.html" class="">C 数学函数</a>
+            <label>结构</label>
+            <a href="c_structs.html" class="">C 结构 Structures</a>
+            <label>文件处理</label>
+            <a href="c_file_io.html" class="">C 文件处理</a>
+            <label>参考</label>
+            <a href="c_keywords.html" class="">C 关键字 Keywords</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="c-跳出循环-breakcontinue"><a aria-hidden="true" tabindex="-1" href="#c-跳出循环-breakcontinue" class="anchor"><span class="icon icon-link"></span></a>C 跳出循环 Break/Continue</h1>
+        <h2 id="break"><a aria-hidden="true" tabindex="-1" href="#break" class="anchor"><span class="icon icon-link"></span></a>Break</h2>
+        <p>您已经看过本教程前面章节中使用的 <code>break</code> 语句。 它用于“跳出” <a href="./c_switch.html"><code>switch</code></a> 语句。</p>
+        <p><code>break</code> 语句也可用于跳出<strong>循环</strong>。</p>
+        <p>这个例子在 <code>i</code> 等于 4 时跳出循环：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3"><span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -226,10 +100,10 @@ for (i = 0; i < 10; i++) {
   printf(&#x22;%d\n&#x22;, i);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="continue"><a aria-hidden="true" tabindex="-1" href="#continue" class="anchor"><span class="icon icon-link"></span></a>Continue</h2>
-<p>如果指定条件发生，<code>continue</code> 语句会中断一次迭代（在循环中），并继续循环中的下一次迭代。</p>
-<p>此示例跳过 4 的值：</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i<span class="token punctuation">;</span>
+        <h2 id="continue"><a aria-hidden="true" tabindex="-1" href="#continue" class="anchor"><span class="icon icon-link"></span></a>Continue</h2>
+        <p>如果指定条件发生，<code>continue</code> 语句会中断一次迭代（在循环中），并继续循环中的下一次迭代。</p>
+        <p>此示例跳过 4 的值：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3"><span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -246,10 +120,10 @@ for (i = 0; i < 10; i++) {
   printf(&#x22;%d\n&#x22;, i);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="在-while-循环中中断并继续"><a aria-hidden="true" tabindex="-1" href="#在-while-循环中中断并继续" class="anchor"><span class="icon icon-link"></span></a>在 While 循环中中断并继续</h2>
-<p>您还可以在 <code>while</code> 循环中使用 <code>break</code> 和 <code>continue</code>：</p>
-<h3 id="break-示例"><a aria-hidden="true" tabindex="-1" href="#break-示例" class="anchor"><span class="icon icon-link"></span></a>Break 示例</h3>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <h2 id="在-while-循环中中断并继续"><a aria-hidden="true" tabindex="-1" href="#在-while-循环中中断并继续" class="anchor"><span class="icon icon-link"></span></a>在 While 循环中中断并继续</h2>
+        <p>您还可以在 <code>while</code> 循环中使用 <code>break</code> 和 <code>continue</code>：</p>
+        <h3 id="break-示例"><a aria-hidden="true" tabindex="-1" href="#break-示例" class="anchor"><span class="icon icon-link"></span></a>Break 示例</h3>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3"><span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&#x3C;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -268,8 +142,8 @@ while (i < 10) {
   i++;
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h3 id="continue-示例"><a aria-hidden="true" tabindex="-1" href="#continue-示例" class="anchor"><span class="icon icon-link"></span></a>Continue 示例</h3>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <h3 id="continue-示例"><a aria-hidden="true" tabindex="-1" href="#continue-示例" class="anchor"><span class="icon icon-link"></span></a>Continue 示例</h3>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3"><span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&#x3C;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="4">  i<span class="token operator">++</span><span class="token punctuation">;</span>
@@ -288,8 +162,8 @@ while (i < 10) {
   printf(&#x22;%d\n&#x22;, i);
 }
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="break-示例-1"><a aria-hidden="true" tabindex="-1" href="#break-示例-1" class="anchor"><span class="icon icon-link"></span></a>break 示例</h2>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+        <h2 id="break-示例-1"><a aria-hidden="true" tabindex="-1" href="#break-示例-1" class="anchor"><span class="icon icon-link"></span></a>break 示例</h2>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// 循环条件为死循环</span>
@@ -314,8 +188,8 @@ int main(){
 }
 // 运行结果：5050
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p><code>while</code> 循环条件为 <code>1</code>，是一个死循环。当执行到第 <code>100</code> 次循环的时候，计算完 <code>i++;</code> 后 <code>i</code> 的值为 <code>101</code>，此时 <code>if</code> 语句的条件 <code>i> 100</code> 成立，执行 <code>break;</code> 语句，结束循环</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+        <p><code>while</code> 循环条件为 <code>1</code>，是一个死循环。当执行到第 <code>100</code> 次循环的时候，计算完 <code>i++;</code> 后 <code>i</code> 的值为 <code>101</code>，此时 <code>if</code> 语句的条件 <code>i> 100</code> 成立，执行 <code>break;</code> 语句，结束循环</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment">// 外层循环</span>
@@ -358,10 +232,10 @@ int main(){
 // 3   6   9   12
 // 4   8   12  16
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>当 <code>j>4</code> 成立时，执行 <code>break;</code>，跳出内层循环；外层循环依然执行，直到 <code>i>4</code> 成立，跳出外层循环。内层循环共执行了 <code>4</code> 次，外层循环共执行了 <code>1</code> 次。</p>
-<h2 id="continue-示例-1"><a aria-hidden="true" tabindex="-1" href="#continue-示例-1" class="anchor"><span class="icon icon-link"></span></a>continue 示例</h2>
-<p>语句的作用是跳过循环体中剩余的语句而强制进入下一次循环。<code>continue</code> 语句只用在 <code>while</code>、<a href="c_for_loop.html"><code>for</code></a> 循环中，常与 <a href="./c_conditions.html"><code>if</code></a> 条件语句一起使用，判断条件是否成立。</p>
-<pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+        <p>当 <code>j>4</code> 成立时，执行 <code>break;</code>，跳出内层循环；外层循环依然执行，直到 <code>i>4</code> 成立，跳出外层循环。内层循环共执行了 <code>4</code> 次，外层循环共执行了 <code>1</code> 次。</p>
+        <h2 id="continue-示例-1"><a aria-hidden="true" tabindex="-1" href="#continue-示例-1" class="anchor"><span class="icon icon-link"></span></a>continue 示例</h2>
+        <p>语句的作用是跳过循环体中剩余的语句而强制进入下一次循环。<code>continue</code> 语句只用在 <code>while</code>、<a href="c_for_loop.html"><code>for</code></a> 循环中，常与 <a href="./c_conditions.html"><code>if</code></a> 条件语句一起使用，判断条件是否成立。</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
 </span><span class="code-line line-number" line="2"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="3">  <span class="token keyword">char</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="4">  <span class="token keyword">while</span><span class="token punctuation">(</span>c<span class="token operator">!=</span><span class="token char">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment">// 回车键结束循环</span>
@@ -392,112 +266,44 @@ int main(){
 // 0123456789↙
 // 01236789
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>程序遇到 <code>while</code> 时，变量 <code>c</code> 的值为 <code>'\0'</code>，循环条件 <code>c!='\n'</code> 成立，开始第一次循环。<code>getchar()</code> 使程序暂停执行，等待用户输入，直到用户按下回车键才开始读取字符。</p>
-<p>本例我们输入的是 <code>0123456789</code>，当读取到 <code>4</code> 或 <code>5</code> 时，<code>if</code> 的条件 <code>c=='4'||c=='5'</code>成立，就执行 <code>continue</code> 语句，结束当前循环，直接进入下一次循环，也就是说 <code>putchar(c);</code> 不会被执行到。而读取到其他数字时，<code>if</code> 的条件不成立，<code>continue</code> 语句不会被执行到，<code>putchar(c);</code> 就会输出读取到的字符。</p>
-<p><code>break</code> 与 <code>continue</code> 的对比：<code>break</code> 用来结束所有循环，循环语句不再有执行的机会；<code>continue</code> 用来结束本次循环，直接跳到下一次循环，如果循环条件成立，还会继续循环。</p>
-    
-
-<div class="previous">
-  
-  <a class="prev" href="c_for_loop.html">
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
-      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
-    </svg>
-    <span>
-      C For 循环
-    </span>
-  </a>
-  
-  
-  <a class="next" href="c_arrays.html">
-    <span>
-      C 数组 Arrays
-    </span>
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-    </svg>
-  </a>
-  
-</div>
-
-
-
-<section class="article-footer">
-  <a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_break_continue.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-    </svg>
-    <span>GitHub 上编辑此页</span>
-  </a>
-  
-  <span class="atime">2022/05/04</span>
-  
-</section>
-
-  </markdown-style>
-  
-<nav class="tocs">
-  <aside class="inner toc">
-    <ol class="tocs-list">
-    
-      <li>
-        <a href="#break" class="tocs-link">Break</a>
-        
-      </li>
-    
-      <li>
-        <a href="#continue" class="tocs-link">Continue</a>
-        
-      </li>
-    
-      <li>
-        <a href="#在-while-循环中中断并继续" class="tocs-link">在 While 循环中中断并继续</a>
-        
-          <ol class="tocs-list is-collapsed">
-            
-              <li>
-                <a href="#break-示例" class="tocs-link">Break 示例</a>
-                
-              </li>
-            
-              <li>
-                <a href="#continue-示例" class="tocs-link">Continue 示例</a>
-                
-              </li>
-            
+        <p>程序遇到 <code>while</code> 时，变量 <code>c</code> 的值为 <code>'\0'</code>，循环条件 <code>c!='\n'</code> 成立，开始第一次循环。<code>getchar()</code> 使程序暂停执行，等待用户输入，直到用户按下回车键才开始读取字符。</p>
+        <p>本例我们输入的是 <code>0123456789</code>，当读取到 <code>4</code> 或 <code>5</code> 时，<code>if</code> 的条件 <code>c=='4'||c=='5'</code>成立，就执行 <code>continue</code> 语句，结束当前循环，直接进入下一次循环，也就是说 <code>putchar(c);</code> 不会被执行到。而读取到其他数字时，<code>if</code> 的条件不成立，<code>continue</code> 语句不会被执行到，<code>putchar(c);</code> 就会输出读取到的字符。</p>
+        <p><code>break</code> 与 <code>continue</code> 的对比：<code>break</code> 用来结束所有循环，循环语句不再有执行的机会；<code>continue</code> 用来结束本次循环，直接跳到下一次循环，如果循环条件成立，还会继续循环。</p>
+        <div class="previous"><a class="prev" href="c_for_loop.html"><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+              <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+            </svg>
+<span>C For 循环
+</span></a><a class="next" href="c_arrays.html"><span>C 数组 Arrays
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_break_continue.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+<span>GitHub 上编辑此页</span>
+</a><span class="atime">2022/05/02</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#break" class="tocs-link">Break</a></li>
+            <li><a href="#continue" class="tocs-link">Continue</a></li>
+            <li><a href="#在-while-循环中中断并继续" class="tocs-link">在 While 循环中中断并继续</a>
+              <ol class="tocs-list is-collapsed">
+                <li><a href="#break-示例" class="tocs-link">Break 示例</a></li>
+                <li><a href="#continue-示例" class="tocs-link">Continue 示例</a></li>
+              </ol>
+            </li>
+            <li><a href="#break-示例-1" class="tocs-link">break 示例</a></li>
+            <li><a href="#continue-示例-1" class="tocs-link">continue 示例</a></li>
           </ol>
-        
-      </li>
-    
-      <li>
-        <a href="#break-示例-1" class="tocs-link">break 示例</a>
-        
-      </li>
-    
-      <li>
-        <a href="#continue-示例-1" class="tocs-link">continue 示例</a>
-        
-      </li>
-    
-    </ol>
-  </aside>
-</nav>
-
-</div>
-
-<script src="js/demo-preview.js?v=1.17.11"></script>
-
-
-<div class="footer warpper">
-  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.11
-
-</div>
-
-
-<script src="js/tocbot.js?v=1.17.11"></script>
-
-</body>
+        </aside>
+      </nav>
+    </div>
+    <script src="js/demo-preview.js?v=1.21.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
+    <script src="js/tocbot.js?v=1.21.1"></script>
+  </body>
 </html>

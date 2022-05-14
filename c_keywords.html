@@ -1,368 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C 关键字 C Tutorial </title>
-  
-  <meta name="description" content="C 语言一共有32个关键字，如下表所示：">
-  
-  
-  <link rel="stylesheet" type="text/css" href="css/main.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/media.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.17.11">
-  <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.17.11">
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C 关键字 C Tutorial</title>
+    <meta name="description" content="C 语言一共有32个关键字，如下表所示：">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/media.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.21.1">
+    <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.21.1">
     <link rel="icon" href="logo.svg" type="image/x-icon">
-  
-  <script src="js/copy.js?v=1.17.11"></script>
-  <script src="js/dark-mode.js?v=1.17.11"></script>
-  <script src="js/markdown-style.js?v=1.17.11"></script>
-</head>
-<body id="idoctotop">
-  <a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-  <article class="inner warpper">
-    <a class="logo" href="index.html">
-      
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
-  <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"/>
-  <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"/>
-  <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"/>
-  <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"/>
-</svg>
-      
-      <span class="title">C Tutorial</span>
-    </a>
-    <div class="content">
-      <ul class="menu">
-        
-        <li>
-          <a href="index.html" target="" class=""> 首页 </a>
-        </li>
-        
-        <li>
-          <a href="https://zh.cppreference.com/w/c" target="__blank" class=""> 官方文档 </a>
-        </li>
-        
-      </ul>
-      
-        <a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    <script src="js/copy.js?v=1.21.1"></script>
+    <script src="js/dark-mode.js?v=1.21.1"></script>
+    <script src="js/markdown-style.js?v=1.21.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd">
+            <path fill="#283593" fill-rule="evenodd" d="M22.903,3.286c0.679-0.381,1.515-0.381,2.193,0 c3.355,1.883,13.451,7.551,16.807,9.434C42.582,13.1,43,13.804,43,14.566c0,3.766,0,15.101,0,18.867 c0,0.762-0.418,1.466-1.097,1.847c-3.355,1.883-13.451,7.551-16.807,9.434c-0.679,0.381-1.515,0.381-2.193,0 c-3.355-1.883-13.451-7.551-16.807-9.434C5.418,34.899,5,34.196,5,33.434c0-3.766,0-15.101,0-18.867 c0-0.762,0.418-1.466,1.097-1.847C9.451,10.837,19.549,5.169,22.903,3.286z" clip-rule="evenodd"></path>
+            <path fill="#5c6bc0" fill-rule="evenodd" d="M5.304,34.404C5.038,34.048,5,33.71,5,33.255 c0-3.744,0-15.014,0-18.759c0-0.758,0.417-1.458,1.094-1.836c3.343-1.872,13.405-7.507,16.748-9.38 c0.677-0.379,1.594-0.371,2.271,0.008c3.343,1.872,13.371,7.459,16.714,9.331c0.27,0.152,0.476,0.335,0.66,0.576L5.304,34.404z" clip-rule="evenodd"></path>
+            <path fill="#fff" fill-rule="evenodd" d="M24,10c7.727,0,14,6.273,14,14s-6.273,14-14,14 s-14-6.273-14-14S16.273,10,24,10z M24,17c3.863,0,7,3.136,7,7c0,3.863-3.137,7-7,7s-7-3.137-7-7C17,20.136,20.136,17,24,17z" clip-rule="evenodd"></path>
+            <path fill="#3949ab" fill-rule="evenodd" d="M42.485,13.205c0.516,0.483,0.506,1.211,0.506,1.784 c0,3.795-0.032,14.589,0.009,18.384c0.004,0.396-0.127,0.813-0.323,1.127L23.593,24L42.485,13.205z" clip-rule="evenodd"></path>
           </svg>
-        </a>
-      
-      <dark-mode permanent></dark-mode>
+<span class="title">C Tutorial</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="index.html" target="" class="">首页</a></li>
+            <li><a href="https://zh.cppreference.com/w/c" target="__blank" class="">官方文档</a></li>
+          </ul><a href="https://github.com/jaywcjlove/c-tutorial.git" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar notocs">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <label>Tutorial</label>
+            <a href="c_getstarted.html" class="">C 开始 Get Started</a>
+            <a href="c_syntax.html" class="">C 语法 Syntax</a>
+            <a href="c_output.html" class="">C 输出(打印文本) Output</a>
+            <a href="c_comments.html" class="">C 注释 Comments</a>
+            <a href="c_variables.html" class="">C 变量 Variables</a>
+            <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
+            <a href="c_constants.html" class="">C 常量 Constants</a>
+            <a href="c_operators.html" class="">C 运算符 Operators</a>
+            <a href="c_conditions.html" class="">C If...Else</a>
+            <a href="c_switch.html" class="">C Switch</a>
+            <a href="c_while_loop.html" class="">C While 循环</a>
+            <a href="c_for_loop.html" class="">C For 循环</a>
+            <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
+            <a href="c_arrays.html" class="">C 数组 Arrays</a>
+            <a href="c_enum.html" class="">C 枚举 Enum</a>
+            <a href="c_strings.html" class="">C 字符串 Strings</a>
+            <a href="c_user_input.html" class="">C 用户输入 User Input</a>
+            <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
+            <a href="c_pointers.html" class="">C 指针 Pointers</a>
+            <a href="c_preprocessors.html" class="">C 预处理器</a>
+            <label>函数</label>
+            <a href="c_functions.html" class="">C 函数 Functions</a>
+            <a href="c_functions_parameters.html" class="">C 函数参数</a>
+            <a href="c_functions_decl.html" class="">C 函数声明</a>
+            <a href="c_functions_recursion.html" class="">C 递归</a>
+            <a href="c_math.html" class="">C 数学函数</a>
+            <label>结构</label>
+            <a href="c_structs.html" class="">C 结构 Structures</a>
+            <label>文件处理</label>
+            <a href="c_file_io.html" class="">C 文件处理</a>
+            <label>参考</label>
+            <a href="c_keywords.html" class="active">C 关键字 Keywords</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="c-关键字"><a aria-hidden="true" tabindex="-1" href="#c-关键字" class="anchor"><span class="icon icon-link"></span></a>C 关键字</h1>
+        <p>C 语言一共有32个关键字，如下表所示：</p>
+        <table style="width: 100%; display: inline-table;">
+          <thead>
+            <tr>
+              <th>关键字</th>
+              <th>说明</th>
+              <th>关键字</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>auto</td>
+              <td>声明自动变量</td>
+              <td>static</td>
+              <td>声明静态变量</td>
+            </tr>
+            <tr>
+              <td>short</td>
+              <td>声明短整型变量或函数</td>
+              <td>volatile</td>
+              <td>说明变量在程序执行中可被隐含地改变</td>
+            </tr>
+            <tr>
+              <td><a href="./c_variables.html">int</a></td>
+              <td>声明整型变量或函数</td>
+              <td>void</td>
+              <td>声明函数无返回值或无参数，声明无类型指针</td>
+            </tr>
+            <tr>
+              <td>long</td>
+              <td>声明长整型变量或函数</td>
+              <td><a href="./c_conditions.html">if</a></td>
+              <td>条件语句</td>
+            </tr>
+            <tr>
+              <td><a href="./c_variables.html">float</a></td>
+              <td>声明浮点型变量或函数</td>
+              <td><a href="./c_conditions.html">else</a></td>
+              <td>条件语句否定分支（与 if 连用）</td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>声明双精度变量或函数</td>
+              <td><a href="./c_switch.html">switch</a></td>
+              <td>用于开关语句</td>
+            </tr>
+            <tr>
+              <td><a href="./c_strings.html">char</a></td>
+              <td>声明字符型变量或函数</td>
+              <td>case</td>
+              <td>开关语句分支</td>
+            </tr>
+            <tr>
+              <td><a href="./c_structs.html">struct</a></td>
+              <td>声明结构体变量或函数</td>
+              <td><a href="./c_for_loop.html">for</a></td>
+              <td>一种循环语句</td>
+            </tr>
+            <tr>
+              <td>union</td>
+              <td>声明共用数据类型</td>
+              <td>do</td>
+              <td>循环语句的循环体</td>
+            </tr>
+            <tr>
+              <td><a href="./c_enum.html">enum</a></td>
+              <td>声明枚举类型</td>
+              <td><a href="./c_while_loop.html">while</a></td>
+              <td>循环语句的循环条件</td>
+            </tr>
+            <tr>
+              <td>typedef</td>
+              <td>用以给数据类型取别名</td>
+              <td>goto</td>
+              <td>无条件跳转语句</td>
+            </tr>
+            <tr>
+              <td><a href="./c_constants.html">const</a></td>
+              <td>声明只读变量</td>
+              <td><a href="./c_break_continue.html">continue</a></td>
+              <td>结束当前循环，开始下一轮循环</td>
+            </tr>
+            <tr>
+              <td>unsigned</td>
+              <td>声明无符号类型变量或函数</td>
+              <td><a href="./c_break_continue.html">break</a></td>
+              <td>跳出当前循环</td>
+            </tr>
+            <tr>
+              <td>signed</td>
+              <td>声明有符号类型变量或函数</td>
+              <td>default</td>
+              <td>开关语句中的“其他”分支</td>
+            </tr>
+            <tr>
+              <td>extern</td>
+              <td>声明变量是在其他文件正声明</td>
+              <td>sizeof</td>
+              <td>计算数据类型长度</td>
+            </tr>
+            <tr>
+              <td>register</td>
+              <td>声明寄存器变量</td>
+              <td>return</td>
+              <td>子程序返回语句(可以带参数，也可不带参数)循环条件</td>
+            </tr>
+          </tbody>
+        </table><!--rehype:style=width: 100%; display: inline-table;-->
+        <div class="previous"><a class="prev" href="c_file_io.html"><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+              <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+            </svg>
+<span>C 文件处理</span></a><span></span></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_keywords.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+<span>GitHub 上编辑此页</span>
+</a><span class="atime">2022/05/04</span></section>
+      </markdown-style>
     </div>
-  </article>
-</header>
-
-<div class="warpper-content warpper sidebar notocs">
-  
-<div class="sidebar-border">
-  <aside class="sidebar" role="navigation">
-    <div>
-    
-      
-        <label>Tutorial</label>
-      
-    
-      
-        <a href="c_getstarted.html" class="">C 开始 Get Started</a>
-      
-    
-      
-        <a href="c_syntax.html" class="">C 语法 Syntax</a>
-      
-    
-      
-        <a href="c_output.html" class="">C 输出(打印文本) Output</a>
-      
-    
-      
-        <a href="c_comments.html" class="">C 注释 Comments</a>
-      
-    
-      
-        <a href="c_variables.html" class="">C 变量 Variables</a>
-      
-    
-      
-        <a href="c_data_types.html" class="">C 数据类型 Data Types</a>
-      
-    
-      
-        <a href="c_constants.html" class="">C 常量 Constants</a>
-      
-    
-      
-        <a href="c_operators.html" class="">C 运算符 Operators</a>
-      
-    
-      
-        <a href="c_conditions.html" class="">C If...Else</a>
-      
-    
-      
-        <a href="c_switch.html" class="">C Switch</a>
-      
-    
-      
-        <a href="c_while_loop.html" class="">C While 循环</a>
-      
-    
-      
-        <a href="c_for_loop.html" class="">C For 循环</a>
-      
-    
-      
-        <a href="c_break_continue.html" class="">C 跳出循环 Break/Continue</a>
-      
-    
-      
-        <a href="c_arrays.html" class="">C 数组 Arrays</a>
-      
-    
-      
-        <a href="c_enum.html" class="">C 枚举 Enum</a>
-      
-    
-      
-        <a href="c_strings.html" class="">C 字符串 Strings</a>
-      
-    
-      
-        <a href="c_user_input.html" class="">C 用户输入 User Input</a>
-      
-    
-      
-        <a href="c_memory_address.html" class="">C 内存地址 Memory Address</a>
-      
-    
-      
-        <a href="c_pointers.html" class="">C 指针 Pointers</a>
-      
-    
-      
-        <a href="c_preprocessors.html" class="">C 预处理器</a>
-      
-    
-      
-        <label>函数</label>
-      
-    
-      
-        <a href="c_functions.html" class="">C 函数 Functions</a>
-      
-    
-      
-        <a href="c_functions_parameters.html" class="">C 函数参数</a>
-      
-    
-      
-        <a href="c_functions_decl.html" class="">C 函数声明</a>
-      
-    
-      
-        <a href="c_functions_recursion.html" class="">C 递归</a>
-      
-    
-      
-        <a href="c_math.html" class="">C 数学函数</a>
-      
-    
-      
-        <label>结构</label>
-      
-    
-      
-        <a href="c_structs.html" class="">C 结构 Structures</a>
-      
-    
-      
-        <label>文件处理</label>
-      
-    
-      
-        <a href="c_file_io.html" class="">C 文件处理</a>
-      
-    
-      
-        <label>参考</label>
-      
-    
-      
-        <a href="c_keywords.html" class="active">C 关键字 Keywords</a>
-      
-    
-    </div>
-  </aside>
-</div>
-
-  <markdown-style>
-    <h1 id="c-关键字"><a aria-hidden="true" tabindex="-1" href="#c-关键字" class="anchor"><span class="icon icon-link"></span></a>C 关键字</h1>
-<p>C 语言一共有32个关键字，如下表所示：</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table style="width: 100%; display: inline-table;"><thead><tr><th>关键字</th><th>说明</th><th>关键字</th><th>说明</th></tr></thead><tbody><tr><td>auto</td><td>声明自动变量</td><td>static</td><td>声明静态变量</td></tr><tr><td>short</td><td>声明短整型变量或函数</td><td>volatile</td><td>说明变量在程序执行中可被隐含地改变</td></tr><tr><td><a href="./c_variables.html">int</a></td><td>声明整型变量或函数</td><td>void</td><td>声明函数无返回值或无参数，声明无类型指针</td></tr><tr><td>long</td><td>声明长整型变量或函数</td><td><a href="./c_conditions.html">if</a></td><td>条件语句</td></tr><tr><td><a href="./c_variables.html">float</a></td><td>声明浮点型变量或函数</td><td><a href="./c_conditions.html">else</a></td><td>条件语句否定分支（与 if 连用）</td></tr><tr><td>double</td><td>声明双精度变量或函数</td><td><a href="./c_switch.html">switch</a></td><td>用于开关语句</td></tr><tr><td><a href="./c_strings.html">char</a></td><td>声明字符型变量或函数</td><td>case</td><td>开关语句分支</td></tr><tr><td><a href="./c_structs.html">struct</a></td><td>声明结构体变量或函数</td><td><a href="./c_for_loop.html">for</a></td><td>一种循环语句</td></tr><tr><td>union</td><td>声明共用数据类型</td><td>do</td><td>循环语句的循环体</td></tr><tr><td><a href="./c_enum.html">enum</a></td><td>声明枚举类型</td><td><a href="./c_while_loop.html">while</a></td><td>循环语句的循环条件</td></tr><tr><td>typedef</td><td>用以给数据类型取别名</td><td>goto</td><td>无条件跳转语句</td></tr><tr><td><a href="./c_constants.html">const</a></td><td>声明只读变量</td><td><a href="./c_break_continue.html">continue</a></td><td>结束当前循环，开始下一轮循环</td></tr><tr><td>unsigned</td><td>声明无符号类型变量或函数</td><td><a href="./c_break_continue.html">break</a></td><td>跳出当前循环</td></tr><tr><td>signed</td><td>声明有符号类型变量或函数</td><td>default</td><td>开关语句中的“其他”分支</td></tr><tr><td>extern</td><td>声明变量是在其他文件正声明</td><td>sizeof</td><td>计算数据类型长度</td></tr><tr><td>register</td><td>声明寄存器变量</td><td>return</td><td>子程序返回语句(可以带参数，也可不带参数)循环条件</td></tr></tbody></table>
-<!--rehype:style=width: 100%; display: inline-table;-->
-    
-
-<div class="previous">
-  
-  <a class="prev" href="c_file_io.html">
-    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
-      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
-    </svg>
-    <span>
-      C 文件处理
-    </span>
-  </a>
-  
-  
-    <span></span>
-  
-</div>
-
-
-
-<section class="article-footer">
-  <a href="https://github.com/jaywcjlove/c-tutorial/blob/main/docs/c_keywords.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-    </svg>
-    <span>GitHub 上编辑此页</span>
-  </a>
-  
-  <span class="atime">2022/05/04</span>
-  
-</section>
-
-  </markdown-style>
-  
-</div>
-
-<script src="js/demo-preview.js?v=1.17.11"></script>
-
-
-<div class="footer warpper">
-  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.17.11
-
-</div>
-
-
-<script src="js/tocbot.js?v=1.17.11"></script>
-
-</body>
+    <script src="js/demo-preview.js?v=1.21.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.21.1</div>
+    <script src="js/tocbot.js?v=1.21.1"></script>
+  </body>
 </html>
