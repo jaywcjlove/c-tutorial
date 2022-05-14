@@ -12,6 +12,6 @@
   },
   "keywords": [],
   "devDependencies": {
-    "idoc": "^1.21.1"
+    "idoc": "^1.21.0"
   }
 }
