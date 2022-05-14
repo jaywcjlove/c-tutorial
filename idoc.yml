@@ -2,6 +2,9 @@ site: 'C Tutorial'
 logo: ./logo.svg
 favicon: ./logo.svg
 
+cacheFileStat: true
+homepage: https://wangchujiang.com/c-tutorial/
+
 menus:
   首页: index.html
   官方文档: 
