@@ -38,8 +38,6 @@ int main() {
 
 在函数内部，您可以添加任意数量的参数(parameters)：
 
-### Example
-
 ```c
 void myFunction(char name[], int age) {
   printf("Hello %s. You are %d years old.\n", name, age);
