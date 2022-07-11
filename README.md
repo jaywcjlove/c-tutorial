@@ -2,6 +2,7 @@ C Tutorial
 ===
 
 [![CI](https://github.com/jaywcjlove/c-tutorial/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/c-tutorial/actions/workflows/ci.yml)
+[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/wcjiang/c-tutorial?logo=docker)](https://hub.docker.com/r/wcjiang/c-tutorial)
 
 C 语言是一种功能强大、简洁的计算机语言，通过它可以编写程序，指挥计算机完成指定任务。
 

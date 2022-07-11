@@ -25,13 +25,13 @@ jobs:
 
       - name: Create Tag
         id: create_tag
-        uses: jaywcjlove/create-tag-action@v1.3.6
+        uses: jaywcjlove/create-tag-action@v1.3.8
         with:
           package-path: ./package.json
 
       - name: get tag version
         id: tag_version
-        uses: jaywcjlove/changelog-generator@v1.5.3
+        uses: jaywcjlove/changelog-generator@v1.5.7
 
       - name: Deploy Website
         uses: peaceiris/actions-gh-pages@v3
@@ -45,7 +45,7 @@ jobs:
 
       - name: Generate Changelog
         id: changelog
-        uses: jaywcjlove/changelog-generator@v1.5.3
+        uses: jaywcjlove/changelog-generator@v1.5.7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
@@ -63,3 +63,60 @@ jobs:
             Comparing Changes: ${{ steps.changelog.outputs.compareurl }}  
 
             ${{ steps.changelog.outputs.changelog }}
+
+
+            ## Docker
+
+            [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/wcjiang/c-tutorial?logo=docker)](https://hub.docker.com/r/wcjiang/c-tutorial)
+
+            ```bash
+            docker pull wcjiang/c-tutorial:${{steps.changelog.outputs.version}}
+            ```
+            
+            ```bash
+            docker run --name c-tutorial --rm -d -p 9883:3000 wcjiang/c-tutorial:${{steps.changelog.outputs.version}}
+            # Or
+            docker run --name c-tutorial -itd -p 9883:3000 wcjiang/c-tutorial:${{steps.changelog.outputs.version}}
+            ```
+            
+            Visit the following URL in your browser
+            
+            ```bash
+            http://localhost:9883/
+            ```
+
+
+      # Create Docker Image
+      - name: Docker login
+        if: steps.create_tag.outputs.successful
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Awesome Mac image
+        if: steps.create_tag.outputs.successful
+        run: docker image build -t c-tutorial .
+
+      - name: Tags & Push image
+        if: steps.create_tag.outputs.successful
+        run: |
+          echo "outputs.tag - ${{ steps.changelog.outputs.version }}"
+          docker tag c-tutorial ${{ secrets.DOCKER_USER }}/c-tutorial:${{steps.changelog.outputs.version}}
+          docker tag c-tutorial ${{ secrets.DOCKER_USER }}/c-tutorial:latest
+          docker push ${{ secrets.DOCKER_USER }}/c-tutorial:${{steps.changelog.outputs.version}}
+          docker push ${{ secrets.DOCKER_USER }}/c-tutorial:latest
+
+      # Create Docker Image in GitHub
+      - name: Login to GitHub registry
+        run: echo ${{ github.token }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build docker image
+        run: docker build -t ghcr.io/jaywcjlove/c-tutorial:latest .
+
+      - name: Publish to GitHub registry
+        run: docker push ghcr.io/jaywcjlove/c-tutorial:latest
+
+      - name: Tag docker image (beta) and publish to GitHub registry
+        if: steps.create_tag.outputs.successful
+        run: |
+            echo "version: v${{ steps.changelog.outputs.version }}"
+            docker tag ghcr.io/jaywcjlove/c-tutorial:latest ghcr.io/jaywcjlove/c-tutorial:${{steps.changelog.outputs.version}}
+            docker push ghcr.io/jaywcjlove/c-tutorial:${{steps.changelog.outputs.version}}
