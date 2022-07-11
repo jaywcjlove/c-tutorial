@@ -1,6 +1,6 @@
 {
   "name": "c-tutorial",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "C 语言入门学习",
   "scripts": {
     "start": "idoc --watch",
