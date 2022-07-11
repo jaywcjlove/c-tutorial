@@ -1,82 +1,109 @@
 C 函数参数
 ===
 
-函数是一段代码，只有在被调用时才会运行。
+## 参数
 
-您可以将数据（称为参数）传递给函数。
+信息可以作为参数(Parameters/Arguments)传递给函数。 参数在函数内部充当变量。
 
-函数用于执行某些操作，它们对于重用代码很重要：定义代码一次，多次使用。
-
-## 预定义函数
-
-所以事实证明你已经知道函数是什么了。 在学习本教程的过程中，您一直在使用它！
-
-比如 `main()` 是一个函数，用来执行代码，`printf()` 是一个函数； 用于向屏幕输出/打印文本：
+参数在函数名之后的括号内指定。您可以添加任意数量的参数，只需用逗号分隔它们：
 
 ```c
-int main() {
-  printf("Hello World!");
-  return 0;
-}
-```
-
-## 创建函数
-
-要创建（通常称为 *declare*）您自己的函数，请指定函数的名称，后跟括号 `()` 和大括号 `{}`：
-
-### 语法
-
-```c
-void myFunction() {
+returnType functionName(parameter1, parameter2, parameter3) {
   // 要执行的代码
 }
 ```
 
-**示例解释**
-
-* `myFunction()` 是函数的名称
-* `void` 表示函数没有返回值。 您将在下一章稍后了解有关返回值的更多信息
-* 在函数（主体）内部，添加定义函数应该做什么的代码
-
-## 调用函数
-
-声明的函数不会立即执行。 它们被“保存以备后用”，并在调用时执行。
-
-要调用函数，请编写函数名，后跟两个括号 `()` 和一个分号 `;`
-
-在以下示例中，`myFunction()` 用于在调用时打印文本（操作）：
-
-在 `main` 中，调用 `myFunction()`：
+以下函数采用带有 **name** 作为参数的 [string of characters](c_strings.md)。当函数被调用时，我们传递一个名字，这个名字在函数内部用来打印“Hello”和每个人的名字。
 
 ```c
-// 创建函数
-void myFunction() {
-  printf("晚上好！");
+void myFunction(char name[]) {
+  printf("Hello %s\n", name);
 }
 
 int main() {
-  myFunction(); // 调用函数
+  myFunction("Liam");
+  myFunction("Jenny");
+  myFunction("Kenny");
   return 0;
 }
 
-// 输出 "晚上好！"
+// Hello Liam
+// Hello Jenny
+// Hello Kenny
 ```
 
-一个函数可以被多次调用：
+当一个 **parameter** 被传递给函数时，它被称为一个 **argument**。 因此，从上面的示例中：`name` 是一个**parameter**，而`Liam`、`Jenny` 和`Anja` 是**arguments**。
+
+## 多个参数
+
+在函数内部，您可以添加任意数量的参数(parameters)：
+
+### Example
 
 ```c
-void myFunction() {
-  printf("晚上好！");
+void myFunction(char name[], int age) {
+  printf("Hello %s. You are %d years old.\n", name, age);
 }
 
 int main() {
-  myFunction();
-  myFunction();
-  myFunction();
+  myFunction("Liam", 3);
+  myFunction("Jenny", 14);
+  myFunction("Anja", 30);
   return 0;
 }
 
-// 晚上好！
-// 晚上好！
-// 晚上好！
+// Hello Liam. You are 3 years old.
+// Hello Jenny. You are 14 years old.
+// Hello Anja. You are 30 years old.
+```
+
+请注意，当您使用多个参数(**parameters**)时，函数调用必须具有与参数(**arguments**)相同数量的参数(**parameters**)，并且参数(**arguments**)必须以相同的顺序传递。
+
+## 返回值
+
+前面示例中使用的 `void` 关键字表示函数不应返回值。 如果希望函数返回值，可以使用数据类型（如`int`或`float`等）代替`void`，并在函数内部使用`return`关键字：
+
+```c
+int myFunction(int x) {
+  return 5 + x;
+}
+
+int main() {
+  printf("Result is: %d", myFunction(3));
+
+  return 0;
+}
+
+// 输出 8    (5 + 3)
+```
+
+此示例返回具有**两个参数(parameters)**的函数的总和：
+
+```c
+int myFunction(int x, int y) {
+  return x + y;
+}
+
+int main() {
+  printf("Result is: %d", myFunction(5, 3));
+  return 0;
+}
+
+// Outputs 8     (5 + 3)
+```
+
+您还可以将结果存储在变量中：
+
+```c
+int myFunction(int x, int y) {
+  return x + y;
+}
+
+int main() {
+  int result = myFunction(5, 3);
+  printf("Result is = %d", result);
+
+  return 0;
+}
+// Outputs 8 (5 + 3)
 ```
