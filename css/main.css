@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-size: 14px;
@@ -157,6 +161,10 @@ a.gototop:hover {
   display: flex;
   list-style: none;
   padding-right: 10px;
+}
+.header .menu li {
+  display: flex;
+  align-items: center;
 }
 .header a {
   color: var(--color-theme-text);
