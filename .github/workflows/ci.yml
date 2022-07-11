@@ -91,7 +91,7 @@ jobs:
         if: steps.create_tag.outputs.successful
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Awesome Mac image
+      - name: Build image
         if: steps.create_tag.outputs.successful
         run: docker image build -t c-tutorial .
 
