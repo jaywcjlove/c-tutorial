@@ -13,7 +13,7 @@ menus:
 
 editButton: 
   label: GitHub 上编辑此页
-  url: https://github.com/jaywcjlove/c-tutorial/blob/main/
+  url: https://github.com/jaywcjlove/c-tutorial/blob/master/
 
 footer: |
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
