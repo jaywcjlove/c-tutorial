@@ -99,7 +99,7 @@ int sum3 = sum2 + sum2;     // 800 (400 + 400)
           <li><a href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">赋值运算符</a> (Assignment operators)</li>
           <li><a href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">比较运算符</a> (Comparison operators)</li>
           <li><a href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a> (Logical operators)</li>
-          <li>位运算符 (Bitwise operators)</li>
+          <li><a href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6">位运算符</a> (Bitwise operators)</li>
         </ul>
         <h2 id="算术运算符"><a aria-hidden="true" tabindex="-1" href="#算术运算符" class="anchor"><span class="icon icon-link"></span></a>算术运算符</h2>
         <p>算术运算符用于执行常见的数学运算。</p>
@@ -321,6 +321,116 @@ printf(&#x22;%d&#x22;, x > y); // 返回 1（真），因为 5 大于 3
             </tr>
           </tbody>
         </table>
+        <h2 id="位运算符"><a aria-hidden="true" tabindex="-1" href="#位运算符" class="anchor"><span class="icon icon-link"></span></a>位运算符</h2>
+        <table>
+          <thead>
+            <tr>
+              <th align="left">运算符</th>
+              <th align="left">描述</th>
+              <th align="left">实例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left"><code>&#x26;</code></td>
+              <td align="left">按位与操作，按二进制位进行"与"运算</td>
+              <td align="left"><code>(A &#x26; B)</code> 将得到 <code>12</code> 即为 0000 1100</td>
+            </tr>
+            <tr>
+              <td align="left"><code>|</code></td>
+              <td align="left">按位或运算符，按二进制位进行"或"运算</td>
+              <td align="left"><code>(A | B)</code> 将得到 <code>61</code> 即为 0011 1101</td>
+            </tr>
+            <tr>
+              <td align="left"><code>^</code></td>
+              <td align="left">异或运算符，按二进制位进行"异或"运算</td>
+              <td align="left"><code>(A ^ B)</code> 将得到 <code>49</code> 即为 0011 0001</td>
+            </tr>
+            <tr>
+              <td align="left"><code>~</code></td>
+              <td align="left">取反运算符，按二进制位进行"取反"运算</td>
+              <td align="left"><code>(~A)</code> 将得到 <code>-61</code> 即为 1100 0011</td>
+            </tr>
+            <tr>
+              <td align="left"><code>&#x3C;&#x3C;</code></td>
+              <td align="left">二进制左移运算符</td>
+              <td align="left"><code>A &#x3C;&#x3C; 2</code> 将得到 <code>240</code> 即为 1111 0000</td>
+            </tr>
+            <tr>
+              <td align="left"><code>>></code></td>
+              <td align="left">二进制右移运算符</td>
+              <td align="left"><code>A >> 2</code> 将得到 <code>15</code> 即为 0000 1111</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>下面的实例，了解 C 语言中所有可用的位运算符</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&#x3C;stdio.h></span></span>
+</span><span class="code-line line-number" line="2"> 
+</span><span class="code-line line-number" line="3"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="4"><span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="5">  <span class="token keyword">unsigned</span> <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>    <span class="token comment">/* 60 = 0011 1100 */</span>  
+</span><span class="code-line line-number" line="6">  <span class="token keyword">unsigned</span> <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>    <span class="token comment">/* 13 = 0000 1101 */</span>
+</span><span class="code-line line-number" line="7">  <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>           
+</span><span class="code-line line-number" line="8">
+</span><span class="code-line line-number" line="9">  c <span class="token operator">=</span> a <span class="token operator">&#x26;</span> b<span class="token punctuation">;</span>       <span class="token comment">/* 12 = 0000 1100 */</span> 
+</span><span class="code-line line-number" line="10">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Line 1 - c 的值是 %d\n"</span><span class="token punctuation">,</span> c <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="11">
+</span><span class="code-line line-number" line="12">  c <span class="token operator">=</span> a <span class="token operator">|</span> b<span class="token punctuation">;</span>       <span class="token comment">/* 61 = 0011 1101 */</span>
+</span><span class="code-line line-number" line="13">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Line 2 - c 的值是 %d\n"</span><span class="token punctuation">,</span> c <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15">  c <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>       <span class="token comment">/* 49 = 0011 0001 */</span>
+</span><span class="code-line line-number" line="16">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Line 3 - c 的值是 %d\n"</span><span class="token punctuation">,</span> c <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="17">
+</span><span class="code-line line-number" line="18">  c <span class="token operator">=</span> <span class="token operator">~</span>a<span class="token punctuation">;</span>          <span class="token comment">/*-61 = 1100 0011 */</span>
+</span><span class="code-line line-number" line="19">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Line 4 - c 的值是 %d\n"</span><span class="token punctuation">,</span> c <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="20">
+</span><span class="code-line line-number" line="21">  c <span class="token operator">=</span> a <span class="token operator">&#x3C;&#x3C;</span> <span class="token number">2</span><span class="token punctuation">;</span>     <span class="token comment">/* 240 = 1111 0000 */</span>
+</span><span class="code-line line-number" line="22">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Line 5 - c 的值是 %d\n"</span><span class="token punctuation">,</span> c <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="23">
+</span><span class="code-line line-number" line="24">  c <span class="token operator">=</span> a <span class="token operator">>></span> <span class="token number">2</span><span class="token punctuation">;</span>     <span class="token comment">/* 15 = 0000 1111 */</span>
+</span><span class="code-line line-number" line="25">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Line 6 - c 的值是 %d\n"</span><span class="token punctuation">,</span> c <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="26"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="#include <stdio.h>
+ 
+int main()
+{
+  unsigned int a = 60;    /* 60 = 0011 1100 */  
+  unsigned int b = 13;    /* 13 = 0000 1101 */
+  int c = 0;           
+
+  c = a &#x26; b;       /* 12 = 0000 1100 */ 
+  printf(&#x22;Line 1 - c 的值是 %d\n&#x22;, c );
+
+  c = a | b;       /* 61 = 0011 1101 */
+  printf(&#x22;Line 2 - c 的值是 %d\n&#x22;, c );
+
+  c = a ^ b;       /* 49 = 0011 0001 */
+  printf(&#x22;Line 3 - c 的值是 %d\n&#x22;, c );
+
+  c = ~a;          /*-61 = 1100 0011 */
+  printf(&#x22;Line 4 - c 的值是 %d\n&#x22;, c );
+
+  c = a << 2;     /* 240 = 1111 0000 */
+  printf(&#x22;Line 5 - c 的值是 %d\n&#x22;, c );
+
+  c = a >> 2;     /* 15 = 0000 1111 */
+  printf(&#x22;Line 6 - c 的值是 %d\n&#x22;, c );
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+        <p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+        <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1">Line <span class="token number">1</span> <span class="token operator">-</span> c 的值是 <span class="token number">12</span>
+</span><span class="code-line line-number" line="2">Line <span class="token number">2</span> <span class="token operator">-</span> c 的值是 <span class="token number">61</span>
+</span><span class="code-line line-number" line="3">Line <span class="token number">3</span> <span class="token operator">-</span> c 的值是 <span class="token number">49</span>
+</span><span class="code-line line-number" line="4">Line <span class="token number">4</span> <span class="token operator">-</span> c 的值是 <span class="token operator">-</span><span class="token number">61</span>
+</span><span class="code-line line-number" line="5">Line <span class="token number">5</span> <span class="token operator">-</span> c 的值是 <span class="token number">240</span>
+</span><span class="code-line line-number" line="6">Line <span class="token number">6</span> <span class="token operator">-</span> c 的值是 <span class="token number">15</span>
+</span></code><input type="hidden" value="Line 1 - c 的值是 12
+Line 2 - c 的值是 61
+Line 3 - c 的值是 49
+Line 4 - c 的值是 -61
+Line 5 - c 的值是 240
+Line 6 - c 的值是 15
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <h2 id="sizeof-运算符"><a aria-hidden="true" tabindex="-1" href="#sizeof-运算符" class="anchor"><span class="icon icon-link"></span></a>sizeof 运算符</h2>
         <p>可以使用 <code>sizeof</code> 运算符找到数据类型或变量的内存大小（以字节为单位）：</p>
         <pre class="language-c"><code class="language-c code-highlight"><span class="code-line line-number" line="1"><span class="token keyword">int</span> myInt<span class="token punctuation">;</span>
@@ -356,7 +466,7 @@ printf(&#x22;%lu\n&#x22;, sizeof(myChar));
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
             </svg>
 <span>GitHub 上编辑此页</span>
-</a><span class="atime">2022/05/03</span></section>
+</a><span class="atime">2022/10/12</span></section>
       </markdown-style>
       <nav class="tocs">
         <aside class="inner toc">
@@ -366,6 +476,7 @@ printf(&#x22;%lu\n&#x22;, sizeof(myChar));
             <li><a href="#赋值运算符" class="tocs-link">赋值运算符</a></li>
             <li><a href="#比较运算符" class="tocs-link">比较运算符</a></li>
             <li><a href="#逻辑运算符" class="tocs-link">逻辑运算符</a></li>
+            <li><a href="#位运算符" class="tocs-link">位运算符</a></li>
             <li><a href="#sizeof-运算符" class="tocs-link">sizeof 运算符</a></li>
           </ol>
         </aside>
