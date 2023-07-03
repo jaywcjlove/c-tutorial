@@ -6,12 +6,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
       - run: npm run build
@@ -25,13 +26,13 @@ jobs:
 
       - name: Create Tag
         id: create_tag
-        uses: jaywcjlove/create-tag-action@v1.3.8
+        uses: jaywcjlove/create-tag-action@main
         with:
           package-path: ./package.json
 
       - name: get tag version
         id: tag_version
-        uses: jaywcjlove/changelog-generator@v1.5.7
+        uses: jaywcjlove/changelog-generator@main
 
       - name: Deploy Website
         uses: peaceiris/actions-gh-pages@v3
@@ -45,7 +46,7 @@ jobs:
 
       - name: Generate Changelog
         id: changelog
-        uses: jaywcjlove/changelog-generator@v1.5.7
+        uses: jaywcjlove/changelog-generator@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
@@ -104,19 +105,19 @@ jobs:
           docker push ${{ secrets.DOCKER_USER }}/c-tutorial:${{steps.changelog.outputs.version}}
           docker push ${{ secrets.DOCKER_USER }}/c-tutorial:latest
 
-      # Create Docker Image in GitHub
-      - name: Login to GitHub registry
-        run: echo ${{ github.token }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      # # Create Docker Image in GitHub
+      # - name: Login to GitHub registry
+      #   run: echo ${{ github.token }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build docker image
-        run: docker build -t ghcr.io/jaywcjlove/c-tutorial:latest .
+      # - name: Build docker image
+      #   run: docker build -t ghcr.io/jaywcjlove/c-tutorial:latest .
 
-      - name: Publish to GitHub registry
-        run: docker push ghcr.io/jaywcjlove/c-tutorial:latest
+      # - name: Publish to GitHub registry
+      #   run: docker push ghcr.io/jaywcjlove/c-tutorial:latest
 
-      - name: Tag docker image (beta) and publish to GitHub registry
-        if: steps.create_tag.outputs.successful
-        run: |
-            echo "version: v${{ steps.changelog.outputs.version }}"
-            docker tag ghcr.io/jaywcjlove/c-tutorial:latest ghcr.io/jaywcjlove/c-tutorial:${{steps.changelog.outputs.version}}
-            docker push ghcr.io/jaywcjlove/c-tutorial:${{steps.changelog.outputs.version}}
+      # - name: Tag docker image (beta) and publish to GitHub registry
+      #   if: steps.create_tag.outputs.successful
+      #   run: |
+      #       echo "version: v${{ steps.changelog.outputs.version }}"
+      #       docker tag ghcr.io/jaywcjlove/c-tutorial:latest ghcr.io/jaywcjlove/c-tutorial:${{steps.changelog.outputs.version}}
+      #       docker push ghcr.io/jaywcjlove/c-tutorial:${{steps.changelog.outputs.version}}
