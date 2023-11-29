@@ -1,6 +1,7 @@
 C Tutorial
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
 [![CI](https://github.com/jaywcjlove/c-tutorial/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/c-tutorial/actions/workflows/ci.yml)
 [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/wcjiang/c-tutorial?logo=docker)](https://hub.docker.com/r/wcjiang/c-tutorial)
 

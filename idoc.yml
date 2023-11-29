@@ -10,6 +10,7 @@ menus:
   官方文档: 
     url: https://zh.cppreference.com/w/c
     target: __blank
+  赞助: https://jaywcjlove.github.io/#/sponsor
 
 editButton: 
   label: GitHub 上编辑此页
